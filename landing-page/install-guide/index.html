@@ -412,6 +412,14 @@ body.os-windows .os-tab-body{grid-template-columns:1fr}
 .tmc-titlebar{background:#16171a;padding:10px 14px;font-family:var(--mono);font-size:11px;color:#6b7280;letter-spacing:.06em;border-bottom:1px solid rgba(255,255,255,.06);text-transform:lowercase;font-weight:700}
 .tmc-body{padding:14px 18px;line-height:1.7;font-size:13px}
 
+/* ════════════════════ Prompt key · explains placeholder vs username ════════════════════ */
+.prompt-key{margin:8px 0;padding:12px 14px;background:#dbeafe;border:1px solid #bfdbfe;border-left:3px solid #3b82f6;border-radius:6px;font-size:13px;line-height:1.55;color:var(--text-secondary)}
+.prompt-key>strong{display:block;color:#1e40af;font-weight:700;margin-bottom:6px;font-size:13px}
+.prompt-key ul{margin:0;padding-left:20px}
+.prompt-key li{margin-bottom:4px}
+.prompt-key li strong{color:#1e40af;font-weight:700}
+.prompt-key li code{font-family:var(--mono);font-size:11.5px;background:#fff;color:#1e40af;padding:1px 5px;border-radius:3px;border:1px solid #bfdbfe;font-weight:700}
+
 /* ════════════════════ substep h4 + dim-tip ════════════════════ */
 .substep-h4{font-family:var(--display);font-size:14px;font-weight:800;letter-spacing:-.01em;color:var(--text-primary);margin:18px 0 8px}
 .dim-tip{font-size:12.5px;color:var(--text-muted);line-height:1.55;margin:6px 0 0;font-style:italic}
@@ -1528,13 +1536,13 @@ At line:1 char:1
     <div class="mockup mockup-dark">
       <div class="mockup-caption"><span class="dot-r"></span><span class="title">Terminal · installing Claude Code</span></div>
       <div class="terminal">
-        <span class="out"><span class="prompt">~</span> <span class="path">danny@Mac</span> $ curl -fsSL https://claude.ai/install.sh | sh</span>
+        <span class="out"><span class="prompt">~</span> <span class="path">you@MacBook</span> $ curl -fsSL https://claude.ai/install.sh | sh</span>
         <span class="out">Downloading Claude Code <span class="hl">1.0.12</span>...</span>
         <span class="out">Installing to ~/.claude/bin/claude</span>
         <span class="out">Adding ~/.claude/bin to PATH</span>
         <span class="out"><span class="success">✓ Installation complete.</span></span>
         <span class="out">Restart your terminal, then run: claude --version</span>
-        <span class="out"><span class="prompt">~</span> <span class="path">danny@Mac</span> $ <span class="cursor"></span></span>
+        <span class="out"><span class="prompt">~</span> <span class="path">you@MacBook</span> $ <span class="cursor"></span></span>
       </div>
     </div>
     <div class="verify">Open <strong>Git Bash</strong> and type <code>claude --version</code>. Should see <code>1.0.x</code> or higher. If "command not found" · see the fix box below.</div>
@@ -1798,16 +1806,24 @@ At line:1 char:1
         </div>
 
         <h4 class="substep-h4">Verify · your terminal prompt should now show the folder</h4>
-        <p class="substep-lead">Look at the FAR LEFT of your terminal. You should see something like:</p>
+        <p class="substep-lead">Look at the FAR LEFT of your terminal. <strong>The IMPORTANT part is the folder name + the prompt symbol</strong> · your username will be different from this example.</p>
         <div class="terminal-mock">
           <div class="tm-mac mac-only">
-            <span class="tm-prompt">danny@MacBook</span> <span class="tm-path">purely-personal</span> <span class="tm-cursor">%</span>
+            <span class="tm-user">&lt;your-username&gt;@&lt;your-mac&gt;</span> <span class="tm-path">purely-personal</span> <span class="tm-cursor">%</span>
           </div>
           <div class="tm-win windows-only">
-            <span class="tm-user">danny@DESKTOP MINGW64</span> <span class="tm-path">~/Desktop/purely-personal</span><br><span class="tm-cursor">$</span>
+            <span class="tm-user">&lt;your-username&gt;@&lt;your-pc&gt; MINGW64</span> <span class="tm-path">~/Desktop/purely-personal</span><br><span class="tm-cursor">$</span>
           </div>
         </div>
-        <p class="dim-tip">Notice the path shows <code>purely-personal</code> · that's how you know you're INSIDE the folder. If it shows your home directory or Desktop · re-paste the command above.</p>
+        <div class="prompt-key">
+          <strong>How to read the prompt:</strong>
+          <ul>
+            <li><code class="inline">&lt;your-username&gt;</code> = whatever your computer's user is called · could be your name, a nickname, or "user" · won't say "danny"</li>
+            <li><code class="inline">purely-personal</code> = the folder you're inside · <strong>this is the part that matters</strong> · if it says anything else (like <code class="inline">~</code> or <code class="inline">Desktop</code>) · you're not in the folder yet</li>
+            <li><code class="inline">%</code> on Mac · <code class="inline">$</code> in Git Bash = the cursor's ready for you to type · don't type the symbol itself, just type after it</li>
+          </ul>
+        </div>
+        <p class="dim-tip">Don't type <code class="inline">&lt;your-username&gt;</code> or anything before the <code class="inline">%</code>/<code class="inline">$</code> · those appear automatically. <strong>You only type AFTER the prompt symbol.</strong></p>
 
         <h4 class="substep-h4">Optional · double-check by typing <code class="inline">pwd</code></h4>
         <div class="cmd"><span class="cmd-label">Optional verification</span><span class="cmd-eta">⏱ 1 sec</span>pwd</div>
