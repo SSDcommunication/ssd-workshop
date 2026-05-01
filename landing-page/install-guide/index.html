@@ -270,6 +270,52 @@ main{padding:48px 56px 80px;max-width:940px}
 .patience-tip{margin:10px 0 0;padding:10px 12px;background:#dbeafe;border:1px solid #bfdbfe;border-left:3px solid #3b82f6;border-radius:6px;font-size:12.5px;color:var(--text-secondary);line-height:1.55}
 .patience-tip strong{color:#1e40af;font-weight:700}
 
+/* ============== Substep card (4a, 4b, 4c) ============== */
+.substep{display:flex;gap:18px;align-items:flex-start;background:var(--card-bg);border:1px solid var(--divider);border-radius:10px;padding:20px 22px;margin:18px 0;box-shadow:0 2px 8px rgba(20,14,8,0.04)}
+.substep.substep-focus{background:linear-gradient(180deg,#fff5f7 0%,#fff 60%);border-color:var(--pp-red);border-left-width:4px;box-shadow:0 4px 20px rgba(233,13,65,0.1)}
+.substep-num{flex-shrink:0;width:48px;height:48px;border-radius:10px;background:var(--pp-red);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-0.02em}
+.substep-body{flex:1;min-width:0}
+.substep-body h3{font-family:var(--display);font-size:20px;font-weight:800;letter-spacing:-0.015em;color:var(--text-primary);margin:0 0 6px;line-height:1.2}
+.substep-body h3 em{color:var(--pp-red);font-style:italic;font-weight:800}
+.substep-lead{font-size:14px;color:var(--text-secondary);line-height:1.6;margin:0 0 10px}
+.substep-lead strong{color:var(--text-primary);font-weight:700}
+.substep-lead code{font-family:var(--mono);font-size:12.5px;background:rgba(0,0,0,0.05);padding:1px 5px;border-radius:3px;color:var(--pp-red);font-weight:700}
+.substep-lead kbd{font-family:var(--mono);font-size:11px;background:#fff;border:1px solid var(--divider-strong);border-bottom-width:2px;border-radius:4px;padding:1px 5px;color:var(--text-primary);font-weight:700}
+
+/* ============== 3-step plugin install ============== */
+.install-3step{counter-reset:step3;list-style:none;padding:0;margin:14px 0}
+.install-3step>li{position:relative;padding:12px 0 12px 44px;border-top:1px dashed var(--divider);counter-increment:step3}
+.install-3step>li:first-child{border-top:0}
+.install-3step>li::before{content:counter(step3);position:absolute;left:0;top:14px;width:30px;height:30px;border-radius:50%;background:var(--pp-red);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:14px}
+.install-3step>li>strong{display:block;color:var(--text-primary);font-weight:700;margin-bottom:6px;font-size:14px}
+.install-3step>li code{font-family:var(--mono);font-size:12.5px;background:rgba(0,0,0,0.06);padding:1px 5px;border-radius:3px;color:var(--pp-red);font-weight:700}
+.install-3step>li kbd{font-family:var(--mono);font-size:11px;background:#fff;border:1px solid var(--divider-strong);border-bottom-width:2px;border-radius:4px;padding:1px 5px;color:var(--text-primary);font-weight:700}
+.install-3step-note{display:block;margin-top:6px;font-size:12.5px;color:var(--text-muted);line-height:1.5}
+.install-3step-note code{background:rgba(0,0,0,0.04);color:var(--text-primary);font-weight:600}
+.install-3step-note strong{color:var(--text-primary);font-weight:700}
+.install-3step-verify{margin-top:14px;padding:14px 16px;background:#f0fdf4;border:1px solid #bbf7d0;border-left:4px solid var(--success);border-radius:6px;font-size:13.5px;color:var(--text-secondary);line-height:1.6}
+.install-3step-verify strong{color:var(--success);font-weight:700}
+.install-3step-verify code{font-family:var(--mono);font-size:12px;background:#fff;border:1px solid #bbf7d0;color:var(--success);padding:1px 5px;border-radius:3px;font-weight:700}
+
+/* ============== NPM fallback (May 1 update) ============== */
+.npm-fallback{margin:18px 0 6px;background:linear-gradient(135deg,#fef3c7 0%,#fff5f7 100%);border:2px solid var(--warn);border-radius:10px;padding:18px 22px}
+.npm-head{margin-bottom:8px}
+.npm-eyebrow{display:block;font-family:var(--mono);font-size:11px;font-weight:700;color:#92400e;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:4px}
+.npm-head strong{display:block;font-family:var(--display);font-size:18px;color:var(--text-primary);font-weight:800;letter-spacing:-0.015em}
+.npm-lead{font-size:13.5px;color:var(--text-secondary);line-height:1.6;margin:0 0 12px}
+.npm-lead code{font-family:var(--mono);font-size:12px;background:rgba(0,0,0,0.06);color:var(--text-primary);padding:1px 5px;border-radius:3px;font-weight:700}
+.npm-steps{padding-left:24px;margin:8px 0}
+.npm-steps>li{margin-bottom:14px;font-size:13.5px;color:var(--text-primary);line-height:1.55}
+.npm-steps>li strong{font-weight:700;display:inline}
+.npm-steps>li ul{margin-top:6px;padding-left:18px}
+.npm-steps>li ul li{font-size:13px;color:var(--text-secondary);line-height:1.55;margin-bottom:4px}
+.npm-steps>li code{font-family:var(--mono);font-size:12px;background:rgba(0,0,0,0.06);padding:1px 5px;border-radius:3px;color:var(--pp-red);font-weight:700}
+.npm-steps>li kbd{font-family:var(--mono);font-size:11px;background:#fff;border:1px solid var(--divider-strong);border-bottom-width:2px;border-radius:4px;padding:1px 5px;color:var(--text-primary);font-weight:700}
+.npm-tip{display:block;margin-top:6px;font-size:12.5px;color:var(--text-muted);font-style:italic;line-height:1.5}
+.npm-tip code{font-family:var(--mono);font-size:11.5px;background:#fff;border:1px solid var(--divider-strong);color:var(--text-primary);padding:1px 5px;border-radius:3px;font-style:normal}
+.npm-note{margin-top:14px;padding:12px 14px;background:#dbeafe;border:1px solid #bfdbfe;border-left:3px solid #3b82f6;border-radius:6px;font-size:12.5px;color:var(--text-secondary);line-height:1.55}
+.npm-note strong{color:#1e40af;font-weight:700}
+
 details.step{margin:14px 0;border:1px solid var(--divider);border-radius:10px;background:var(--card-bg);overflow:hidden;scroll-margin-top:20px;transition:box-shadow 180ms}
 details.step[open]{box-shadow:0 8px 28px rgba(0,0,0,0.06),0 2px 6px rgba(233,13,65,0.06)}
 details.step summary{padding:18px 22px;cursor:pointer;display:flex;align-items:center;gap:16px;list-style:none;user-select:none}
@@ -1007,6 +1053,51 @@ details.step.done>summary .step-title h2{text-decoration:line-through;color:var(
           <strong>Mac equivalent:</strong> if <code>claude</code> isn't found, run <code>source ~/.zshrc</code> in Terminal. If still missing, run <code>echo 'export PATH="$HOME/.claude/bin:$PATH"' &gt;&gt; ~/.zshrc &amp;&amp; source ~/.zshrc</code>.
         </div>
 
+        <!-- ===== NPM fallback (May 1 update · the Anthropic installer sometimes doesn't put claude on PATH) ===== -->
+        <div class="npm-fallback">
+          <div class="npm-head">
+            <span class="npm-eyebrow">⚠ If the PATH fix above STILL fails</span>
+            <strong>Use the npm install method · 3 minutes</strong>
+          </div>
+          <p class="npm-lead">Sometimes the Anthropic <code>install.ps1</code> installer doesn't put <code>claude</code> in <code>~/.local/bin</code> · so the PATH fix above doesn't apply. The reliable fallback is to install Claude Code from npm. Works on every Windows machine.</p>
+
+          <ol class="npm-steps">
+            <li>
+              <strong>Install Node.js LTS</strong> · open <a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a> · click the green <strong>LTS</strong> button · run the installer · Next on every screen (it adds Node to PATH automatically).
+              <div class="cmd"><span class="cmd-label">Verify in PowerShell</span>node --version</div>
+              <span class="npm-tip">Should print something like <code>v22.x</code>.</span>
+            </li>
+            <li>
+              <strong>Install Claude Code via npm</strong>:
+              <div class="cmd"><span class="cmd-label">PowerShell · ~2 min</span>npm install -g @anthropic-ai/claude-code</div>
+            </li>
+            <li>
+              <strong>Verify</strong>:
+              <div class="cmd"><span class="cmd-label">PowerShell</span>claude --version</div>
+            </li>
+            <li>
+              <strong>If <code>claude</code> still isn't found</strong>, the npm global folder isn't on PATH. Find it:
+              <div class="cmd"><span class="cmd-label">PowerShell · find npm prefix</span>npm config get prefix</div>
+              <span class="npm-tip">It will print something like <code>C:\Users\YourName\AppData\Roaming\npm</code>. Copy that.</span>
+            </li>
+            <li>
+              <strong>Add it to System PATH</strong> · same flow as the PATH fix above:
+              <ul style="margin-top:6px;padding-left:18px">
+                <li><kbd>⊞ Win</kbd> + <kbd>R</kbd> · type <code>sysdm.cpl</code> · Enter</li>
+                <li>Advanced tab → Environment Variables…</li>
+                <li>Under <strong>System variables</strong> (not User this time) · find <code>Path</code> · Edit…</li>
+                <li>New · paste the path from <code>npm config get prefix</code></li>
+                <li>OK · OK · OK · close PowerShell · re-open</li>
+                <li>Run <code>claude --version</code> · should work</li>
+              </ul>
+            </li>
+          </ol>
+
+          <div class="npm-note">
+            <strong>Important note from the Anthropic installer fix:</strong> PowerShell works fine for the install step · you do NOT need Git Bash just for installing Claude Code. After install completes, <strong>switch to Git Bash for everything else</strong> (the plugin install + Setup Prompt steps).
+          </div>
+        </div>
+
         <p style="margin-bottom:0;font-size:13px;color:var(--text-muted)">Still stuck? Use the <strong>Claude rescue loop</strong> at the top of this guide · screenshot + paste in claude.ai · 30 seconds.</p>
       </div>
     </details>
@@ -1157,69 +1248,112 @@ details.step.done>summary .step-title h2{text-decoration:line-through;color:var(
       </div>
     </div>
 
-    <p><strong>4a · Launch Claude Code.</strong> In your terminal (Mac Terminal or Git Bash on Windows), type:</p>
-    <div class="cmd"><span class="cmd-label">Terminal · Mac or Git Bash</span><span class="cmd-eta">⏱ ~5 sec</span>claude</div>
-    <p>Claude Code opens. You'll see a prompt waiting for input.</p>
+    <!-- ===== 4a · Create a workshop folder (NEW · May 1 fix · prevents "select a folder" error) ===== -->
+    <div class="substep">
+      <div class="substep-num">4a</div>
+      <div class="substep-body">
+        <h3>Create a workshop folder · <em>do this first</em></h3>
+        <p class="substep-lead">When Claude Code launches, it asks you to <strong>"Select a folder"</strong> for your project. If you don't have one ready, you'll be stuck. Create one now.</p>
 
-    <p><strong>4b · Copy the Setup Prompt.</strong> Click the 📋 button on the dark box below to copy. Then paste into Claude Code and hit Enter. <strong>Total time: 10-15 minutes</strong> · Claude does the work · you confirm + paste your Apify token when asked.</p>
+        <div class="os-tabs">
+          <div class="os-tab-header"><div class="os-tab-label mac">macOS</div><div class="os-tab-label win">Windows</div></div>
+          <div class="os-tab-body">
+            <div>
+              <p style="margin-top:0;font-size:13px;color:var(--text-secondary)">Open Terminal · paste:</p>
+              <div class="cmd"><span class="cmd-label">Mac Terminal</span><span class="cmd-eta">⏱ ~2 sec</span>mkdir -p ~/Desktop/purely-personal &amp;&amp; cd ~/Desktop/purely-personal</div>
+              <p style="font-size:12px;color:var(--text-muted);margin:8px 0 0">Creates <code>purely-personal</code> on your Desktop and moves into it.</p>
+            </div>
+            <div>
+              <p style="margin-top:0;font-size:13px;color:var(--text-secondary)">Open <strong>Git Bash</strong> · paste:</p>
+              <div class="cmd"><span class="cmd-label">Git Bash · ~2 sec</span>mkdir -p ~/Desktop/purely-personal &amp;&amp; cd ~/Desktop/purely-personal</div>
+              <p style="font-size:12px;color:var(--text-muted);margin:8px 0 0">Or do it via File Explorer: <strong>right-click on Desktop</strong> → New → Folder → name it <code>purely-personal</code>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout warn" style="margin-top:14px"><strong>Why this matters:</strong> Claude Code 2.x asks "Select a folder" on first launch. This folder becomes your <strong>working directory</strong> · where the plugin runs commands, where BUSINESS-BRAIN.md lives. If you skip this step, Claude Code stalls. Create the folder · then move on.</div>
+      </div>
+    </div>
+
+    <!-- ===== 4b · Launch Claude Code from inside that folder ===== -->
+    <div class="substep">
+      <div class="substep-num">4b</div>
+      <div class="substep-body">
+        <h3>Launch Claude Code <em>from inside that folder</em></h3>
+        <p class="substep-lead">Same terminal as 4a (you should already be inside <code>~/Desktop/purely-personal</code>) · type:</p>
+        <div class="cmd"><span class="cmd-label">Terminal · Mac or Git Bash</span><span class="cmd-eta">⏱ ~5 sec</span>claude</div>
+        <p>Claude Code opens with the workshop folder pre-selected. You'll see a prompt cursor waiting for input. <strong>If it asks "Select a folder"</strong> · pick <code>purely-personal</code> from your Desktop · click OK.</p>
+      </div>
+    </div>
+
+    <!-- ===== 4c · Install the marketplace (FOCUSED · the most common stumbling block) ===== -->
+    <div class="substep substep-focus">
+      <div class="substep-num">4c</div>
+      <div class="substep-body">
+        <h3>Install the Purely Personal Marketplace · <em>3 commands · 90 seconds</em></h3>
+        <p class="substep-lead">Type each command into Claude Code · press <kbd>Enter</kbd> after each. <strong>Don't skip the restart in step 3</strong> · plugins only load at session start.</p>
+
+        <ol class="install-3step">
+          <li>
+            <strong>Add the marketplace</strong>
+            <div class="cmd"><span class="cmd-label">Paste in Claude Code · 1 of 3</span><span class="cmd-eta">⏱ ~10 sec</span>/plugin marketplace add danielpaulai/Purely-Personal-Run-a-business-by-itself</div>
+            <span class="install-3step-note">Should print <code>✓ Marketplace 'purely-personal-marketplace' added</code>. If not · check Step 3b · Git authentication.</span>
+          </li>
+          <li>
+            <strong>Install the plugin</strong>
+            <div class="cmd"><span class="cmd-label">Paste in Claude Code · 2 of 3</span><span class="cmd-eta">⏱ ~30 sec</span>/plugin install purely-personal@purely-personal-marketplace</div>
+            <span class="install-3step-note">Should print <code>✓ Plugin 'purely-personal' installed · 9 slash commands loaded</code>.</span>
+          </li>
+          <li>
+            <strong>Restart Claude Code</strong> · type <code>/exit</code> · then re-launch with <code>claude</code>:
+            <div class="cmd"><span class="cmd-label">Inside Claude Code · 3a</span>/exit</div>
+            <div class="cmd"><span class="cmd-label">Back in terminal · 3b</span>claude</div>
+            <span class="install-3step-note"><strong>Critical · plugins only load at session start.</strong> Skipping this is the #2 reason "<code>/purely-personal</code> doesn't appear in autocomplete".</span>
+          </li>
+        </ol>
+
+        <div class="install-3step-verify">
+          <strong>✓ Verify it worked:</strong> in the new Claude Code session, type <code>/purely-personal</code> · all 9 commands should appear in the autocomplete · <code>build-my-brain</code>, <code>marketing-engine</code>, <code>sales-engine</code>, <code>operations-engine</code>, <code>cash-engine</code>, <code>leadership-engine</code>, <code>prep-workshop-slides</code>, <code>ship-it-live</code>, <code>new-workshop</code>.
+          <br><br>
+          <strong>If they don't appear?</strong> Re-run step 3 above · plugins only load at session start. Still missing? Run <code>/plugin list</code> · confirm <code>purely-personal</code> is listed. Run <code>/plugin marketplace list</code> · confirm the marketplace was added.
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 4d · Setup Prompt for the rest (Apify, business folder, etc.) ===== -->
+    <p style="margin-top:24px"><strong>4d · Run the Setup Prompt for everything else.</strong> Now that the plugin is installed, paste this prompt into Claude Code · it will wire your Apify MCP, set up your business folder, and walk you through Apify token creation. <strong>Total time: 8-10 minutes</strong> · Claude does the work · you confirm + paste your Apify token when asked.</p>
 
     <div class="cmd"><span class="cmd-label">The Setup Prompt · copy + paste into Claude Code</span>I'm a Purely Personal workshop attendee. Walk me through setup.
 
-I have: you (Claude Code) running. Git installed. A GitHub account.
+I have: you (Claude Code) running. Git installed. GitHub account.
+The Purely Personal plugin is ALREADY installed (I did /plugin marketplace add and /plugin install in step 4c · all 9 commands appear when I type /purely-personal).
 
-Do these in order. Confirm each before running:
+Do these remaining steps in order. Confirm each before running:
 
-1. Add the Purely Personal marketplace inside Claude Code:
-   /plugin marketplace add danielpaulai/Purely-Personal-Run-a-business-by-itself
-
-2. Install the plugin from the marketplace:
-   /plugin install purely-personal@purely-personal-marketplace
-
-3. RESTART required: type /exit (or Ctrl+D) to exit Claude Code,
-   then run `claude` again from your terminal. Plugins only load
-   at session start.
-
-4. After restart, type /purely-personal and the 9 commands filter
-   into the autocomplete with the namespace prefix:
-   /purely-personal:build-my-brain
-   /purely-personal:marketing-engine
-   /purely-personal:sales-engine
-   /purely-personal:operations-engine
-   /purely-personal:cash-engine
-   /purely-personal:leadership-engine
-   /purely-personal:prep-workshop-slides
-   /purely-personal:ship-it-live
-   /purely-personal:new-workshop
-
-   IMPORTANT: Claude Code 2.x prefixes every plugin command with
-   the plugin name (purely-personal:) to prevent collisions. The
-   commands work the same · they're just typed with the prefix.
-   When you see /marketing-engine in this guide, type
-   /purely-personal:marketing-engine to invoke it.
-
-5. Wire Apify MCP into Claude Desktop:
+1. Wire Apify MCP into Claude Desktop:
    - Tell me to go to apify.com, sign up free, then console.apify.com to create a token named "Claude Workshop"
    - Wait for me to paste the token (starts with apify_api_)
    - Open ~/Library/Application Support/Claude/claude_desktop_config.json (Mac)
      or %APPDATA%/Claude/claude_desktop_config.json (Windows · use Git Bash path syntax)
-   - Add the apify entry with my token. Preserve any existing servers (Apify, etc.).
+   - Add the apify entry with my token. Preserve any existing servers.
    - Validate the JSON is well-formed.
    - Tell me to fully quit + reopen Claude Desktop.
 
-6. Create the business folder:
+2. Create the business folder + BUSINESS-BRAIN.md:
    mkdir -p ~/Desktop/my-business
    touch ~/Desktop/my-business/BUSINESS-BRAIN.md
 
-7. After Claude Desktop restart, run a test from inside ~/Desktop/my-business:
+3. After Claude Desktop restart, run a test from inside ~/Desktop/my-business:
    "Use Apify to search Google for solopreneur AI 2026, top 3 results"
 
-8. Tell me what's left:
+4. Tell me what's left:
+   - Enable the 11 Apify actors at console.apify.com/store (the install guide has the list)
    - Reply to the registration email with my LinkedIn URL
    - Connect Gmail / Notion / Calendar / Drive at claude.ai/customize/connectors
 
 Use the Bash tool. Don't make me type commands myself unless I have to (browser actions, restart Claude Desktop). Pause and ask me when you need input from me.</div>
 
-    <p><strong>4c · Watch Claude work.</strong> A typical conversation looks like this:</p>
+    <p><strong>4e · Watch Claude work.</strong> A typical conversation looks like this:</p>
 
     <div class="mockup mockup-dark">
       <div class="mockup-caption"><span class="dot-r"></span><span class="title">Claude Code · Setup Prompt in action</span><span class="badge">Live example</span></div>
