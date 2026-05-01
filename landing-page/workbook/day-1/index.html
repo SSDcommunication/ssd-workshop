@@ -152,6 +152,82 @@ td input[type=checkbox],td input[type=radio]{accent-color:var(--pp-red);width:17
 .callout .ico{flex-shrink:0;width:24px;height:24px;background:var(--pp-red);color:#fff;border-radius:5px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;font-family:var(--display)}
 .callout b{color:var(--pp-red);font-weight:700}
 
+/* ════════════════════ NEW · May 1 workbook upgrades ════════════════════ */
+
+/* sticky time strip · below nav */
+.time-strip{position:sticky;top:53px;z-index:25;background:linear-gradient(180deg,#0f0f10 0%,#16171a 100%);color:#fafafa;border-bottom:1px solid #2a2c33;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+.time-strip-inner{max-width:980px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:12px;flex-wrap:wrap}
+.ts-now,.ts-current,.ts-next{display:flex;flex-direction:column;line-height:1.2;min-width:0}
+.ts-label{font-size:9px;color:#9aa3b2;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:2px}
+.ts-clock{font-size:14px;font-weight:700;color:var(--pp-red);font-family:var(--mono);letter-spacing:.04em}
+.ts-activity{font-size:12px;font-weight:600;color:#fafafa;font-family:var(--mono);letter-spacing:.04em}
+.ts-current .ts-activity{color:#7bd389}
+.ts-next .ts-activity{color:#a4adbe}
+.ts-sep{color:var(--pp-red);font-weight:800;font-size:13px}
+.ts-tz{margin-left:auto;font-size:9px;color:#6b7280;letter-spacing:.18em;font-weight:700;text-transform:uppercase}
+
+/* foundation panel · the BIG one */
+.panel.foundation{background:linear-gradient(180deg,var(--pp-red-whisper) 0%,#fff 70%);border:2px solid var(--pp-red);border-left-width:5px;box-shadow:0 8px 32px rgba(233,13,65,.12)}
+.panel.foundation .kicker.foundation-kicker{color:#fff;background:var(--pp-red);padding:4px 10px;border-radius:4px;display:inline-block;letter-spacing:.16em}
+.panel.foundation h2 em{color:var(--pp-red);font-style:italic;font-weight:800}
+.foundation-lead{font-size:15px;line-height:1.6;color:var(--text-secondary);margin:8px 0 14px;max-width:780px}
+.foundation-lead strong{color:var(--text-primary);font-weight:700}
+
+/* act block · 4 acts of build-my-brain */
+.act-block{background:#fff;border:1px solid var(--divider);border-radius:8px;padding:14px 18px;margin:12px 0}
+.act-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.act-num{flex-shrink:0;width:30px;height:30px;border-radius:8px;background:var(--pp-red);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:14px}
+.act-title{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.015em;color:var(--text-primary)}
+.act-time{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--text-muted);letter-spacing:.06em}
+.act-cue{font-size:13px;color:var(--text-secondary);margin:6px 0 8px;line-height:1.5}
+.act-cue em{color:var(--pp-red);font-style:italic;font-weight:600}
+.wow{margin:10px 0 0;padding:8px 12px;background:#f0fdf4;border-left:3px solid #22c55e;border-radius:4px;font-size:13px;color:#166534;line-height:1.5}
+.wow strong{color:#15803d;font-weight:700}
+
+/* 3-window dance diagram (Activity 1 top) */
+.windows-dance{background:linear-gradient(135deg,#fff5f7 0%,#fff 50%,#fef3c7 100%);border:1px solid var(--divider);border-radius:10px;padding:18px 20px;margin:14px 0 18px}
+.windows-dance-head{margin-bottom:14px}
+.windows-dance-head strong{display:block;font-family:var(--display);font-size:15px;color:var(--text-primary);margin-bottom:4px;font-weight:800}
+.windows-dance-head span{font-size:13px;color:var(--text-secondary);line-height:1.5}
+.windows-dance-grid{display:grid;grid-template-columns:1fr 24px 1fr 24px 1fr;gap:8px;align-items:stretch;margin:14px 0}
+@media(max-width:680px){.windows-dance-grid{grid-template-columns:1fr;gap:8px}.wd-arrow{transform:rotate(90deg);justify-self:center}}
+.wd-card{background:#fff;border:1px solid var(--divider-strong);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;position:relative}
+.wd-num{position:absolute;top:-9px;left:12px;width:22px;height:22px;border-radius:50%;background:var(--pp-red);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:11px}
+.wd-icon{font-size:24px;line-height:1;margin-top:4px}
+.wd-card h4{font-family:var(--display);font-size:14px;font-weight:800;letter-spacing:-.01em;color:var(--text-primary);margin:0}
+.wd-card p{font-size:12.5px;color:var(--text-secondary);line-height:1.5;margin:0}
+.wd-card p strong{color:var(--text-primary);font-weight:700}
+.wd-arrow{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:18px;color:var(--pp-red);font-weight:800}
+.windows-dance-foot{font-size:13px;color:var(--text-secondary);line-height:1.55;margin:8px 0 0;padding:10px 12px;background:rgba(233,13,65,.08);border-radius:6px}
+.windows-dance-foot strong{color:var(--pp-red);font-weight:700}
+
+/* "Then do this" · Cmd+C from terminal callout */
+.copy-from-terminal{margin:14px 0;background:linear-gradient(135deg,#0f0f10 0%,#16171a 100%);color:#fafafa;border-radius:10px;padding:18px 20px;border:1px solid #2a2c33;box-shadow:0 6px 24px rgba(15,15,16,.2)}
+.cft-head{margin-bottom:10px}
+.cft-eyebrow{display:block;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--pp-red);letter-spacing:.16em;text-transform:uppercase;margin-bottom:4px}
+.cft-head strong{display:block;font-family:var(--display);font-size:17px;font-weight:800;color:#fafafa;letter-spacing:-.015em;line-height:1.3}
+.cft-steps{padding-left:24px;margin:8px 0 0;list-style:decimal}
+.cft-steps li{font-size:13.5px;color:#cbd2dd;line-height:1.65;margin-bottom:5px}
+.cft-steps li strong{color:#fafafa;font-weight:700}
+.cft-steps li kbd{font-family:var(--mono);font-size:11px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-bottom-width:2px;border-radius:4px;padding:1px 6px;color:#fff;font-weight:700;margin:0 1px}
+
+/* Apify actors verification gate (before Activity 2) */
+.actors-verify{background:#fef3c7;border:1px solid #fde68a;border-left:5px solid var(--pp-red);border-radius:10px;padding:18px 22px;margin:18px 0}
+.av-head{margin-bottom:8px}
+.av-eyebrow{display:block;font-family:var(--mono);font-size:11px;font-weight:700;color:#92400e;letter-spacing:.16em;text-transform:uppercase;margin-bottom:4px}
+.av-head strong{display:block;font-family:var(--display);font-size:17px;font-weight:800;color:var(--text-primary);letter-spacing:-.015em}
+.av-lead{font-size:13.5px;color:var(--text-secondary);line-height:1.6;margin:0 0 12px}
+.av-lead code{font-family:var(--mono);font-size:12px;background:#fff;color:#92400e;padding:1px 5px;border-radius:3px;border:1px solid #fde68a;font-weight:700}
+.av-lead strong{color:var(--text-primary);font-weight:700}
+
+/* danger callout (foundation gate, etc.) */
+.callout.danger{background:#fef2f2;border:1px solid #fecaca;border-left:4px solid #dc2626;border-radius:6px;padding:12px 14px;font-size:13.5px;color:#7f1d1d;line-height:1.55}
+.callout.danger strong{color:#991b1b;font-weight:700}
+
+/* "I'm behind" mode · hide skippable activities */
+body.catchup-mode .panel[data-skippable="true"]{display:none}
+body.catchup-mode .nav .btn-line#catchupBtn{background:var(--pp-red);color:#fff;border-color:var(--pp-red)}
+
 /* print */
 @media print{
   :root{--page-bg:#fff}
@@ -175,6 +251,7 @@ td input[type=checkbox],td input[type=radio]{accent-color:var(--pp-red);width:17
     <div class="brand"><div class="mark">P</div>Purely Personal<span class="sep">·</span><span class="label">In-Class Workbook</span></div>
     <span class="day-pill">Day 1</span>
     <div class="spacer"></div>
+    <button class="btn-line" id="catchupBtn" title="Hide non-essential activities · keep only the wow moments">🆘 I'm behind</button>
     <button class="btn-line" id="saveBtn">Save</button>
     <button class="btn-line" id="loadBtn">Load</button>
     <input type="file" id="loadFile" class="hidden" accept="application/json,.json">
@@ -184,6 +261,18 @@ td input[type=checkbox],td input[type=radio]{accent-color:var(--pp-red);width:17
   </div>
 </nav>
 
+<!-- Sticky time strip · live wall-clock + current activity -->
+<div class="time-strip" id="timeStrip">
+  <div class="time-strip-inner">
+    <div class="ts-now"><span class="ts-label">Now</span><span class="ts-clock" id="tsClock">—</span></div>
+    <div class="ts-sep">→</div>
+    <div class="ts-current"><span class="ts-label">Currently</span><span class="ts-activity" id="tsActivity">Pre-flight check</span></div>
+    <div class="ts-sep">→</div>
+    <div class="ts-next"><span class="ts-label">Next</span><span class="ts-activity" id="tsNext">Foundation · 11:05</span></div>
+    <span class="ts-tz">FINLAND · UTC+3</span>
+  </div>
+</div>
+
 <section class="hero">
   <div class="hero-inner">
     <span class="eyebrow">Saturday May 2, 2026 · Day 1 of 2</span>
@@ -191,7 +280,7 @@ td input[type=checkbox],td input[type=radio]{accent-color:var(--pp-red);width:17
     <p class="hero-sub">By the end of today you'll have run two routines live, mapped your week to 6 anchors, and proven the Monday loop. This workbook is your live sidecar — paste the prompts into Claude Code, fill the blanks as Claude responds.</p>
     <div class="meta-strip">
       <span><b>11:00 - 13:00</b> Finland UTC+3</span>
-      <span><b>4 activities</b> live</span>
+      <span><b>5 activities</b> live (incl. Foundation)</span>
       <span><b>Live Zoom</b> cameras on</span>
       <span><b>Claude Code</b> open</span>
     </div>
@@ -249,14 +338,128 @@ td input[type=checkbox],td input[type=radio]{accent-color:var(--pp-red);width:17
     <label class="checkrow"><input type="checkbox" data-k="d1.preflight"> <span><b>Pre-flight pass</b> · all 3 green</span></label>
   </div>
 
+  <!-- ── FOUNDATION · Build Your Brain (THE foundation · 40 min) ── -->
+  <div class="panel foundation" data-essential="true">
+    <span class="kicker foundation-kicker">★ Foundation · cannot skip</span>
+    <h2>Build your <em>BUSINESS-BRAIN.md</em> <span class="time">11:05 - 11:45</span></h2>
+    <p class="foundation-lead"><strong>The single most important step.</strong> <code class="inline">BUSINESS-BRAIN.md</code> is the file every engine reads BEFORE acting. Without it, <code class="inline">marketing-engine</code> writes generic AI slop. With it, Claude writes in <strong>your voice</strong> · using <strong>your ICP</strong> · against <strong>your competitors</strong>.</p>
+
+    <div class="goal">
+      <div><b>Goal</b>BUSINESS-BRAIN.md filled · 9 sections complete</div>
+      <div><b>Tool</b><code class="inline">/purely-personal:build-my-brain</code></div>
+      <div><b>Win</b>Voice rules + ICP + Pain themes locked in</div>
+    </div>
+
+    <h3>0.1 · Run build-my-brain</h3>
+    <div class="paste">
+      <div class="paste-head"><span class="label">Paste in Claude Code</span><span class="badge">40-min foundation</span></div>
+      <pre>/purely-personal:build-my-brain</pre>
+      <button class="copy" data-copy="/purely-personal:build-my-brain">Copy</button>
+    </div>
+    <p class="dim">Claude walks you through 4 acts · scrapes your LinkedIn · website · competitors · Reddit. Most of it auto-fills. You answer 5 strategic questions. <strong>Total time: 40 min.</strong></p>
+
+    <h3>0.2 · Capture the wow moments as you go</h3>
+
+    <!-- Act 1 · Voice -->
+    <div class="act-block">
+      <div class="act-head"><span class="act-num">1</span><span class="act-title">Voice</span><span class="act-time">~5 min</span></div>
+      <p class="act-cue">Claude says: <em>"Paste your LinkedIn profile URL."</em></p>
+      <label class="field"><span>Your LinkedIn URL</span><input type="url" data-k="d1.f.li" placeholder="https://linkedin.com/in/your-handle"></label>
+      <div class="row">
+        <label class="field"><span>Profile score (out of 100)</span><input type="number" min="0" max="100" data-k="d1.f.score"></label>
+        <label class="field"><span>Top 3 banned phrases extracted</span><input type="text" data-k="d1.f.banned" placeholder="e.g. unlock, leverage, supercharge"></label>
+      </div>
+      <p class="wow">💡 <strong>Wow moment:</strong> "Wait, that's exactly how I write."</p>
+    </div>
+
+    <!-- Act 2 · Business -->
+    <div class="act-block">
+      <div class="act-head"><span class="act-num">2</span><span class="act-title">Business</span><span class="act-time">~5 min</span></div>
+      <p class="act-cue">Claude says: <em>"Paste your website URL."</em></p>
+      <label class="field"><span>Your website URL</span><input type="url" data-k="d1.f.site" placeholder="https://yourwebsite.com"></label>
+      <label class="field"><span>90-day goal (one sentence)</span><input type="text" data-k="d1.f.goal"></label>
+      <label class="field"><span>The one metric that matters (number + label, e.g. "$75K MRR")</span><input type="text" data-k="d1.f.metric"></label>
+      <p class="wow">💡 <strong>Wow moment:</strong> "It pulled my colors and fonts automatically."</p>
+    </div>
+
+    <!-- Act 3 · Competitors + ICP -->
+    <div class="act-block">
+      <div class="act-head"><span class="act-num">3</span><span class="act-title">Competitors + ICP</span><span class="act-time">~10 min</span></div>
+      <p class="act-cue">Claude says: <em>"Paste three competitor URLs · one per line."</em></p>
+      <div class="row-3">
+        <label class="field"><span>Competitor 1</span><input type="url" data-k="d1.f.c1"></label>
+        <label class="field"><span>Competitor 2</span><input type="url" data-k="d1.f.c2"></label>
+        <label class="field"><span>Competitor 3</span><input type="url" data-k="d1.f.c3"></label>
+      </div>
+      <label class="field"><span>Your ICP in one line (role + context)</span><input type="text" data-k="d1.f.icp" placeholder="e.g. Solopreneurs running a 1-3 person service business, $5K-50K MRR"></label>
+      <p class="wow">💡 <strong>Wow moment:</strong> "This is the competitor research I've been paying an agency for."</p>
+    </div>
+
+    <!-- Act 4 · Pain + AI Visibility -->
+    <div class="act-block">
+      <div class="act-head"><span class="act-num">4</span><span class="act-title">Pain + AI Visibility</span><span class="act-time">~10 min</span></div>
+      <p class="act-cue">Claude says: <em>"Give me one keyword that describes what you sell."</em></p>
+      <label class="field"><span>Your keyword</span><input type="text" data-k="d1.f.kw" placeholder="e.g. solopreneur AI, ghostwriting, fitness coaching"></label>
+      <label class="field"><span>Top pain theme Claude found (verbatim quote)</span><textarea data-k="d1.f.pain"></textarea></label>
+      <label class="field"><span>AI visibility score (out of 100)</span><input type="number" min="0" max="100" data-k="d1.f.aiscore"></label>
+      <p class="wow">💡 <strong>Wow moment:</strong> "These are my prospects' actual words, live."</p>
+    </div>
+
+    <h3>0.3 · Verify your brain · gate before Activity 1</h3>
+    <p class="dim">Run this in Claude Code · confirm your file exists at the right path with real content (not placeholder text).</p>
+    <div class="paste">
+      <div class="paste-head"><span class="label">Paste in Claude Code · verify check</span><span class="badge">file audit</span></div>
+      <pre>list files at ./BUSINESS-BRAIN.md and show me sections 1-3 of the file</pre>
+      <button class="copy" data-copy="list files at ./BUSINESS-BRAIN.md and show me sections 1-3 of the file">Copy</button>
+    </div>
+    <label class="checkrow"><input type="checkbox" data-k="d1.f.exists"> <span><b>BUSINESS-BRAIN.md exists</b> at <code class="inline">~/Desktop/purely-personal/BUSINESS-BRAIN.md</code></span></label>
+    <label class="checkrow"><input type="checkbox" data-k="d1.f.filled"> <span><b>All 9 sections filled</b> (Claude confirmed at end of Act 4)</span></label>
+    <label class="checkrow"><input type="checkbox" data-k="d1.f.shot"> <span>Screenshot of final summary in Claude Code · drop in Zoom chat</span></label>
+
+    <div class="callout danger" style="margin-top:14px"><strong>⛔ Gate:</strong> do NOT proceed to Activity 1 until all 3 checkboxes above are ticked. Activity 1 reads from BUSINESS-BRAIN.md · empty file = generic AI slop = wow moment ruined.</div>
+
+    <label class="checkrow"><input type="checkbox" data-k="d1.f.done"> <span><b>FOUNDATION COMPLETE</b> · cleared to start Activity 1</span></label>
+  </div>
+
   <!-- ── Activity 1 ── -->
-  <div class="panel activity">
+  <div class="panel activity" data-essential="true">
     <span class="kicker">Activity 1</span>
-    <h2>Your first content drop <span class="time">11:20 - 11:35</span></h2>
+    <h2>Your first content drop <span class="time">11:50 - 12:05</span></h2>
     <div class="goal">
       <div><b>Goal</b>3 LinkedIn posts in YOUR voice</div>
       <div><b>Tool</b><code class="inline">/purely-personal:marketing-engine</code></div>
       <div><b>Win</b>1 post good enough to publish today</div>
+    </div>
+
+    <!-- 3-window dance diagram · explains the workbook ↔ Claude Code ↔ LinkedIn flow -->
+    <div class="windows-dance">
+      <div class="windows-dance-head">
+        <strong>How this activity flows · 3 windows you'll switch between</strong>
+        <span>The workbook is a tracking sheet · Claude Code is where commands run · LinkedIn is where the post ships.</span>
+      </div>
+      <div class="windows-dance-grid">
+        <div class="wd-card">
+          <div class="wd-num">1</div>
+          <div class="wd-icon wd-1">📋</div>
+          <h4>Day 1 Workbook</h4>
+          <p>You're here now. Click <strong>Copy</strong> on a paste box → switches to Claude Code in your head, clipboard ready.</p>
+        </div>
+        <div class="wd-arrow">→</div>
+        <div class="wd-card">
+          <div class="wd-num">2</div>
+          <div class="wd-icon wd-2">⚡</div>
+          <h4>Claude Code (terminal)</h4>
+          <p>Paste · press Enter · Claude generates 3 posts. The output is <strong>text in the terminal</strong> · highlight + Cmd+C to copy.</p>
+        </div>
+        <div class="wd-arrow">→</div>
+        <div class="wd-card">
+          <div class="wd-num">3</div>
+          <div class="wd-icon wd-3">🚀</div>
+          <h4>LinkedIn</h4>
+          <p>Click <strong>Start a post</strong> · paste the text · click clock icon to schedule for 7am tomorrow.</p>
+        </div>
+      </div>
+      <p class="windows-dance-foot"><strong>The "Copy" buttons in this workbook copy PROMPTS, not POSTS.</strong> The final post text lives in Claude Code's terminal output. You manually highlight + Cmd+C from there into LinkedIn.</p>
     </div>
 
     <h3>1.1 · Set the topic</h3>
@@ -303,14 +506,31 @@ td input[type=checkbox],td input[type=radio]{accent-color:var(--pp-red);width:17
     <label class="field"><span>Why it works</span><input type="text" data-k="d1.a1.why"></label>
 
     <h3>1.5 · Tighten + ship</h3>
-    <div class="paste">
-      <div class="paste-head"><span class="label">Paste in Claude Code</span><span class="badge">tighten the hook</span></div>
-      <pre>take post #[YOUR PICK] · tighten the hook · cut 20% words · keep my voice</pre>
-      <button class="copy" data-copy="take post #[YOUR PICK] · tighten the hook · cut 20% words · keep my voice">Copy</button>
+    <div class="paste" id="tighten-paste">
+      <div class="paste-head"><span class="label">Paste in Claude Code</span><span class="badge"><span id="tighten-badge">pick a post first</span></span></div>
+      <pre>take post #<span id="tighten-num">[YOUR PICK]</span> · tighten the hook · cut 20% words · keep my voice</pre>
+      <button class="copy" id="tighten-copy" data-copy="take post #[YOUR PICK] · tighten the hook · cut 20% words · keep my voice">Copy</button>
     </div>
-    <label class="checkrow"><input type="checkbox" data-k="d1.a1.copied"> <span>Copied final post to LinkedIn</span></label>
+    <p class="dim" id="tighten-hint" style="margin-top:-4px"><strong>Tip:</strong> the prompt above auto-fills the post number you pick in 1.4 above. Pick a post · come back · then click Copy.</p>
+
+    <!-- "Then do this" callout · the manual copy-from-terminal step -->
+    <div class="copy-from-terminal">
+      <div class="cft-head">
+        <span class="cft-eyebrow">Now · the part the workbook can't do for you</span>
+        <strong>Copy the final post from Claude Code into LinkedIn</strong>
+      </div>
+      <ol class="cft-steps">
+        <li><strong>In Claude Code (terminal)</strong> · highlight the rewritten post text with your mouse</li>
+        <li><strong>Press <kbd>Cmd</kbd>+<kbd>C</kbd></strong> (Mac) or <kbd>Ctrl</kbd>+<kbd>C</kbd> (Windows) to copy</li>
+        <li><strong>Switch to LinkedIn</strong> in your browser · click <strong>Start a post</strong></li>
+        <li><strong>Paste</strong> with <kbd>Cmd</kbd>+<kbd>V</kbd> · review</li>
+        <li>Click the <strong>clock icon</strong> · schedule for tomorrow 7am · OR click <strong>Post</strong> to publish now</li>
+      </ol>
+    </div>
+
+    <label class="checkrow"><input type="checkbox" data-k="d1.a1.copied"> <span>Pasted final post into LinkedIn composer</span></label>
     <label class="checkrow"><input type="checkbox" data-k="d1.a1.scheduled"> <span>Scheduled for tomorrow 7am (or published now)</span></label>
-    <label class="checkrow"><input type="checkbox" data-k="d1.a1.bank"> <span>Saved to <code class="inline">/content-bank/2026-05-02.md</code></span></label>
+    <label class="checkrow"><input type="checkbox" data-k="d1.a1.bank"> <span>Saved to <code class="inline">/content-bank/2026-05-02.md</code> (optional · backup)</span></label>
 
     <h3>Troubleshooting</h3>
     <table class="troubleshoot">
@@ -324,10 +544,25 @@ td input[type=checkbox],td input[type=radio]{accent-color:var(--pp-red);width:17
     <label class="checkrow"><input type="checkbox" data-k="d1.a1.done"> <span><b>Activity 1 complete</b> · 1 post ready to publish</span></label>
   </div>
 
+  <!-- ── Apify actors verification · gate before Activity 2 ── -->
+  <div class="actors-verify">
+    <div class="av-head">
+      <span class="av-eyebrow">Pre-flight before sales-engine</span>
+      <strong>Did you enable the 11 Apify actors during install?</strong>
+    </div>
+    <p class="av-lead">Sales-engine calls Apify to scrape LinkedIn profiles. If actors aren't enabled, you'll see <code class="inline">Actor not found</code> errors. <strong>30-second check.</strong></p>
+    <div class="paste">
+      <div class="paste-head"><span class="label">Paste in Claude Code · actors check</span><span class="badge">verify Apify</span></div>
+      <pre>list the apify actors I have enabled in my console · check if these 11 are active: rag-web-browser, website-content-crawler, linkedin-profile-scraper, linkedin-profile-search, github-trending-repos, instagram-profile-scraper, instagram-scraper, tiktok-scraper, tweet-scraper, google-trends, auto-thumbnail</pre>
+      <button class="copy" data-copy="list the apify actors I have enabled in my console · check if these 11 are active: rag-web-browser, website-content-crawler, linkedin-profile-scraper, linkedin-profile-search, github-trending-repos, instagram-profile-scraper, instagram-scraper, tiktok-scraper, tweet-scraper, google-trends, auto-thumbnail">Copy</button>
+    </div>
+    <label class="checkrow"><input type="checkbox" data-k="d1.a2.actors"> <span><b>All 11 actors enabled</b> · or I'll enable the missing ones now via <a href="https://console.apify.com/store" target="_blank">console.apify.com/store</a></span></label>
+  </div>
+
   <!-- ── Activity 2 ── -->
-  <div class="panel activity">
+  <div class="panel activity" data-essential="true">
     <span class="kicker">Activity 2</span>
-    <h2>Your first 10 leads <span class="time">11:40 - 12:00</span></h2>
+    <h2>Your first 10 leads <span class="time">12:10 - 12:30</span></h2>
     <div class="goal">
       <div><b>Goal</b>10 prospects researched · BANT-scored</div>
       <div><b>Tool</b><code class="inline">/purely-personal:sales-engine</code></div>
@@ -400,9 +635,9 @@ tone: my voice from VOICE-SIGNATURE.md">Copy</button>
   </div>
 
   <!-- ── Activity 3 ── -->
-  <div class="panel activity">
+  <div class="panel activity" data-skippable="true">
     <span class="kicker">Activity 3</span>
-    <h2>Map your week <span class="time">12:05 - 12:25</span></h2>
+    <h2>Map your week <span class="time">12:35 - 12:50</span></h2>
     <div class="goal">
       <div><b>Goal</b>6 routines on calendar · 4 hrs/wk total</div>
       <div><b>Tool</b>Google Calendar (one-time)</div>
@@ -437,9 +672,9 @@ tone: my voice from VOICE-SIGNATURE.md">Copy</button>
   </div>
 
   <!-- ── Activity 4 ── -->
-  <div class="panel activity">
+  <div class="panel activity" data-skippable="true">
     <span class="kicker">Activity 4</span>
-    <h2>Monday 7am anchor <span class="time">12:30 - 12:50</span></h2>
+    <h2>Monday 7am anchor <span class="time">12:50 - 13:00</span></h2>
     <div class="goal">
       <div><b>Goal</b>Run Mon 7am routine NOW · prove the loop</div>
       <div><b>Tool</b><code class="inline">/purely-personal:leadership-engine</code></div>
@@ -546,6 +781,95 @@ simulate Monday 7am · pull from all 5 engines">Copy</button>
   document.getElementById('loadFile').addEventListener('change',e=>{const f=e.target.files&&e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{write(JSON.parse(r.result));persist();flash('Loaded');}catch{flash('Invalid file');}};r.readAsText(f);});
   document.getElementById('resetBtn').addEventListener('click',()=>{if(!confirm('Reset every field on Day 1?'))return;tabs.forEach(el=>{if(el.type==='checkbox'||el.type==='radio')el.checked=false;else el.value='';});persist();flash('Cleared');});
   window.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key==='s'){e.preventDefault();document.getElementById('saveBtn').click();}});
+
+  /* ────── NEW · May 1 upgrades ────── */
+
+  // [YOUR PICK] auto-fill · sync 1.5 prompt with 1.4 radio selection
+  const tightenNum=document.getElementById('tighten-num');
+  const tightenCopy=document.getElementById('tighten-copy');
+  const tightenBadge=document.getElementById('tighten-badge');
+  const tightenHint=document.getElementById('tighten-hint');
+  const syncPick=()=>{
+    const picked=document.querySelector('input[name="d1a1pick"]:checked');
+    const n=picked?picked.value:null;
+    if(n){
+      tightenNum.textContent=n;
+      tightenCopy.dataset.copy=`take post #${n} · tighten the hook · cut 20% words · keep my voice`;
+      tightenBadge.textContent=`tightening post #${n}`;
+      if(tightenHint)tightenHint.style.display='none';
+    } else {
+      tightenNum.textContent='[YOUR PICK]';
+      tightenCopy.dataset.copy='take post #[YOUR PICK] · tighten the hook · cut 20% words · keep my voice';
+      tightenBadge.textContent='pick a post first';
+      if(tightenHint)tightenHint.style.display='block';
+    }
+  };
+  document.querySelectorAll('input[name="d1a1pick"]').forEach(r=>r.addEventListener('change',syncPick));
+  syncPick();
+
+  // Sticky time strip · live wall-clock + current activity
+  // Day 1 schedule (Finland UTC+3):
+  //   10:45 - 11:00  Pre-flight check
+  //   11:00 - 11:05  Verify install · 9 commands
+  //   11:05 - 11:45  Foundation · build-my-brain
+  //   11:50 - 12:05  Activity 1 · marketing-engine
+  //   12:10 - 12:30  Activity 2 · sales-engine
+  //   12:35 - 12:50  Activity 3 · week map
+  //   12:50 - 13:00  Activity 4 · leadership-engine + commitments
+  const schedule=[
+    {start:'10:00',end:'10:45',name:'Get ready · open Zoom + Claude Code'},
+    {start:'10:45',end:'11:05',name:'Pre-flight check'},
+    {start:'11:05',end:'11:45',name:'★ Foundation · build-my-brain'},
+    {start:'11:45',end:'11:50',name:'Break · stretch'},
+    {start:'11:50',end:'12:05',name:'Activity 1 · first content drop'},
+    {start:'12:05',end:'12:10',name:'Break'},
+    {start:'12:10',end:'12:30',name:'Activity 2 · first 10 leads'},
+    {start:'12:30',end:'12:35',name:'Break'},
+    {start:'12:35',end:'12:50',name:'Activity 3 · map your week'},
+    {start:'12:50',end:'13:00',name:'Activity 4 + commitments'},
+    {start:'13:00',end:'23:59',name:'Day 1 wrapped · publish + screenshot'}
+  ];
+  const toMin=(t)=>{const [h,m]=t.split(':').map(Number);return h*60+m;};
+  const updateTimeStrip=()=>{
+    const tsClock=document.getElementById('tsClock');
+    const tsActivity=document.getElementById('tsActivity');
+    const tsNext=document.getElementById('tsNext');
+    if(!tsClock||!tsActivity||!tsNext)return;
+    // Show Finland time (UTC+3) regardless of user's TZ
+    const now=new Date();
+    const finlandMins=(now.getUTCHours()*60+now.getUTCMinutes()+180)%(24*60);
+    const hh=String(Math.floor(finlandMins/60)).padStart(2,'0');
+    const mm=String(finlandMins%60).padStart(2,'0');
+    tsClock.textContent=`${hh}:${mm}`;
+    let curIdx=schedule.findIndex(s=>finlandMins>=toMin(s.start)&&finlandMins<toMin(s.end));
+    if(curIdx===-1){
+      // before workshop or after end
+      if(finlandMins<toMin('10:00')){tsActivity.textContent='Workshop starts 11:00';tsNext.textContent='Pre-flight 10:45';}
+      else{tsActivity.textContent='Day 1 complete';tsNext.textContent='Day 2 · Sunday 11:00';}
+      return;
+    }
+    tsActivity.textContent=`${schedule[curIdx].name} (until ${schedule[curIdx].end})`;
+    const nxt=schedule[curIdx+1];
+    tsNext.textContent=nxt?`${nxt.name} · ${nxt.start}`:'Day 1 wraps · 13:00';
+  };
+  updateTimeStrip();
+  setInterval(updateTimeStrip,30000);
+
+  // "I'm behind" catch-up toggle · hides skippable activities (3 + 4)
+  const catchupBtn=document.getElementById('catchupBtn');
+  const KEY_CATCHUP='pp.workbook.day1.catchup';
+  const setCatchup=(on)=>{
+    document.body.classList.toggle('catchup-mode',!!on);
+    catchupBtn.textContent=on?'✓ Behind mode ON':'🆘 I\'m behind';
+    try{localStorage.setItem(KEY_CATCHUP,on?'1':'0');}catch(e){}
+  };
+  catchupBtn.addEventListener('click',()=>{
+    const isOn=document.body.classList.contains('catchup-mode');
+    if(!isOn&&!confirm('Hide Activity 3 (week map) and Activity 4 (Monday rehearsal) so you can focus on Foundation + Activities 1-2?\n\nClick the button again to bring them back.'))return;
+    setCatchup(!isOn);
+    flash(isOn?'Showing all activities':'Catch-up mode · only essentials shown');
+  });
+  try{if(localStorage.getItem(KEY_CATCHUP)==='1')setCatchup(true);}catch(e){}
 })();
 </script>
 

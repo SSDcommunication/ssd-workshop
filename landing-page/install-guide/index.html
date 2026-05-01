@@ -1434,17 +1434,20 @@ Do these remaining steps in order. Confirm each before running:
    - Validate the JSON is well-formed.
    - Tell me to fully quit + reopen Claude Desktop.
 
-2. Create the business folder + BUSINESS-BRAIN.md:
-   mkdir -p ~/Desktop/my-business
-   touch ~/Desktop/my-business/BUSINESS-BRAIN.md
+2. Do NOT create a separate "business" folder · I already created ~/Desktop/purely-personal/
+   in step 4a and that's where claude is running. BUSINESS-BRAIN.md will be created
+   when I run /purely-personal:build-my-brain on Day 1 (Saturday 11:05).
+   Verify the working directory is correct: `pwd` should print
+   /Users/<me>/Desktop/purely-personal (Mac) or /c/Users/<me>/Desktop/purely-personal (Win).
 
-3. After Claude Desktop restart, run a test from inside ~/Desktop/my-business:
+3. After Claude Desktop restart, run a test from this folder:
    "Use Apify to search Google for solopreneur AI 2026, top 3 results"
 
 4. Tell me what's left:
    - Enable the 11 Apify actors at console.apify.com/store (the install guide has the list)
    - Reply to the registration email with my LinkedIn URL
    - Connect Gmail / Notion / Calendar / Drive at claude.ai/customize/connectors
+   - Run /purely-personal:build-my-brain at 11:05 Saturday to fill BUSINESS-BRAIN.md
 
 Use the Bash tool. Don't make me type commands myself unless I have to (browser actions, restart Claude Desktop). Pause and ask me when you need input from me.</div>
 
