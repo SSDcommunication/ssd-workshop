@@ -420,6 +420,17 @@ body.os-windows .os-tab-body{grid-template-columns:1fr}
 .prompt-key li strong{color:#1e40af;font-weight:700}
 .prompt-key li code{font-family:var(--mono);font-size:11.5px;background:#fff;color:#1e40af;padding:1px 5px;border-radius:3px;border:1px solid #bfdbfe;font-weight:700}
 
+/* ════════════════════ Username tip · optional collapsible ════════════════════ */
+.username-tip{margin:10px 0;background:var(--sub-card-bg);border:1px solid var(--divider);border-radius:6px;overflow:hidden}
+.username-tip>summary{padding:10px 14px;cursor:pointer;list-style:none;font-size:13px;color:var(--text-secondary);user-select:none;font-weight:500}
+.username-tip>summary::-webkit-details-marker{display:none}
+.username-tip>summary em{font-style:italic;color:var(--text-muted)}
+.username-tip[open]>summary{border-bottom:1px solid var(--divider);background:#fff}
+.username-tip-body{padding:12px 14px;font-size:13px;line-height:1.6;color:var(--text-secondary);background:#fff}
+.username-tip-body p{margin:0 0 8px}
+.username-tip-body p:last-child{margin-bottom:0}
+.username-tip-body code{font-family:var(--mono);font-size:12px;background:rgba(0,0,0,.05);color:var(--pp-red);padding:1px 5px;border-radius:3px;font-weight:700}
+
 /* ════════════════════ substep h4 + dim-tip ════════════════════ */
 .substep-h4{font-family:var(--display);font-size:14px;font-weight:800;letter-spacing:-.01em;color:var(--text-primary);margin:18px 0 8px}
 .dim-tip{font-size:12.5px;color:var(--text-muted);line-height:1.55;margin:6px 0 0;font-style:italic}
@@ -1816,14 +1827,23 @@ At line:1 char:1
           </div>
         </div>
         <div class="prompt-key">
-          <strong>How to read the prompt:</strong>
+          <strong>You don't need to know your username · just look for ONE thing:</strong>
           <ul>
-            <li><code class="inline">&lt;your-username&gt;</code> = whatever your computer's user is called · could be your name, a nickname, or "user" · won't say "danny"</li>
-            <li><code class="inline">purely-personal</code> = the folder you're inside · <strong>this is the part that matters</strong> · if it says anything else (like <code class="inline">~</code> or <code class="inline">Desktop</code>) · you're not in the folder yet</li>
-            <li><code class="inline">%</code> on Mac · <code class="inline">$</code> in Git Bash = the cursor's ready for you to type · don't type the symbol itself, just type after it</li>
+            <li>✅ <strong>Look for the word <code class="inline">purely-personal</code> in your prompt.</strong> If it's there · you're INSIDE the folder · ready to move on. <strong>That's the only check that matters.</strong></li>
+            <li>❌ If you see <code class="inline">~</code>, <code class="inline">~/Desktop</code>, <code class="inline">/c/Users/&lt;name&gt;</code>, or your home directory in the prompt · you're NOT in the folder yet · re-paste the <code class="inline">mkdir + cd</code> command above.</li>
           </ul>
         </div>
-        <p class="dim-tip">Don't type <code class="inline">&lt;your-username&gt;</code> or anything before the <code class="inline">%</code>/<code class="inline">$</code> · those appear automatically. <strong>You only type AFTER the prompt symbol.</strong></p>
+
+        <details class="username-tip">
+          <summary>↓ Curious what your username is? <em>(optional · doesn't matter for the install)</em></summary>
+          <div class="username-tip-body">
+            <p>Just type <code class="inline">whoami</code> in your terminal and press Enter:</p>
+            <div class="cmd"><span class="cmd-label">Mac Terminal or Git Bash · optional</span>whoami</div>
+            <p class="dim-tip">It prints your actual computer username (e.g. <code class="inline">elif</code> · <code class="inline">azam</code> · <code class="inline">jvy</code>). That's what shows in your prompt where the example says <code class="inline">&lt;your-username&gt;</code>. Again · <strong>you don't need this for the install</strong> · the folder name is all that matters.</p>
+          </div>
+        </details>
+
+        <p class="dim-tip">Don't type anything in angle brackets like <code class="inline">&lt;your-username&gt;</code> · those are placeholders. The username + machine + symbols all appear automatically when your terminal opens. <strong>You only type after the <code class="inline">%</code> (Mac) or <code class="inline">$</code> (Git Bash) symbol.</strong></p>
 
         <h4 class="substep-h4">Optional · double-check by typing <code class="inline">pwd</code></h4>
         <div class="cmd"><span class="cmd-label">Optional verification</span><span class="cmd-eta">⏱ 1 sec</span>pwd</div>
