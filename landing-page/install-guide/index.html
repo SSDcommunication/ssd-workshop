@@ -270,6 +270,93 @@ main{padding:48px 56px 80px;max-width:940px}
 .patience-tip{margin:10px 0 0;padding:10px 12px;background:#dbeafe;border:1px solid #bfdbfe;border-left:3px solid #3b82f6;border-radius:6px;font-size:12.5px;color:var(--text-secondary);line-height:1.55}
 .patience-tip strong{color:#1e40af;font-weight:700}
 
+/* ════════════════════ OS picker · pick once, page filters ════════════════════ */
+.os-picker{margin:24px 0;background:linear-gradient(135deg,var(--pp-red-whisper) 0%,#fff 50%,#dbeafe 100%);border:2px solid var(--pp-red);border-radius:14px;padding:20px 24px;box-shadow:0 8px 28px rgba(233,13,65,.12)}
+.os-picker-q{margin-bottom:14px}
+.os-picker-eyebrow{display:block;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--pp-red);letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+.os-picker-q strong{display:block;font-family:var(--display);font-size:22px;font-weight:800;color:var(--text-primary);letter-spacing:-.015em}
+.os-picker-buttons{display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.os-pick-btn{flex:1;min-width:140px;display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 14px;background:#fff;border:2px solid var(--divider);border-radius:10px;cursor:pointer;font-family:inherit;transition:all 160ms;color:var(--text-primary)}
+.os-pick-btn:hover{border-color:var(--pp-red);transform:translateY(-2px);box-shadow:0 6px 16px rgba(233,13,65,.15)}
+.os-pick-btn.active{border-color:var(--pp-red);background:var(--pp-red);color:#fff;box-shadow:0 8px 20px rgba(233,13,65,.3)}
+.os-pick-btn.active .os-pick-emoji{filter:none}
+.os-pick-btn.os-pick-both{flex:0.7;min-width:120px}
+.os-pick-emoji{font-size:32px;line-height:1}
+.os-pick-label{font-family:var(--display);font-size:15px;font-weight:800;letter-spacing:-.01em}
+.os-picker-current{margin:0;padding:8px 12px;background:rgba(255,255,255,.6);border-radius:6px;font-family:var(--mono);font-size:12px;color:var(--text-secondary);text-align:center;letter-spacing:.04em}
+.os-picker-current.active{background:var(--pp-red-soft);color:var(--pp-red);font-weight:700}
+
+/* When OS is picked, hide blocks for other OS */
+body.os-mac .windows-only,body.os-mac .win-only{display:none !important}
+body.os-windows .mac-only{display:none !important}
+body.os-mac .os-tabs > .os-tab-header > .os-tab-label.win,body.os-mac .os-tab-body > div:nth-child(2){display:none !important}
+body.os-mac .os-tab-body{grid-template-columns:1fr}
+body.os-windows .os-tabs > .os-tab-header > .os-tab-label.mac,body.os-windows .os-tab-body > div:nth-child(1){display:none !important}
+body.os-windows .os-tab-body{grid-template-columns:1fr}
+
+/* Hide inline phase-videos · they're consolidated into the collapsible block at top */
+.phase-video-inline{display:none !important}
+
+/* Hide the standalone install-fixes embed (.fixes-video) too · same reason */
+.fixes-video{display:none !important}
+
+/* ════════════════════ Videos · collapsible block ════════════════════ */
+.videos-block{margin:18px 0;background:#fff;border:1px solid var(--divider);border-radius:10px;overflow:hidden;box-shadow:var(--shadow-card,0 1px 2px rgba(20,14,8,.04))}
+.videos-block>summary{padding:16px 20px;cursor:pointer;list-style:none;display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#fff 0%,var(--page-bg) 100%);font-family:inherit;user-select:none}
+.videos-block>summary::-webkit-details-marker{display:none}
+.vb-icon{font-size:24px;line-height:1}
+.vb-title{flex:1;font-family:var(--display);font-size:16px;font-weight:700;color:var(--text-primary);letter-spacing:-.01em}
+.vb-title em{font-style:italic;color:var(--text-muted);font-weight:500}
+.vb-toggle{font-size:18px;color:var(--pp-red);font-weight:800;transition:transform 200ms}
+.videos-block[open]>summary>.vb-toggle{transform:rotate(180deg)}
+.vb-body{padding:16px 20px 20px;border-top:1px solid var(--divider)}
+.vb-intro{font-size:13.5px;color:var(--text-secondary);line-height:1.6;margin:0 0 14px;max-width:780px}
+.vb-intro strong{color:var(--text-primary);font-weight:700}
+.vb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.vb-card{background:var(--card-bg,#fff);border:1px solid var(--divider);border-radius:8px;overflow:hidden}
+.vb-card video{width:100%;display:block;background:#000;aspect-ratio:16/9}
+.vb-meta{padding:10px 12px}
+.vb-tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;color:var(--pp-red);background:var(--pp-red-soft);padding:2px 7px;border-radius:3px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.vb-meta strong{display:block;font-family:var(--display);font-size:14px;font-weight:800;color:var(--text-primary);letter-spacing:-.01em;margin-bottom:3px}
+.vb-desc{font-size:12px;color:var(--text-secondary);line-height:1.45}
+
+/* ════════════════════ Step 4 flow header ════════════════════ */
+.step4-flow{margin:18px 0;background:linear-gradient(135deg,#dbeafe 0%,#fff 60%);border:2px solid #3b82f6;border-left-width:5px;border-radius:10px;padding:18px 22px}
+.s4f-head{margin-bottom:10px}
+.s4f-eyebrow{display:block;font-family:var(--mono);font-size:11px;font-weight:700;color:#1e40af;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+.s4f-head strong{display:block;font-family:var(--display);font-size:18px;font-weight:800;color:var(--text-primary);letter-spacing:-.015em}
+.s4f-list{padding-left:24px;margin:8px 0}
+.s4f-list li{font-size:13.5px;color:var(--text-primary);line-height:1.6;margin-bottom:6px}
+.s4f-list li strong{font-weight:700;color:#1e40af}
+.s4f-list li code{font-family:var(--mono);font-size:12px;background:#fff;color:#1e40af;padding:1px 5px;border-radius:3px;border:1px solid #bfdbfe;font-weight:700}
+.s4f-foot{margin:10px 0 0;padding:10px 12px;background:#fef3c7;border:1px solid #fde68a;border-radius:6px;font-size:12.5px;color:var(--text-secondary);line-height:1.55}
+.s4f-foot strong{color:#92400e;font-weight:700}
+.s4f-foot code{font-family:var(--mono);font-size:11.5px;background:#fff;color:#92400e;padding:1px 5px;border-radius:3px;border:1px solid #fde68a;font-weight:700}
+
+/* ════════════════════ OS-block (replaces os-tabs in Step 4a) ════════════════════ */
+.os-block{margin:14px 0;padding:14px 16px;background:var(--sub-card-bg);border:1px solid var(--divider);border-radius:8px}
+.os-block-head{margin-bottom:10px}
+.os-block-pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;padding:5px 10px;border-radius:5px;text-transform:uppercase}
+.os-block-pill.mac{background:#dbeafe;color:#1e40af;border:1px solid #bfdbfe}
+.os-block-pill.win{background:#fef3c7;color:#92400e;border:1px solid #fde68a}
+
+/* ════════════════════ Terminal mockup ════════════════════ */
+.terminal-mock{background:#0f0f10;border-radius:8px;padding:14px 18px;margin:10px 0;font-family:var(--mono);font-size:13px;color:#e6e6e6;border:1px solid #2a2c33;line-height:1.6}
+.tm-prompt{color:#7bd389}
+.tm-path{color:#a8c2ff;font-weight:700}
+.tm-cursor{color:var(--pp-red);font-weight:700}
+.tm-user{color:#9aa3b2;font-size:12px}
+
+.terminal-mock-claude{padding:0;overflow:hidden}
+.tmc-titlebar{background:#16171a;padding:10px 14px;font-family:var(--mono);font-size:11px;color:#6b7280;letter-spacing:.06em;border-bottom:1px solid rgba(255,255,255,.06);text-transform:lowercase;font-weight:700}
+.tmc-body{padding:14px 18px;line-height:1.7;font-size:13px}
+
+/* ════════════════════ substep h4 + dim-tip ════════════════════ */
+.substep-h4{font-family:var(--display);font-size:14px;font-weight:800;letter-spacing:-.01em;color:var(--text-primary);margin:18px 0 8px}
+.dim-tip{font-size:12.5px;color:var(--text-muted);line-height:1.55;margin:6px 0 0;font-style:italic}
+.dim-tip code{font-family:var(--mono);font-size:11.5px;background:rgba(0,0,0,.05);color:var(--text-primary);padding:1px 5px;border-radius:3px;font-style:normal;font-weight:600}
+.dim-tip strong{color:var(--text-primary);font-weight:700;font-style:normal}
+
 /* ============== Why each tool? explainer ============== */
 .why-tools{margin:24px 0;background:var(--card-bg);border:1px solid var(--divider);border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(20,14,8,0.05)}
 .why-tools-head{padding:24px 28px 14px;background:linear-gradient(180deg,var(--page-bg) 0%,#fff 100%);border-bottom:1px solid var(--divider)}
@@ -786,6 +873,91 @@ details.step.done>summary .step-title h2{text-decoration:line-through;color:var(
 </aside>
 
 <main>
+
+<!-- ════════════════════ OS picker · pick once, page filters ════════════════════ -->
+<div class="os-picker" id="osPicker">
+  <div class="os-picker-inner">
+    <div class="os-picker-q">
+      <span class="os-picker-eyebrow">Step 0 · pick once · the guide filters automatically</span>
+      <strong>Are you on a Mac or a Windows PC?</strong>
+    </div>
+    <div class="os-picker-buttons">
+      <button class="os-pick-btn" data-os="mac"><span class="os-pick-emoji">🍎</span><span class="os-pick-label">Mac</span></button>
+      <button class="os-pick-btn" data-os="windows"><span class="os-pick-emoji">🪟</span><span class="os-pick-label">Windows</span></button>
+      <button class="os-pick-btn os-pick-both" data-os="both"><span class="os-pick-emoji">👀</span><span class="os-pick-label">Show me both</span></button>
+    </div>
+    <p class="os-picker-current" id="osPickerCurrent">— pick one to start —</p>
+  </div>
+</div>
+
+<!-- ════════════════════ Videos · single collapsible section ════════════════════ -->
+<details class="videos-block" id="videosBlock">
+  <summary>
+    <span class="vb-icon">📹</span>
+    <span class="vb-title">Watch first <em>(optional)</em> · 5 videos · ~8 min total</span>
+    <span class="vb-toggle">▾</span>
+  </summary>
+  <div class="vb-body">
+    <p class="vb-intro">Animated walkthroughs of every phase. Watch all 5 if you're nervous · skip them all and follow the steps if you're confident · re-watch any one if you get stuck. <strong>The text instructions below are complete on their own.</strong></p>
+
+    <div class="vb-grid">
+      <div class="vb-card">
+        <video controls preload="metadata" playsinline poster="videos/install-fixes-poster.jpg">
+          <source src="../teaser/pp-install-fixes-52s.mp4" type="video/mp4">
+        </video>
+        <div class="vb-meta">
+          <span class="vb-tag">⚠ April 30 update</span>
+          <strong>Install Fixes (52s)</strong>
+          <span class="vb-desc">4 most-common pitfalls · Run as Admin · PATH fix · restart Claude · enable Apify actors</span>
+        </div>
+      </div>
+
+      <div class="vb-card">
+        <video controls preload="metadata" playsinline poster="videos/phase-1-poster.jpg">
+          <source src="videos/phase-1.mp4" type="video/mp4">
+        </video>
+        <div class="vb-meta">
+          <span class="vb-tag">Phase 1</span>
+          <strong>Bootstrap (1:45)</strong>
+          <span class="vb-desc">Steps 1-3 · Claude account · Claude Code install · GitHub signup · Git install</span>
+        </div>
+      </div>
+
+      <div class="vb-card">
+        <video controls preload="metadata" playsinline poster="videos/phase-2-poster.jpg">
+          <source src="videos/phase-2.mp4" type="video/mp4">
+        </video>
+        <div class="vb-meta">
+          <span class="vb-tag">Phase 2</span>
+          <strong>Setup Prompt (2:10)</strong>
+          <span class="vb-desc">Step 4 · folder · launch Claude Code · install marketplace · run setup prompt</span>
+        </div>
+      </div>
+
+      <div class="vb-card">
+        <video controls preload="metadata" playsinline poster="videos/phase-3-poster.jpg">
+          <source src="videos/phase-3.mp4" type="video/mp4">
+        </video>
+        <div class="vb-meta">
+          <span class="vb-tag">Phase 3</span>
+          <strong>Connectors (1:58)</strong>
+          <span class="vb-desc">5 OAuth sign-ins · Gmail · Notion · Calendar · Drive · Stripe</span>
+        </div>
+      </div>
+
+      <div class="vb-card">
+        <video controls preload="metadata" playsinline poster="videos/phase-4-poster.jpg">
+          <source src="videos/phase-4.mp4" type="video/mp4">
+        </video>
+        <div class="vb-meta">
+          <span class="vb-tag">Phase 4</span>
+          <strong>Final prep (1:30)</strong>
+          <span class="vb-desc">Reply with LinkedIn URL · ready for Day 1 morning</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</details>
 
 <section class="intro" id="top">
   <div class="intro-eyebrow">◆ Pre-workshop · Complete before Day 1</div>
@@ -1343,30 +1515,61 @@ details.step.done>summary .step-title h2{text-decoration:line-through;color:var(
       </div>
     </div>
 
-    <!-- ===== 4a · Create a workshop folder (NEW · May 1 fix · prevents "select a folder" error) ===== -->
+    <!-- ===== Step 4 · The big-picture flow (people get lost here · this is the fix) ===== -->
+    <div class="step4-flow">
+      <div class="s4f-head">
+        <span class="s4f-eyebrow">Read this first · the whole 4-step shape · 5 minutes</span>
+        <strong>What you're about to do · in 4 moves</strong>
+      </div>
+      <ol class="s4f-list">
+        <li><strong>4a · Create</strong> a folder on your Desktop called <code class="inline">purely-personal</code> · this becomes your "workshop home"</li>
+        <li><strong>4b · Move into</strong> the folder + launch Claude Code from there · Claude's working directory = this folder</li>
+        <li><strong>4c · Install</strong> the Purely Personal plugin INSIDE Claude Code (3 commands · marketplace · install · restart)</li>
+        <li><strong>4d · Run</strong> the Setup Prompt for everything else (Apify wiring · BUSINESS-BRAIN.md created on Day 1)</li>
+      </ol>
+      <p class="s4f-foot">⚠ <strong>The order matters.</strong> If you launch <code class="inline">claude</code> before <code class="inline">cd</code>-ing into the folder · Claude Code asks "select a folder" and you'll be stuck. Follow 4a → 4b in order.</p>
+    </div>
+
+    <!-- ===== 4a · Create a workshop folder ===== -->
     <div class="substep">
       <div class="substep-num">4a</div>
       <div class="substep-body">
-        <h3>Create a workshop folder · <em>do this first</em></h3>
-        <p class="substep-lead">When Claude Code launches, it asks you to <strong>"Select a folder"</strong> for your project. If you don't have one ready, you'll be stuck. Create one now.</p>
+        <h3>Create the workshop folder</h3>
+        <p class="substep-lead">This folder will be your <strong>workshop home</strong> · where Claude Code runs · where BUSINESS-BRAIN.md will live · where engine outputs save.</p>
 
-        <div class="os-tabs">
-          <div class="os-tab-header"><div class="os-tab-label mac">macOS</div><div class="os-tab-label win">Windows</div></div>
-          <div class="os-tab-body">
-            <div>
-              <p style="margin-top:0;font-size:13px;color:var(--text-secondary)">Open Terminal · paste:</p>
-              <div class="cmd"><span class="cmd-label">Mac Terminal</span><span class="cmd-eta">⏱ ~2 sec</span>mkdir -p ~/Desktop/purely-personal &amp;&amp; cd ~/Desktop/purely-personal</div>
-              <p style="font-size:12px;color:var(--text-muted);margin:8px 0 0">Creates <code>purely-personal</code> on your Desktop and moves into it.</p>
-            </div>
-            <div>
-              <p style="margin-top:0;font-size:13px;color:var(--text-secondary)">Open <strong>Git Bash</strong> · paste:</p>
-              <div class="cmd"><span class="cmd-label">Git Bash · ~2 sec</span>mkdir -p ~/Desktop/purely-personal &amp;&amp; cd ~/Desktop/purely-personal</div>
-              <p style="font-size:12px;color:var(--text-muted);margin:8px 0 0">Or do it via File Explorer: <strong>right-click on Desktop</strong> → New → Folder → name it <code>purely-personal</code>.</p>
-            </div>
-          </div>
+        <!-- Mac path -->
+        <div class="os-block mac-only">
+          <div class="os-block-head"><span class="os-block-pill mac">🍎 Mac</span></div>
+          <p style="margin-top:0;font-size:13px;color:var(--text-secondary)">Open <strong>Terminal</strong> (Cmd+Space · type "Terminal" · Enter). Paste this command · press Enter:</p>
+          <div class="cmd"><span class="cmd-label">Mac Terminal · 1 of 1</span><span class="cmd-eta">⏱ ~2 sec</span>mkdir -p ~/Desktop/purely-personal &amp;&amp; cd ~/Desktop/purely-personal</div>
+          <p class="dim-tip">This creates a folder called <code>purely-personal</code> on your Desktop · then moves your terminal INTO that folder. Both happen in one line.</p>
         </div>
 
-        <div class="callout warn" style="margin-top:14px"><strong>Why this matters:</strong> Claude Code 2.x asks "Select a folder" on first launch. This folder becomes your <strong>working directory</strong> · where the plugin runs commands, where BUSINESS-BRAIN.md lives. If you skip this step, Claude Code stalls. Create the folder · then move on.</div>
+        <!-- Windows path -->
+        <div class="os-block windows-only">
+          <div class="os-block-head"><span class="os-block-pill win">🪟 Windows</span></div>
+          <p style="margin-top:0;font-size:13px;color:var(--text-secondary)">Open <strong>Git Bash</strong> (Start menu · type "Git Bash" · Enter). Paste this command · press Enter:</p>
+          <div class="cmd"><span class="cmd-label">Git Bash · 1 of 1</span><span class="cmd-eta">⏱ ~2 sec</span>mkdir -p ~/Desktop/purely-personal &amp;&amp; cd ~/Desktop/purely-personal</div>
+          <p class="dim-tip">Same command as Mac · Git Bash speaks Unix syntax so this just works. <strong>Don't use PowerShell here</strong> · it doesn't understand <code>~/Desktop</code>.</p>
+        </div>
+
+        <h4 class="substep-h4">Verify · your terminal prompt should now show the folder</h4>
+        <p class="substep-lead">Look at the FAR LEFT of your terminal. You should see something like:</p>
+        <div class="terminal-mock">
+          <div class="tm-mac mac-only">
+            <span class="tm-prompt">danny@MacBook</span> <span class="tm-path">purely-personal</span> <span class="tm-cursor">%</span>
+          </div>
+          <div class="tm-win windows-only">
+            <span class="tm-user">danny@DESKTOP MINGW64</span> <span class="tm-path">~/Desktop/purely-personal</span><br><span class="tm-cursor">$</span>
+          </div>
+        </div>
+        <p class="dim-tip">Notice the path shows <code>purely-personal</code> · that's how you know you're INSIDE the folder. If it shows your home directory or Desktop · re-paste the command above.</p>
+
+        <h4 class="substep-h4">Optional · double-check by typing <code class="inline">pwd</code></h4>
+        <div class="cmd"><span class="cmd-label">Optional verification</span><span class="cmd-eta">⏱ 1 sec</span>pwd</div>
+        <p class="dim-tip">Should print something like <code>/Users/&lt;you&gt;/Desktop/purely-personal</code> (Mac) or <code>/c/Users/&lt;you&gt;/Desktop/purely-personal</code> (Windows). If yes · perfect · move to 4b. If no · re-run 4a.</p>
+
+        <label class="checkrow"><input type="checkbox" data-k="ig.s4a"> <span><b>4a complete</b> · folder exists · I'm INSIDE it · prompt confirms it</span></label>
       </div>
     </div>
 
@@ -1374,10 +1577,33 @@ details.step.done>summary .step-title h2{text-decoration:line-through;color:var(
     <div class="substep">
       <div class="substep-num">4b</div>
       <div class="substep-body">
-        <h3>Launch Claude Code <em>from inside that folder</em></h3>
-        <p class="substep-lead">Same terminal as 4a (you should already be inside <code>~/Desktop/purely-personal</code>) · type:</p>
-        <div class="cmd"><span class="cmd-label">Terminal · Mac or Git Bash</span><span class="cmd-eta">⏱ ~5 sec</span>claude</div>
-        <p>Claude Code opens with the workshop folder pre-selected. You'll see a prompt cursor waiting for input. <strong>If it asks "Select a folder"</strong> · pick <code>purely-personal</code> from your Desktop · click OK.</p>
+        <h3>Launch Claude Code from this folder</h3>
+        <p class="substep-lead"><strong>Same terminal window as 4a · do NOT open a new one.</strong> You should still be inside <code class="inline">~/Desktop/purely-personal</code> (your prompt confirmed it). Now type <code>claude</code> · press Enter:</p>
+        <div class="cmd"><span class="cmd-label">Same terminal · Mac or Git Bash</span><span class="cmd-eta">⏱ ~5 sec</span>claude</div>
+
+        <h4 class="substep-h4">What you should see · 30 seconds in</h4>
+        <div class="terminal-mock terminal-mock-claude">
+          <div class="tmc-titlebar">claude code · launching</div>
+          <div class="tmc-body">
+            <span style="color:#7bd389">✓ Claude Code 1.0.x</span><br>
+            <span style="color:#9aa3b2">Working directory: ~/Desktop/purely-personal</span><br>
+            <span style="color:#9aa3b2">Plugins loaded: 0</span><br>
+            <span style="color:#9aa3b2">Type / for commands · Enter your prompt below</span><br>
+            <br>
+            <span style="color:var(--pp-red)">&gt; </span><span style="background:var(--pp-red);width:8px;height:18px;display:inline-block;vertical-align:-3px"></span>
+          </div>
+        </div>
+        <p class="dim-tip">Notice "Working directory: ~/Desktop/purely-personal" · that confirms Claude Code knows where it's running. If you see a different path · type <code>/exit</code> · go back to 4a · re-run with <code>cd</code>.</p>
+
+        <div class="callout warn" style="margin-top:14px">
+          <strong>If Claude Code asks "Select a folder":</strong> you didn't <code>cd</code> into the folder before launching. Two options:
+          <ol style="margin:6px 0 0;padding-left:20px">
+            <li>Pick <code>purely-personal</code> from the file picker · click OK · works for now but means you skipped the cleaner 4a path</li>
+            <li>OR · type <code>/exit</code> · go back to 4a · re-paste the <code>mkdir + cd</code> command · then re-run <code>claude</code></li>
+          </ol>
+        </div>
+
+        <label class="checkrow"><input type="checkbox" data-k="ig.s4b"> <span><b>4b complete</b> · Claude Code running · working directory shows <code class="inline">purely-personal</code></span></label>
       </div>
     </div>
 
@@ -2661,6 +2887,34 @@ Use the Bash tool. Don't make me type commands myself unless I have to (browser 
 
   /* ===== CHECKLIST RESET CONTROL (dev/debug) ===== */
   window.ppResetGuide = () => { localStorage.removeItem(STORAGE_KEY); location.reload(); };
+
+  /* ════════════════════ OS PICKER · pick once · page filters ════════════════════ */
+  const OS_KEY='pp.installguide.os';
+  const osBtns=document.querySelectorAll('.os-pick-btn');
+  const osCurrent=document.getElementById('osPickerCurrent');
+  const setOS=(os)=>{
+    document.body.classList.remove('os-mac','os-windows','os-both');
+    osBtns.forEach(b=>b.classList.remove('active'));
+    if(os==='mac'){
+      document.body.classList.add('os-mac');
+      osCurrent.textContent='✓ Showing Mac instructions only · click "Show me both" if you want to see Windows too';
+      osCurrent.classList.add('active');
+    } else if(os==='windows'){
+      document.body.classList.add('os-windows');
+      osCurrent.textContent='✓ Showing Windows instructions only · click "Show me both" if you want to see Mac too';
+      osCurrent.classList.add('active');
+    } else if(os==='both'){
+      document.body.classList.add('os-both');
+      osCurrent.textContent='Showing both Mac and Windows · helpful if you switch between machines';
+      osCurrent.classList.add('active');
+    }
+    const sel=document.querySelector(`.os-pick-btn[data-os="${os}"]`);
+    if(sel)sel.classList.add('active');
+    try{localStorage.setItem(OS_KEY,os);}catch(e){}
+  };
+  osBtns.forEach(b=>b.addEventListener('click',()=>setOS(b.dataset.os)));
+  // restore previous choice
+  try{const prev=localStorage.getItem(OS_KEY);if(prev&&['mac','windows','both'].includes(prev))setOS(prev);}catch(e){}
 })();
 </script>
 </body>
