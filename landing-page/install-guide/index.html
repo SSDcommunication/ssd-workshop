@@ -420,6 +420,11 @@ body.os-windows .os-tab-body{grid-template-columns:1fr}
 .prompt-key li strong{color:#1e40af;font-weight:700}
 .prompt-key li code{font-family:var(--mono);font-size:11.5px;background:#fff;color:#1e40af;padding:1px 5px;border-radius:3px;border:1px solid #bfdbfe;font-weight:700}
 
+/* ════════════════════ Cmd translation · plain-English note above command ════════════════════ */
+.cmd-translation{margin:8px 0 6px;padding:9px 12px;background:#dbeafe;border:1px solid #bfdbfe;border-left:3px solid #3b82f6;border-radius:6px;font-size:12.5px;line-height:1.55;color:var(--text-secondary);font-style:italic}
+.cmd-translation a{color:#1e40af;font-weight:700;font-style:normal;border-bottom:1px solid rgba(30,64,175,.3)}
+.cmd-translation a:hover{border-color:#1e40af}
+
 /* ════════════════════ Username tip · optional collapsible ════════════════════ */
 .username-tip{margin:10px 0;background:var(--sub-card-bg);border:1px solid var(--divider);border-radius:6px;overflow:hidden}
 .username-tip>summary{padding:10px 14px;cursor:pointer;list-style:none;font-size:13px;color:var(--text-secondary);user-select:none;font-weight:500}
@@ -1897,7 +1902,8 @@ At line:1 char:1
         <ol class="install-3step">
           <li>
             <strong>Add the marketplace</strong>
-            <div class="cmd"><span class="cmd-label">Paste in Claude Code · 1 of 3</span><span class="cmd-eta">⏱ ~10 sec</span>/plugin marketplace add danielpaulai/Purely-Personal-Run-a-business-by-itself</div>
+            <p class="cmd-translation">Translation: this command tells Claude Code to install the plugin from this GitHub repo · <a href="https://github.com/danielpaulai/Purely-Personal-Run-a-business-by-itself" target="_blank" rel="noopener">github.com/danielpaulai/Purely-Personal-Run-a-business-by-itself</a></p>
+            <div class="cmd"><span class="cmd-label">Paste in Claude Code · 1 of 3</span><span class="cmd-eta">⏱ ~10 sec</span>/plugin marketplace add https://github.com/danielpaulai/Purely-Personal-Run-a-business-by-itself</div>
             <span class="install-3step-note">Should print <code>✓ Marketplace 'purely-personal-marketplace' added</code>. If not · check Step 3b · Git authentication.</span>
           </li>
           <li>
@@ -1974,7 +1980,7 @@ Use the Bash tool. Don't make me type commands myself unless I have to (browser 
         <span class="out"></span>
         <span class="out"><span class="prompt">&gt;</span> yes</span>
         <span class="out"></span>
-        <span class="out" style="color:#a8a39b">/plugin marketplace add danielpaulai/Purely-Personal-Run-a-business-by-itself</span>
+        <span class="out" style="color:#a8a39b">/plugin marketplace add https://github.com/danielpaulai/Purely-Personal-Run-a-business-by-itself</span>
         <span class="out" style="color:#22c55e">✓ Marketplace 'purely-personal-marketplace' added.</span>
         <span class="out" style="color:#a8a39b">/plugin install purely-personal@purely-personal-marketplace</span>
         <span class="out" style="color:#22c55e">✓ Plugin 'purely-personal' installed. 8 slash commands loaded:</span>
@@ -2805,7 +2811,7 @@ Use the Bash tool. Don't make me type commands myself unless I have to (browser 
           <br>2. Click <strong>Generate new token (classic)</strong> · select scopes <code>repo</code> + <code>read:org</code> · 90-day expiry
           <br>3. After creation, click <strong>Configure SSO</strong> next to the token · click <strong>Authorize</strong> for the org you need
           <br>4. Use the token as your password the first time Git asks you to sign in (Git Credential Manager will remember it)
-          <br><br><strong>Most personal GitHub accounts don't have SSO</strong> · Part 1 alone usually fixes it. Re-run <code>/plugin marketplace add danielpaulai/Purely-Personal-Run-a-business-by-itself</code> after.</div>
+          <br><br><strong>Most personal GitHub accounts don't have SSO</strong> · Part 1 alone usually fixes it. Re-run <code>/plugin marketplace add https://github.com/danielpaulai/Purely-Personal-Run-a-business-by-itself</code> after.</div>
       </details>
       <details>
         <summary>PowerShell installer ran but nothing happened · or installation never completed</summary>
@@ -2813,7 +2819,7 @@ Use the Bash tool. Don't make me type commands myself unless I have to (browser 
       </details>
       <details>
         <summary>Plugin install fails in PowerShell with red errors</summary>
-        <div class="tg-body"><strong>Cause:</strong> you're trying to install the plugin from PowerShell. The <code>/plugin marketplace add</code> command ONLY works from inside Claude Code · which is launched from <strong>Git Bash</strong>, not PowerShell. <strong>Fix:</strong> close PowerShell. Open Git Bash. Type <code>claude</code> to launch Claude Code. Inside Claude Code, paste <code>/plugin marketplace add danielpaulai/Purely-Personal-Run-a-business-by-itself</code> · press Enter. Then <code>/plugin install purely-personal@purely-personal-marketplace</code> · press Enter. Then <code>/exit</code> · re-run <code>claude</code>.</div>
+        <div class="tg-body"><strong>Cause:</strong> you're trying to install the plugin from PowerShell. The <code>/plugin marketplace add</code> command ONLY works from inside Claude Code · which is launched from <strong>Git Bash</strong>, not PowerShell. <strong>Fix:</strong> close PowerShell. Open Git Bash. Type <code>claude</code> to launch Claude Code. Inside Claude Code, paste <code>/plugin marketplace add https://github.com/danielpaulai/Purely-Personal-Run-a-business-by-itself</code> · press Enter. Then <code>/plugin install purely-personal@purely-personal-marketplace</code> · press Enter. Then <code>/exit</code> · re-run <code>claude</code>.</div>
       </details>
       <details>
         <summary>Terminal says <code>command not found: git</code></summary>
@@ -2821,11 +2827,11 @@ Use the Bash tool. Don't make me type commands myself unless I have to (browser 
       </details>
       <details>
         <summary>I typed <code>/</code> in Claude Code but no Purely Personal commands appear</summary>
-        <div class="tg-body"><strong>Most common cause:</strong> you're looking for <code>/build-my-brain</code> but Claude Code 2.x namespaces plugin commands as <code>/purely-personal:build-my-brain</code>. <strong>Fix:</strong> type <code>/purely-personal</code> · all 9 commands filter into the autocomplete. <strong>If they still don't appear:</strong> you didn't restart Claude Code. Type <code>/exit</code> (or Ctrl+D), re-run <code>claude</code>, type <code>/purely-personal</code>. <strong>If they're still not there:</strong> the marketplace wasn't added. Run <code>/plugin marketplace add danielpaulai/Purely-Personal-Run-a-business-by-itself</code>, then <code>/plugin install purely-personal@purely-personal-marketplace</code>, THEN restart.</div>
+        <div class="tg-body"><strong>Most common cause:</strong> you're looking for <code>/build-my-brain</code> but Claude Code 2.x namespaces plugin commands as <code>/purely-personal:build-my-brain</code>. <strong>Fix:</strong> type <code>/purely-personal</code> · all 9 commands filter into the autocomplete. <strong>If they still don't appear:</strong> you didn't restart Claude Code. Type <code>/exit</code> (or Ctrl+D), re-run <code>claude</code>, type <code>/purely-personal</code>. <strong>If they're still not there:</strong> the marketplace wasn't added. Run <code>/plugin marketplace add https://github.com/danielpaulai/Purely-Personal-Run-a-business-by-itself</code>, then <code>/plugin install purely-personal@purely-personal-marketplace</code>, THEN restart.</div>
       </details>
       <details>
         <summary><code>claude plugin install .</code> says "not recognized" (the OLD instruction)</summary>
-        <div class="tg-body"><strong>Why:</strong> that command was for an older Claude Code version. Claude Code 2.x has no <code>claude plugin install</code> CLI command at all. Use the new flow: <code>/plugin marketplace add danielpaulai/Purely-Personal-Run-a-business-by-itself</code> from INSIDE Claude Code (not the terminal). Then <code>/plugin install purely-personal@purely-personal-marketplace</code>.</div>
+        <div class="tg-body"><strong>Why:</strong> that command was for an older Claude Code version. Claude Code 2.x has no <code>claude plugin install</code> CLI command at all. Use the new flow: <code>/plugin marketplace add https://github.com/danielpaulai/Purely-Personal-Run-a-business-by-itself</code> from INSIDE Claude Code (not the terminal). Then <code>/plugin install purely-personal@purely-personal-marketplace</code>.</div>
       </details>
       <details>
         <summary>Only 5 or 6 slash commands appear, not 8</summary>
@@ -2888,7 +2894,7 @@ Use the Bash tool. Don't make me type commands myself unless I have to (browser 
       </details>
       <details>
         <summary><code>/plugins</code> inside Claude Code says "no plugins"</summary>
-        <div class="tg-body">Three possible causes in order. <strong>First:</strong> commands ARE installed but namespaced. Type <code>/purely-personal</code> instead of <code>/build-my-brain</code> · all 9 appear. <strong>Second:</strong> you forgot to restart. <code>/exit</code> · re-run <code>claude</code>. <strong>Third:</strong> marketplace wasn't added. Run <code>/plugin marketplace add danielpaulai/Purely-Personal-Run-a-business-by-itself</code>, then <code>/plugin install purely-personal@purely-personal-marketplace</code>, THEN <code>/exit</code> + re-run <code>claude</code>.</div>
+        <div class="tg-body">Three possible causes in order. <strong>First:</strong> commands ARE installed but namespaced. Type <code>/purely-personal</code> instead of <code>/build-my-brain</code> · all 9 appear. <strong>Second:</strong> you forgot to restart. <code>/exit</code> · re-run <code>claude</code>. <strong>Third:</strong> marketplace wasn't added. Run <code>/plugin marketplace add https://github.com/danielpaulai/Purely-Personal-Run-a-business-by-itself</code>, then <code>/plugin install purely-personal@purely-personal-marketplace</code>, THEN <code>/exit</code> + re-run <code>claude</code>.</div>
       </details>
       <details>
         <summary>Claude Code won't launch at all</summary>
