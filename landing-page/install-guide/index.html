@@ -2964,9 +2964,9 @@ Use the Bash tool. Don't make me type commands myself unless I have to (browser 
     btn.addEventListener('click', async e => {
       e.preventDefault();
       e.stopPropagation();
-      /* Extract plain text (strip the label + any highlight spans) */
+      /* Extract plain text (strip the label, the duration badge, and any highlight spans) */
       const clone = cmd.cloneNode(true);
-      clone.querySelectorAll('.cmd-label, .cmd-copy').forEach(el => el.remove());
+      clone.querySelectorAll('.cmd-label, .cmd-eta, .cmd-copy').forEach(el => el.remove());
       const text = clone.innerText.trim();
       try {
         await navigator.clipboard.writeText(text);
