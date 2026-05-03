@@ -269,6 +269,32 @@ td input[type=checkbox],td input[type=radio]{accent-color:var(--pp-red);width:17
 body.catchup-mode .panel[data-skippable="true"]{display:none}
 body.catchup-mode .nav .btn-line#catchupBtn{background:var(--pp-red);color:#fff;border-color:var(--pp-red)}
 
+/* ─── Sales-terms primer (Activity 2 · Signal + BANT explainer) ─── */
+.sales-primer{margin:14px 0;background:linear-gradient(135deg,#dbeafe 0%,#fff 60%);border:1px solid #bfdbfe;border-left:4px solid #3b82f6;border-radius:8px;overflow:hidden}
+.sales-primer>summary{padding:12px 16px;cursor:pointer;list-style:none;font-size:14px;color:#1e40af;user-select:none}
+.sales-primer>summary::-webkit-details-marker{display:none}
+.sales-primer>summary::before{content:'▸ ';color:#3b82f6;font-weight:800;display:inline-block;transition:transform 120ms;margin-right:4px}
+.sales-primer[open]>summary::before{content:'▾ '}
+.sales-primer>summary strong{color:#1e40af;font-weight:700}
+.sales-primer>summary em{color:var(--text-muted);font-style:italic}
+.sales-primer-body{padding:6px 18px 18px;border-top:1px solid #bfdbfe;background:#fff}
+.sales-primer-body h4{font-family:var(--display);font-size:15px;font-weight:800;color:var(--text-primary);margin:14px 0 6px;letter-spacing:-.01em}
+.sales-primer-body p{font-size:13.5px;color:var(--text-secondary);line-height:1.6;margin:0 0 10px}
+.sales-primer-body p strong{color:var(--text-primary);font-weight:700}
+.primer-table{margin:8px 0 4px}
+.primer-row{display:grid;grid-template-columns:280px 1fr;gap:14px;padding:8px 12px;border-bottom:1px solid var(--divider);font-size:13px;line-height:1.5}
+.primer-row:last-child{border-bottom:0}
+.primer-row strong{color:var(--pp-red);font-family:var(--mono);font-size:12px;font-weight:700}
+.primer-row span{color:var(--text-secondary)}
+@media(max-width:680px){.primer-row{grid-template-columns:1fr;gap:4px}}
+.primer-bant{display:grid;grid-template-columns:1fr;gap:6px;margin:6px 0 10px}
+.bant-row{display:grid;grid-template-columns:32px 90px 1fr;gap:10px;align-items:center;padding:8px 12px;background:var(--sub-card-bg);border:1px solid var(--divider);border-radius:6px;font-size:13px;line-height:1.45}
+.bant-letter{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--pp-red);color:#fff;font-family:var(--display);font-weight:900;font-size:16px}
+.bant-name{font-family:var(--display);font-weight:800;color:var(--text-primary);font-size:14px}
+.bant-q{color:var(--text-secondary);font-size:13px}
+.bant-thresholds{margin-top:10px;padding:10px 12px;background:#f0fdf4;border-left:3px solid #22c55e;border-radius:4px;font-size:12.5px;color:var(--text-secondary)}
+.bant-thresholds strong{color:#15803d;font-weight:700;font-family:var(--mono)}
+
 /* print */
 @media print{
   :root{--page-bg:#fff}
@@ -643,9 +669,35 @@ body.catchup-mode .nav .btn-line#catchupBtn{background:var(--pp-red);color:#fff;
       <label class="field"><span>Company size</span><input type="text" data-k="d1.a2.size"></label>
       <label class="field"><span>Location</span><input type="text" data-k="d1.a2.location"></label>
     </div>
-    <label class="field"><span>Signal to scrape (e.g. "posted about AI hiring last 30 days")</span>
-      <textarea data-k="d1.a2.signal"></textarea>
+    <label class="field"><span>Signal to scrape · the "why now" behavior (see 📖 Sales terms below if unsure)</span>
+      <textarea data-k="d1.a2.signal" placeholder="e.g. posted about AI hiring last 30 days · raised seed last 6 months · posted a content-marketer job ad in last 14 days"></textarea>
     </label>
+
+    <!-- ═══════════ Sales terms primer · Signal + BANT ═══════════ -->
+    <details class="sales-primer">
+      <summary>📖 <strong>Sales terms · what is "Signal" and "BANT"?</strong> <em>(open this if those words are new)</em></summary>
+      <div class="sales-primer-body">
+
+        <h4>🎯 SIGNAL · the "why now"</h4>
+        <p>The specific behavior or event that tells you a prospect might be in the market <strong>right now</strong> · vs in 6 months · vs never. Without a signal, you're cold-pitching the universe. With a signal, you're showing up the day they have the problem.</p>
+        <div class="primer-table">
+          <div class="primer-row"><strong>"Posted about AI hiring in last 30 days"</strong><span>They're thinking about adding to the team · open to AI replacing the hire</span></div>
+          <div class="primer-row"><strong>"Just raised a seed round (last 6 months)"</strong><span>They have budget · under pressure to grow fast</span></div>
+          <div class="primer-row"><strong>"Posted a job ad for content marketer in last 14 days"</strong><span>They feel the content gap · would consider AI before another hire</span></div>
+          <div class="primer-row"><strong>"Newsletter subs &gt;5K (in their LinkedIn bio)"</strong><span>They take content seriously · would value AI that sounds like them</span></div>
+        </div>
+
+        <h4>📊 BANT · the 4-letter qualifier (classic sales framework)</h4>
+        <p>Old-school IBM scoring · 10 points each · 40 max. Claude's sales-engine uses this to rank the 10 prospects it pulls.</p>
+        <div class="primer-bant">
+          <div class="bant-row"><span class="bant-letter">B</span><span class="bant-name">udget</span><span class="bant-q">Can they afford the AI CEO Platform ($2,997-$3,997)? Does their MRR / revenue suggest they have $3K spare?</span></div>
+          <div class="bant-row"><span class="bant-letter">A</span><span class="bant-name">uthority</span><span class="bant-q">Are they the founder · or a marketing manager who needs founder approval?</span></div>
+          <div class="bant-row"><span class="bant-letter">N</span><span class="bant-name">eed</span><span class="bant-q">Do they actually have the problem you solve · running from inbox · drowning in tools?</span></div>
+          <div class="bant-row"><span class="bant-letter">T</span><span class="bant-name">iming</span><span class="bant-q">Are they ready to buy NOW vs in 12 months? Did they recently express the pain?</span></div>
+        </div>
+        <p class="bant-thresholds"><strong>32+/40</strong> = ready for outreach this week · <strong>20-31</strong> = warm · nurture for 90 days · <strong>under 20</strong> = wrong fit · don't waste the slot.</p>
+      </div>
+    </details>
 
     <h3>2.2 · Run sales-engine · two paths</h3>
     <div class="dual-path">
@@ -677,9 +729,10 @@ body.catchup-mode .nav .btn-line#catchupBtn{background:var(--pp-red);color:#fff;
       </div>
     </div>
 
-    <h3>2.3 · Top 3 prospects</h3>
+    <h3>2.3 · Top 3 prospects · pulled from the 10 Claude returned</h3>
+    <p class="dim" style="margin-bottom:10px"><strong>Signal</strong> = their "why now" behavior · <strong>BANT</strong> = Budget+Authority+Need+Timing score (0-40) · scroll up to the 📖 Sales terms primer if these are new.</p>
     <table>
-      <tr><th>#</th><th>Name</th><th>Title / company</th><th>Signal</th><th>BANT</th></tr>
+      <tr><th>#</th><th>Name</th><th>Title / company</th><th>Signal · why now?</th><th>BANT · /40</th></tr>
       <tr><td>1</td><td><input type="text" data-k="d1.a2.p1.name"></td><td><input type="text" data-k="d1.a2.p1.tc"></td><td><input type="text" data-k="d1.a2.p1.sig"></td><td><input type="number" min="0" max="40" data-k="d1.a2.p1.bant"></td></tr>
       <tr><td>2</td><td><input type="text" data-k="d1.a2.p2.name"></td><td><input type="text" data-k="d1.a2.p2.tc"></td><td><input type="text" data-k="d1.a2.p2.sig"></td><td><input type="number" min="0" max="40" data-k="d1.a2.p2.bant"></td></tr>
       <tr><td>3</td><td><input type="text" data-k="d1.a2.p3.name"></td><td><input type="text" data-k="d1.a2.p3.tc"></td><td><input type="text" data-k="d1.a2.p3.sig"></td><td><input type="number" min="0" max="40" data-k="d1.a2.p3.bant"></td></tr>
