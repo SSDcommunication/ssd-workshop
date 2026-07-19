@@ -1,31 +1,19 @@
 'use client'
 
 import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Card from '../ui/Card'
-import Table from '../ui/Table'
+import { useEmailCampaigns } from '@/lib/hooks'
 import { EmailCampaign } from '@/types'
 
 export default function EmailCampaignManager() {
-  const [campaigns, setCampaigns] = useState<EmailCampaign[]>([
-    {
-      id: '1',
-      workshop_id: '2',
-      subject: 'Un atelier pour clarifier votre marque',
-      target_segment: 'Prospects SSD + anciens IKIGAI',
-      send_date: '2026-07-24',
-      status: 'draft',
-      sent_count: 0,
-      opened_count: 0,
-      clicked_count: 0,
-      unsubscribed_count: 0,
-      open_rate: 0,
-      click_rate: 0,
-      cta: 'S\'inscrire',
-      notes: 'Semaine 1 - Annonce',
-      created_at: '2026-07-17',
-      updated_at: '2026-07-17',
-    },
-  ])
+  const searchParams = useSearchParams()
+  const workshopId = searchParams.get('workshop_id') || ''
+
+  const { campaigns, loading, error, addCampaign, updateCampaign, deleteCampaign } =
+    useEmailCampaigns(workshopId || undefined)
+
+  const [selectedCampaign, setSelectedCampaign] = useState<EmailCampaign | null>(null)
 
   const columns = [
     { key: 'subject', label: 'Sujet' },
@@ -49,12 +37,28 @@ export default function EmailCampaignManager() {
     },
   ]
 
+  if (!workshopId) {
+    return (
+      <div className="p-8">
+        <p className="text-gray-600 text-center py-8">
+          Sélectionnez d'abord un atelier
+        </p>
+      </div>
+    )
+  }
+
   return (
     <div className="p-8">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-4xl font-bold text-gray-900">Campagnes Email</h1>
         <button className="btn-primary">+ Créer campagne</button>
       </div>
+
+      {error && (
+        <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+          {error}
+        </div>
+      )}
 
       {/* Stats */}
       <div className="grid grid-cols-4 gap-4 mb-8">
@@ -83,29 +87,118 @@ export default function EmailCampaignManager() {
       </div>
 
       <Card title="Séquence SSD Communication (6 semaines)">
-        <div className="space-y-3">
-          {campaigns.map((c, idx) => (
-            <div key={c.id} className="flex items-center justify-between p-3 bg-gray-50 rounded">
-              <div>
-                <p className="font-semibold text-gray-900">{idx + 1}. {c.subject}</p>
-                <p className="text-sm text-gray-600">{c.notes}</p>
+        {loading ? (
+          <p className="text-center text-gray-500 py-8">Chargement...</p>
+        ) : (
+          <div className="space-y-3">
+            {campaigns.map((c, idx) => (
+              <div
+                key={c.id}
+                onClick={() => setSelectedCampaign(c)}
+                className="flex items-center justify-between p-3 bg-gray-50 rounded cursor-pointer hover:bg-gray-100 transition-colors"
+              >
+                <div className="flex-1">
+                  <p className="font-semibold text-gray-900">
+                    {idx + 1}. {c.subject}
+                  </p>
+                  <p className="text-sm text-gray-600">{c.notes}</p>
+                  {c.open_rate !== undefined && (
+                    <p className="text-xs text-gray-500 mt-1">
+                      Ouverture: {c.open_rate.toFixed(1)}% | Clics: {c.click_rate?.toFixed(1)}%
+                    </p>
+                  )}
+                </div>
+                <div className="flex gap-3 items-center">
+                  <span
+                    className={`px-3 py-1 rounded text-sm font-medium whitespace-nowrap ${
+                      c.status === 'draft'
+                        ? 'bg-gray-200 text-gray-800'
+                        : c.status === 'scheduled'
+                        ? 'bg-blue-200 text-blue-800'
+                        : 'bg-green-200 text-green-800'
+                    }`}
+                  >
+                    {c.status === 'draft'
+                      ? 'Brouillon'
+                      : c.status === 'scheduled'
+                      ? 'Planifiée'
+                      : 'Envoyée'}
+                  </span>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      deleteCampaign(c.id).catch(() => alert('Erreur'))
+                    }}
+                    className="text-red-600 hover:underline text-sm"
+                  >
+                    ✕
+                  </button>
+                </div>
               </div>
-              <div className="flex gap-3 items-center">
-                <span className={`px-3 py-1 rounded text-sm font-medium ${
-                  c.status === 'draft'
-                    ? 'bg-gray-200 text-gray-800'
-                    : c.status === 'scheduled'
-                    ? 'bg-blue-200 text-blue-800'
-                    : 'bg-green-200 text-green-800'
-                }`}>
-                  {c.status === 'draft' ? 'Brouillon' : c.status === 'scheduled' ? 'Planifiée' : 'Envoyée'}
-                </span>
-                <button className="text-[#4dd1e3] hover:underline text-sm">Modifier</button>
+            ))}
+          </div>
+        )}
+      </Card>
+
+      {selectedCampaign && (
+        <Card title={`Détails: ${selectedCampaign.subject}`} className="mt-8">
+          <div className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <p className="text-sm text-gray-600">Segment cible</p>
+                <p className="font-semibold">{selectedCampaign.target_segment}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-600">Date d'envoi</p>
+                <p className="font-semibold">{selectedCampaign.send_date}</p>
               </div>
             </div>
-          ))}
-        </div>
-      </Card>
+            <div className="grid grid-cols-4 gap-4">
+              <div>
+                <p className="text-sm text-gray-600">Envoyés</p>
+                <p className="text-xl font-bold">{selectedCampaign.sent_count || 0}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-600">Ouverts</p>
+                <p className="text-xl font-bold">{selectedCampaign.opened_count || 0}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-600">Cliqués</p>
+                <p className="text-xl font-bold">{selectedCampaign.clicked_count || 0}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-600">Désinscrits</p>
+                <p className="text-xl font-bold">{selectedCampaign.unsubscribed_count || 0}</p>
+              </div>
+            </div>
+            <div>
+              <p className="text-sm text-gray-600 mb-2">CTA</p>
+              <p className="bg-gray-100 p-2 rounded">{selectedCampaign.cta}</p>
+            </div>
+            <div className="flex gap-3">
+              <button
+                onClick={() => {
+                  if (selectedCampaign.status === 'draft') {
+                    updateCampaign(selectedCampaign.id, { status: 'scheduled' })
+                      .then(() => setSelectedCampaign(null))
+                      .catch(() => alert('Erreur'))
+                  }
+                }}
+                className="btn-primary flex-1"
+                disabled={selectedCampaign.status !== 'draft'}
+              >
+                {selectedCampaign.status === 'draft' ? 'Planifier' : 'Déjà ' + selectedCampaign.status}
+              </button>
+              <button
+                onClick={() => setSelectedCampaign(null)}
+                className="btn-secondary flex-1"
+              >
+                Fermer
+              </button>
+            </div>
+          </div>
+        </Card>
+      )}
     </div>
   )
 }
