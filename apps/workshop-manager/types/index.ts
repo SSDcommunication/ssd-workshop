@@ -1,5 +1,25 @@
+export type WorkshopType = {
+  id: string
+  name: string
+  slug: string
+  description?: string
+  places_min: number
+  places_max: number
+  places_ideal: number
+  price: number
+  documents_by_status: {
+    en_construction: string[]
+    actif: string[]
+    archive: string[]
+  }
+  status: 'active' | 'archived'
+  created_at: string
+  updated_at: string
+}
+
 export type Workshop = {
   id: string
+  workshop_type_id: string
   name: string
   slug: string
   description?: string
