@@ -15,18 +15,25 @@ export function useWorkshopTypes() {
 
   const fetchTypes = async (): Promise<void> => {
     try {
+      console.log('[useWorkshopTypes] Starting fetch...')
       setLoading(true)
       setError(null)
       const response = await fetch('/api/workshop-types?page=1&limit=1000', { method: 'GET' })
-      if (!response.ok) throw new Error('Erreur lors du chargement')
+      console.log('[useWorkshopTypes] Response status:', response.status, response.ok)
+      if (!response.ok) throw new Error(`HTTP ${response.status}: Erreur lors du chargement`)
       const result = await response.json()
-      // Support nouvelle structure avec pagination
+      console.log('[useWorkshopTypes] Raw API response:', result)
       const data = result.items || result
+      console.log('[useWorkshopTypes] Extracted data:', data)
+      console.log('[useWorkshopTypes] Is array?', Array.isArray(data), 'Length:', Array.isArray(data) ? data.length : 'N/A')
       setTypes(Array.isArray(data) ? data : [])
+      console.log('[useWorkshopTypes] State updated')
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Erreur'
+      console.error('[useWorkshopTypes] Error:', message, err)
       setError(message)
     } finally {
+      console.log('[useWorkshopTypes] Finally block - setting loading to false')
       setLoading(false)
     }
   }
