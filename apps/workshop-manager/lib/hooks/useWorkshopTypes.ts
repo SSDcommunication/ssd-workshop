@@ -5,23 +5,26 @@ import { WorkshopType } from '@/types'
 
 export function useWorkshopTypes() {
   const [types, setTypes] = useState<WorkshopType[]>([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [isInitialized, setIsInitialized] = useState(false)
 
   useEffect(() => {
-    fetchTypes()
+    fetchTypes().finally(() => setIsInitialized(true))
   }, [])
 
-  const fetchTypes = async () => {
+  const fetchTypes = async (): Promise<void> => {
     try {
       setLoading(true)
+      setError(null)
       const response = await fetch('/api/workshop-types', { method: 'GET' })
       if (!response.ok) throw new Error('Erreur lors du chargement')
       const data = await response.json()
       setTypes(data)
-      setError(null)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erreur')
+      const message = err instanceof Error ? err.message : 'Erreur'
+      setError(message)
+      throw err
     } finally {
       setLoading(false)
     }
