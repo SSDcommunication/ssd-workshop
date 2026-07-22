@@ -1,7 +1,7 @@
 interface Column {
   key: string
   label: string
-  render?: (value: any) => React.ReactNode
+  render?: (value: any, row?: Record<string, any>) => React.ReactNode
 }
 
 interface TableProps {
@@ -47,7 +47,7 @@ export default function Table({ columns, data, loading }: TableProps) {
             <tr key={idx} className="border-b border-gray-200 hover:bg-gray-50">
               {columns.map((col) => (
                 <td key={col.key} className="px-6 py-4 text-sm text-gray-700">
-                  {col.render ? col.render(row[col.key]) : row[col.key]}
+                  {col.render ? col.render(row[col.key], row) : row[col.key]}
                 </td>
               ))}
             </tr>

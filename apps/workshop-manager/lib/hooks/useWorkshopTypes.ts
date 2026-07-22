@@ -22,9 +22,11 @@ export function useWorkshopTypes() {
       const result = await response.json()
       // Support nouvelle structure avec pagination
       const data = result.items || result
+      console.log('useWorkshopTypes DEBUG:', { result, data, length: data.length })
       setTypes(Array.isArray(data) ? data : [])
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Erreur'
+      console.error('useWorkshopTypes ERROR:', message)
       setError(message)
       throw err
     } finally {
