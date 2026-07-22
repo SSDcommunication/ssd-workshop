@@ -7,60 +7,34 @@ export function useWorkshopTypes() {
   const [types, setTypes] = useState<WorkshopType[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [isInitialized, setIsInitialized] = useState(false)
 
   useEffect(() => {
-    let isMounted = true
-
-    const fetchTypes = async () => {
+    (async () => {
       try {
-        console.log('[useWorkshopTypes] Starting fetch...')
-        const response = await fetch('/api/workshop-types?page=1&limit=1000')
-        console.log('[useWorkshopTypes] Response status:', response.status)
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`)
-        }
-        const result = await response.json()
-        console.log('[useWorkshopTypes] Got data:', result.items?.length || 0, 'items')
-
-        if (!isMounted) return
-
-        if (result.items && Array.isArray(result.items)) {
-          setTypes(result.items)
-        }
-        setError(null)
-      } catch (err) {
-        console.error('[useWorkshopTypes] Fetch error:', err)
-        if (isMounted) {
-          setError(err instanceof Error ? err.message : 'Erreur lors du chargement')
-        }
+        const res = await fetch('/api/workshop-types?page=1&limit=1000')
+        if (!res.ok) throw new Error('API error')
+        const data = await res.json()
+        console.log('[hook] data:', data)
+        setTypes(data.items || [])
+      } catch (e) {
+        console.error('[hook] error:', e)
+        setError(String(e))
       } finally {
-        if (isMounted) {
-          setLoading(false)
-          setIsInitialized(true)
-        }
+        setLoading(false)
       }
-    }
-
-    fetchTypes()
-
-    return () => {
-      isMounted = false
-    }
+    })()
   }, [])
 
   const refetch = async () => {
     setLoading(true)
     try {
-      const response = await fetch('/api/workshop-types?page=1&limit=1000')
-      if (!response.ok) throw new Error(`HTTP ${response.status}`)
-      const result = await response.json()
-      if (result.items && Array.isArray(result.items)) {
-        setTypes(result.items)
-      }
+      const res = await fetch('/api/workshop-types?page=1&limit=1000')
+      if (!res.ok) throw new Error('API error')
+      const data = await res.json()
+      setTypes(data.items || [])
       setError(null)
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erreur lors du chargement')
+    } catch (e) {
+      setError(String(e))
     } finally {
       setLoading(false)
     }
@@ -106,5 +80,5 @@ export function useWorkshopTypes() {
     }
   }
 
-  return { types, loading, error, addType, updateType, deleteType, refetch }
+  return { types, loading, error, addType, updateType, deleteType, refetch, isInitialized: !loading }
 }
