@@ -99,7 +99,7 @@ quarter).
 - ON TRACK · likely to ship by end of quarter
 - OFF TRACK · likely to miss · becomes an Issue
 
-**Sample quarterly Rocks (for Purely Personal, May-July):**
+**Sample quarterly Rocks (for Studio Style Design, May-July):**
 
 ```
 ROCK                                          OWNER    STATUS

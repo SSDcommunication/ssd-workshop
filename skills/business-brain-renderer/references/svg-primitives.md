@@ -257,7 +257,7 @@ Use sparingly — matrix is strong enough without.
 
 ---
 
-## Brand Mark (Purely Personal signature — bottom-right of Cover)
+## Brand Mark (Studio Style Design signature — bottom-right of Cover)
 
 ```html
 <svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">

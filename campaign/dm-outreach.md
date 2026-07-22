@@ -43,7 +43,7 @@ I'm showing how May 2.
 | They say | You reply |
 |----------|-----------|
 | "Yes" / "Interested" / "Send it" | Here's the page. $49, 40 seats, Saturday May 2 + Sunday May 3 at 11am Finland. [LINK]. Want me to save yours? |
-| "What is it?" / "Tell me more" | 2-day workshop where you build a Marketing Machine Day 1 and a Sales Machine Day 2 using Claude. Live. You do the building. Here's the page with the full agenda: [LINK]. Want me to save you a seat? |
+| "What is it?" / "Tell me more" | 2-day workshop where you build a IKIGAI Business Positioning Marketing Machine Day 1 and a Sales Machine Day 2 Action Plan using Claude. Live. You do the building. Here's the page with the full agenda: [LINK]. Want me to save you a seat? |
 | "Price?" | $49 for both days. 40 seats. Here's the page: [LINK] |
 | "Can't make those dates" | Totally fair. Workshop 02 opens for waitlist after May 3. Want me to put you on it? [WAITLIST LINK] |
 | "Not for me" | No worries. If you know a founder who'd want this, I'd owe you one. [LINK] |

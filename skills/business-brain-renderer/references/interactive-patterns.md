@@ -16,7 +16,7 @@ Drop this entire block into the `{{INTERACTIVE_SCRIPTS}}` slot for full interact
   'use strict';
 
   // ---------- CONFIG ----------
-  const STORAGE_KEY = 'purely-personal-brain-draft';
+  const STORAGE_KEY = 'studio-style-design-brain-draft';
   const SAVE_DEBOUNCE_MS = 600;
 
   // ---------- EDITABLE FIELDS ----------

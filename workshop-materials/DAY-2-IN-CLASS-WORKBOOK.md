@@ -48,7 +48,7 @@ ___________________________________________________________
 ```
 ┌────────────────────────────────────────────────────────────────┐
 │  GOAL    Triage inbox · draft replies · auto-generate one SOP │
-│  TOOL    /purely-personal:operations-engine                    │
+│  TOOL    /studio-style-design:operations-engine                    │
 │  WIN     Inbox to zero pending review · 1 SOP saved            │
 └────────────────────────────────────────────────────────────────┘
 ```
@@ -60,7 +60,7 @@ ___________________________________________________________
 ║                                                               ║
 ║   PASTE THIS into Claude Code:                                ║
 ║                                                               ║
-║   /purely-personal:operations-engine                          ║
+║   /studio-style-design:operations-engine                          ║
 ║                                                               ║
 ║   triage last 7 days · draft replies for high-priority        ║
 ║                                                               ║
@@ -154,7 +154,7 @@ ___________________________________________________________
 ```
 ┌────────────────────────────────────────────────────────────────┐
 │  GOAL    90-day cash forecast · Friday wrap · Profit First    │
-│  TOOL    /purely-personal:cash-engine                          │
+│  TOOL    /studio-style-design:cash-engine                          │
 │  WIN     You see runway + know what to transfer Friday         │
 └────────────────────────────────────────────────────────────────┘
 ```
@@ -166,7 +166,7 @@ ___________________________________________________________
 ║                                                               ║
 ║   PASTE THIS into Claude Code:                                ║
 ║                                                               ║
-║   /purely-personal:cash-engine                                ║
+║   /studio-style-design:cash-engine                                ║
 ║                                                               ║
 ║   90-day forecast · pull Stripe + bank · Profit First splits  ║
 ║                                                               ║
@@ -249,7 +249,7 @@ LOOKING AT MY 90-DAY FORECAST · THE ONE THING I MUST DO IS:
 ```
 ┌────────────────────────────────────────────────────────────────┐
 │  GOAL    Run leadership-engine · the brief that runs your day │
-│  TOOL    /purely-personal:leadership-engine                    │
+│  TOOL    /studio-style-design:leadership-engine                    │
 │  WIN     You see ALL 5 engines fused into one daily readout   │
 └────────────────────────────────────────────────────────────────┘
 ```
@@ -261,7 +261,7 @@ LOOKING AT MY 90-DAY FORECAST · THE ONE THING I MUST DO IS:
 ║                                                               ║
 ║   PASTE THIS into Claude Code:                                ║
 ║                                                               ║
-║   /purely-personal:leadership-engine                          ║
+║   /studio-style-design:leadership-engine                          ║
 ║                                                               ║
 ║   give me the full CEO morning brief · all 5 engines          ║
 ║                                                               ║
@@ -529,6 +529,6 @@ SCORE: ___ / 10 boxes ticked
 ─── END OF WORKSHOP ─── You now run a business that runs itself ───
 
   Saturday May 2 + Sunday May 3, 2026
-  Built with Claude Code · Purely Personal
+  Built with Claude Code · Studio Style Design
   danny@danielpaul.ai · purelypersonal.ai
 ```

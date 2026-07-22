@@ -21,7 +21,7 @@ The skill asks the user at Step 3 if this default works or if they want a differ
 ├── README.md                                ← The 5 things to customize (NEW · generated)
 ├── BUSINESS-BRAIN.md                        ← Symlinked or copied from existing repo
 ├── landing-page/
-│   ├── index.html                           ← Token-replaced from purely-personal/
+│   ├── index.html                           ← Token-replaced from studio-style-design/
 │   ├── install-guide/
 │   │   ├── index.html                       ← Token-replaced
 │   │   ├── CAPTURE-CHECKLIST.md             ← Copied as-is (workshop-agnostic)
@@ -113,7 +113,7 @@ GHL specialist gets this. Funnel name, price, email schedule all updated for the
 
 ## What does NOT get copied
 
-- `purely-personal/` plugin folder · the new workshop uses the same plugin (cross-workshop). Symlink or reference, don't copy.
+- `studio-style-design/` plugin folder · the new workshop uses the same plugin (cross-workshop). Symlink or reference, don't copy.
 - `examples/` · those are demo artifacts, not workshop content.
 - `skills/` · plugin internals.
 - `commands/` · plugin internals.

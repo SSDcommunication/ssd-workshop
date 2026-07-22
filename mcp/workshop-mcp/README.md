@@ -1,6 +1,6 @@
-# Purely Personal Workshop MCP
+# Studio Style Design Workshop MCP
 
-An MCP server that brings the Purely Personal workshop's voice tools and engines into Claude Desktop (and any other MCP client).
+An MCP server that brings the Studio Style Design workshop's voice tools and engines into Claude Desktop (and any other MCP client).
 
 Use it for:
 - **Spinning up new workshops** without being in Claude Code
@@ -57,7 +57,7 @@ The installer:
 1. Verifies Python 3.10+
 2. Installs the `mcp` package
 3. Auto-detects your Claude Desktop config location (Mac/Linux/Windows)
-4. Adds the `purely-personal-workshop` entry to `claude_desktop_config.json`
+4. Adds the `studio-style-design-workshop` entry to `claude_desktop_config.json`
 5. Verifies the server imports cleanly
 6. Tells you to restart Claude Desktop
 
@@ -66,7 +66,7 @@ Then fully quit Claude Desktop (Cmd+Q on Mac, right-click tray on Windows) and r
 ### Path 2 · pip install (medium · for developers)
 
 ```bash
-pip install purely-personal-workshop-mcp
+pip install studio-style-design-workshop-mcp
 ```
 
 (Coming soon · package is built but not yet published to PyPI. For now use Path 1 or Path 3.)
@@ -76,8 +76,8 @@ Then add to `~/Library/Application Support/Claude/claude_desktop_config.json` (M
 ```json
 {
   "mcpServers": {
-    "purely-personal-workshop": {
-      "command": "purely-personal-workshop-mcp"
+    "studio-style-design-workshop": {
+      "command": "studio-style-design-workshop-mcp"
     }
   }
 }
@@ -103,10 +103,10 @@ Then add to `~/Library/Application Support/Claude/claude_desktop_config.json` (M
    ```json
    {
      "mcpServers": {
-       "purely-personal-workshop": {
+       "studio-style-design-workshop": {
          "command": "python3",
          "args": [
-           "/absolute/path/to/purely-personal/mcp/workshop-mcp/server.py"
+           "/absolute/path/to/studio-style-design/mcp/workshop-mcp/server.py"
          ]
        }
      }
@@ -222,7 +222,7 @@ Use the slash command when you live in Claude Code. Use the MCP when you want it
 ### `score_post_against_brain` says BUSINESS-BRAIN.md not found
 
 The tool looks in:
-1. `purely-personal/BUSINESS-BRAIN.md` (the plugin root)
+1. `studio-style-design/BUSINESS-BRAIN.md` (the plugin root)
 2. The current working directory's `BUSINESS-BRAIN.md`
 3. A custom path if you pass `brain_path="..."`
 
@@ -263,4 +263,4 @@ It's the same engine as the slash commands, exposed through a different protocol
 
 ## Credits
 
-Built on top of the workshop-scaffolder skill (`purely-personal/skills/workshop-scaffolder/`) and the 5 engine slash commands (`purely-personal/commands/`). The skill defines the parameter inventory + voice rules + question flow that this MCP server enforces in code.
+Built on top of the workshop-scaffolder skill (`studio-style-design/skills/workshop-scaffolder/`) and the 5 engine slash commands (`studio-style-design/commands/`). The skill defines the parameter inventory + voice rules + question flow that this MCP server enforces in code.

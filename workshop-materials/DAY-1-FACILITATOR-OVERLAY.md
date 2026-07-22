@@ -50,7 +50,7 @@ Mistake to avoid: starting with content. **State first · content second · skil
 
 **Drop in chat:**
 ```
-🔥 Day 1 starts NOW. Workbook: https://purely-personal-workshop.vercel.app/workbook/day-1/
+🔥 Day 1 starts NOW. Workbook: https://studio-style-design-workshop.vercel.app/workbook/day-1/
 ```
 
 ---
@@ -118,7 +118,7 @@ Examples to expect:
 >
 > *"That's what build-my-brain is. It's not a setup script. It's the moment your business stops running on YOUR blueprint and starts running on its own."*
 
-**Now → Foundation activity (`/purely-personal:build-my-brain`).** Frame shift: from *"I'm running an install"* to *"I'm naming my voice."*
+**Now → Foundation activity (`/studio-style-design:build-my-brain`).** Frame shift: from *"I'm running an install"* to *"I'm naming my voice."*
 
 ---
 
@@ -228,7 +228,7 @@ STATE → IDENTITY → DECLARATION → PROOF → ANCHOR
 
 The existing Day 1 had **Proof** (the activities) but missed the other 4. Adding them takes Day 1 from *"a workshop where they ran some commands"* to *"the day my business changed."*
 
-The declarations matter most. The brain remembers what the body did · NOT what the slides said. Hand-on-heart + spoken phrase + 3 repetitions creates a state anchor that fires every Monday at 7am when their alarm goes off and they paste `/purely-personal:marketing-engine`.
+The declarations matter most. The brain remembers what the body did · NOT what the slides said. Hand-on-heart + spoken phrase + 3 repetitions creates a state anchor that fires every Monday at 7am when their alarm goes off and they paste `/studio-style-design:marketing-engine`.
 
 That's how you turn one workshop into 6 months of compound LinkedIn posts.
 

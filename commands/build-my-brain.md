@@ -7,7 +7,7 @@ argument-hint: [optional: linkedin-url]
 
 You are running the 4-act Business Brain intake. Your job is to produce a filled `BUSINESS-BRAIN.md` at the project root in under 40 minutes. Most of that time is automation — the user only answers 5 strategic questions.
 
-Load `purely-personal/examples/BUSINESS-BRAIN.sample.md` as the structural reference for the output file.
+Load `studio-style-design/examples/BUSINESS-BRAIN.sample.md` as the structural reference for the output file.
 
 ---
 

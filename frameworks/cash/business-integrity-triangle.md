@@ -79,7 +79,7 @@ include:
 specific outputs and accountability. "We'll figure it out" is the
 death of team integrity.
 
-For Purely Personal in 2026, the team might be:
+For Studio Style Design in 2026, the team might be:
 - You (architect / operator / face)
 - /marketing-engine (the marketing executive)
 - /sales-engine (the sales executive)
@@ -126,7 +126,7 @@ What you sell. The deliverable. The transformation in a box.
 - **Delivery** · how does it get to the customer?
 - **Support** · what happens when something breaks?
 
-For Purely Personal:
+For Studio Style Design:
 - Workshop is product 1 ($49)
 - AI CEO program is product 2 ($1,999 / $2,999)
 - Each must have all 4 sub-integrities solid
@@ -191,7 +191,7 @@ The lifeblood. Without cash · all other integrities collapse.
 - Profit distributions happening quarterly
 - War chest growing (PROFIT account)
 
-The /cash-engine maintains cash integrity in the Purely Personal
+The /cash-engine maintains cash integrity in the Studio Style Design
 system.
 
 ---

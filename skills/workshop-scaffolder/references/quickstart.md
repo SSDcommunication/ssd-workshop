@@ -76,7 +76,7 @@ THE 5 THINGS TO DO BEFORE YOU LAUNCH
     on registration, not on calendar.
 
 📂  Where things live
-    Plugin (reused, no copy):    purely-personal/  (existing repo)
+    Plugin (reused, no copy):    studio-style-design/  (existing repo)
     New workshop assets:         {OUTPUT_PATH}/{WORKSHOP_SLUG}/
     Render workspace (videos):   ~/Build a Business.../hyperframes-workspace/
 

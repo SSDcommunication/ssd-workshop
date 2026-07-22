@@ -106,7 +106,7 @@ Direct, conversational, confident. Short sentences. One idea per line. No hedgin
 ## 06 · Brand Identity
 
 ### Colors
-- `#e90d41` — Purely Personal red (primary)
+- `#e90d41` — Studio Style Design red (primary)
 - `#0a0a0a` — Charcoal
 - `#faf8f4` — Warm cream background
 - `#1a1a1a` — Near-black text
@@ -158,10 +158,10 @@ Editorial warmth meets technical precision. Cream paper, sharp typography, red a
 ## 09 · Goals & Stack
 
 ### 90-day priority
-Ship the Purely Personal plugin + 2-day workshop. 500 attendees, 50 cohort conversions.
+Ship the Studio Style Design plugin + 2-day workshop. 500 attendees, 50 cohort conversions.
 
 ### Stack
-- **Write:** Claude Code + purely-personal plugin
+- **Write:** Claude Code + studio-style-design plugin
 - **Publish:** LinkedIn, X, Beehiiv newsletter
 - **CRM:** Notion
 - **Payments:** Stripe

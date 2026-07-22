@@ -14,7 +14,7 @@
 | **SPIN** | Mid-market, consultative sale | $25k - $100k | 30-90 days |
 | **MEDDIC** | Enterprise, multi-stakeholder | > $100k | 90+ days |
 
-For Purely Personal workshop ($49) + AI CEO ($1,999-2,999), **BANT is
+For Studio Style Design workshop ($49) + AI CEO ($1,999-2,999), **BANT is
 the right choice** for the upsell. Below is each framework in detail
 so you can apply them as your offers grow.
 

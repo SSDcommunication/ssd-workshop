@@ -216,7 +216,7 @@ not selfish · it's the job.
 
 ---
 
-## Worked example · the Purely Personal week
+## Worked example · the Studio Style Design week
 
 Founder is solo · workshop launching May 2-3. How to balance maker +
 manager:

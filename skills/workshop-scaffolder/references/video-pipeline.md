@@ -168,7 +168,7 @@ The skill outputs this script. The user runs it once after generation. It takes 
 For each phase, the skill reads the existing Workshop 01 composition (`hyperframes-workspace/video-projects/pp-install-phase-N/index.html`) and:
 
 1. Replaces `data-composition-id="pp-install-phase-N"` → `data-composition-id="<slug>-phase-N"` in 2 places (root div + `window.__timelines` key)
-2. Replaces references to "Workshop 01" / "Purely Personal" if any
+2. Replaces references to "Workshop 01" / "Studio Style Design" if any
 3. Replaces the SUBTITLES array (placeholder for now · gets filled at Step 6 above)
 4. Updates the audio src path if needed (should still be `assets/narration.wav`)
 5. Writes to `videos/pp-install-phase-N/index.html`

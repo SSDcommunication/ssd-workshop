@@ -8,7 +8,7 @@ Every variable, where it lives in the existing Workshop 01 source, and the subst
 
 For each parameter:
 - **Token** · the variable name from question-flow.md
-- **Source files** · files in `purely-personal/` that contain Workshop-01 specific values
+- **Source files** · files in `studio-style-design/` that contain Workshop-01 specific values
 - **Find pattern** · the literal string in the source file (use grep)
 - **Replace with** · the new value derived from the user's answers
 
@@ -31,7 +31,7 @@ The skill reads the source file, applies all replacements, writes to the new wor
 - `README.md` · header
 
 ### `WORKSHOP_SLUG`
-**Default:** `purely-personal`
+**Default:** `studio-style-design`
 
 **Source files:**
 - All paths and folder names in the new project use this
@@ -158,7 +158,7 @@ These come from the user's Brain, not from question flow. Read them once at Step
 **Default Workshop 01:** `linkedin.com/in/danielpaulai`
 
 ### `BRAND_NAME`
-**Default Workshop 01:** `Purely Personal`
+**Default Workshop 01:** `Studio Style Design`
 
 ### `BRAND_RED` / `BRAND_DARK` / `BRAND_CREAM`
 **Default Workshop 01:** `#e90d41` / `#0f0f10` / `#faf8f4`
@@ -182,7 +182,7 @@ These come from the Brain's Brand section. If absent, use Workshop 01 defaults.
 The skill leaves this as a placeholder `[CTA_PAYMENT_URL]` in the new workshop. User swaps after GHL funnel built.
 
 ### `LANDING_PAGE_URL`
-**Default Workshop 01:** `purely-personal-workshop.vercel.app`
+**Default Workshop 01:** `studio-style-design-workshop.vercel.app`
 
 Used in DM outreach, emails, social copy.
 

@@ -174,9 +174,9 @@ If any check fails, rewrite that section before outputting.
 ## When in doubt
 
 Read 3 sample outputs from the existing Workshop 01:
-- `purely-personal/campaign/vsl-script.md` (the VSL)
-- `purely-personal/campaign/email-campaign.md` (Email A1, A2)
-- `purely-personal/campaign/dm-outreach.md` (Segment A opener)
+- `studio-style-design/campaign/vsl-script.md` (the VSL)
+- `studio-style-design/campaign/email-campaign.md` (Email A1, A2)
+- `studio-style-design/campaign/dm-outreach.md` (Segment A opener)
 
 Match that voice. Match that pace. Match that level of specificity.
 

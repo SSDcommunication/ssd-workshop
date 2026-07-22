@@ -1,6 +1,6 @@
 # Design System — Content Visual Builder
 
-**This skill uses the shared Purely Personal design system.** All tokens, typography, and rules live in the master design-system file of the Business Brain Renderer skill.
+**This skill uses the shared Studio Style Design design system.** All tokens, typography, and rules live in the master design-system file of the Business Brain Renderer skill.
 
 👉 **Read:** [`../../business-brain-renderer/references/design-system.md`](../../business-brain-renderer/references/design-system.md)
 

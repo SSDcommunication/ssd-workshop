@@ -60,7 +60,7 @@ Look at competitors. Price ±10% of them.
 - You compete on transformation, not features
 - Competitors are themselves under-priced (most are)
 
-**For Purely Personal:**
+**For Studio Style Design:**
 - Generic AI workshops: $97-$497
 - Cohort programs: $1,500-$5,000
 - Done-with-you AI consulting: $5,000-$20,000

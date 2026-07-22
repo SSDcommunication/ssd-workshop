@@ -37,7 +37,7 @@ When triaging inbox (Monday + ad-hoc):
 When generating new SOPs:
 
 1. Uses the 5-section template
-2. Files by area in `purely-personal/sops/`
+2. Files by area in `studio-style-design/sops/`
 3. Indexes in BUSINESS-BRAIN.md § Operations
 
 ## The 7-day operating rhythm (combine all 7)

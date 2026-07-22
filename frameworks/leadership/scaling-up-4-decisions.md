@@ -99,7 +99,7 @@ minds. NOT a sentence · a word.
 - Stripe · "developers"
 - Hormozi · "offers"
 
-For Purely Personal · the candidate word is "AUTOPILOT" or
+For Studio Style Design · the candidate word is "AUTOPILOT" or
 "WITHOUT-YOU." Pick one. Reinforce it everywhere. Don't drift.
 
 If you don't own a word · you compete on price. Price competition
@@ -124,7 +124,7 @@ previous.
 
 The specific guarantee. Measurable. Time-bound.
 
-For Purely Personal:
+For Studio Style Design:
 > "By Sunday at 5pm · you have a business that runs without you ·
 >  or refund."
 
@@ -137,7 +137,7 @@ If you don't have a brand promise · you're a vendor · not a brand.
 
 Where is the business in 5-15 years? Specific.
 
-For Purely Personal (5-year):
+For Studio Style Design (5-year):
 - 1,000 alumni founders
 - $5M ARR · 70% from continuity (Slack subs) + cohort programs
 - Distributed team of 8 · operating across 3 timezones
@@ -164,7 +164,7 @@ How the work gets done · reliably · without breaking the operator.
 
 See `operations/four-disciplines-execution.md` for the deep version.
 
-Rocks for Purely Personal Q2 2026:
+Rocks for Studio Style Design Q2 2026:
 
 ```
 1 · 30 paying cohort members from May workshop
@@ -181,7 +181,7 @@ Rocks for Purely Personal Q2 2026:
 The 5-15 metrics you check every Friday. Visible. Updated. Linked
 to Rocks.
 
-Sample for Purely Personal:
+Sample for Studio Style Design:
 
 ```
 Marketing:
@@ -254,7 +254,7 @@ qualification · close · upsell.
 Quarterly question: "What's the highest-leverage move to generate
 20% MORE revenue next quarter without working 20% more hours?"
 
-For Purely Personal:
+For Studio Style Design:
 - This quarter: workshop + AI CEO upsell
 - Next quarter: another workshop + cohort + new continuity offer
 - Quarter after: affiliate engine + alumni referral program

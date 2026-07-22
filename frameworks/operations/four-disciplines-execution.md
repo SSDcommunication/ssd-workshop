@@ -86,7 +86,7 @@ The lead measure is what you DO. The lag measure is what you GET.
 For every WIG, identify the ONE lead measure that produces 80% of
 the result. Drop the others. Track only that one.
 
-For Purely Personal · "30 cohort members from May 2-3 workshop":
+For Studio Style Design · "30 cohort members from May 2-3 workshop":
 - Lead measure: "5 personalized 1:1 DMs to attendees per day · between
   workshop end and Tuesday cohort kickoff"
 

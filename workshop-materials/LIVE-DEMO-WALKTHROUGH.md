@@ -26,7 +26,7 @@ Mary in chat:
 **INPUT (what Danny types into Claude Code · live · everyone watches):**
 
 ```
-/purely-personal:marketing-engine
+/studio-style-design:marketing-engine
 ```
 
 **OUTPUT (what appears on screen · ~2 seconds later):**
@@ -228,7 +228,7 @@ He mutes. Timer visible on screen.
 **What each attendee does:**
 
 ```
-their typing:  /purely-personal:marketing-engine
+their typing:  /studio-style-design:marketing-engine
 their picking: 1, 2, 3, or own topic
 their writing: 3-5 sentences of brain-dump
 their waiting: ~90 sec
@@ -287,7 +287,7 @@ Counts hands. Acknowledges.
 **INPUT:**
 
 ```
-/purely-personal:sales-engine
+/studio-style-design:sales-engine
 ```
 
 **OUTPUT:**
@@ -508,7 +508,7 @@ SAVES TO:
   Calendar · Review reminder Tuesday 9am
 
 POWERED BY:
-  /purely-personal:marketing-engine + linkedin-hooks.md
+  /studio-style-design:marketing-engine + linkedin-hooks.md
 ```
 
 Danny narrates each routine. By Tuesday's card, the room is leaning in.
@@ -541,7 +541,7 @@ These are show-only · 8 min each · Danny demos on his own business · attendee
 **INPUT:**
 
 ```
-/purely-personal:operations-engine
+/studio-style-design:operations-engine
 ```
 
 **OUTPUT (~30 sec):**
@@ -584,7 +584,7 @@ Trial close: "Hands up if your inbox could be empty by 9am."
 **INPUT:**
 
 ```
-/purely-personal:cash-engine
+/studio-style-design:cash-engine
 ```
 
 **OUTPUT:**
@@ -643,7 +643,7 @@ Trial close: "Hands up if you want your real revenue every Friday without openin
 **INPUT:**
 
 ```
-/purely-personal:leadership-engine
+/studio-style-design:leadership-engine
 ```
 
 **OUTPUT:**

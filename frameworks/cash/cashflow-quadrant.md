@@ -184,7 +184,7 @@ The shift from S/E to B/I is the wealth-building decade.
 
 ---
 
-## How Purely Personal moves you S → B
+## How Studio Style Design moves you S → B
 
 The 5 engines + 6 routines + AI CEO are designed to move you OUT of
 S quadrant and INTO B.

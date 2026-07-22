@@ -65,7 +65,7 @@ discounting.
 3. Each is positioned as something you'd normally sell separately
 4. Stack 3-7 (not 12 · the buyer stops believing)
 
-**Example stack (for Purely Personal AI CEO at $1,999):**
+**Example stack (for Studio Style Design AI CEO at $1,999):**
 
 ```
 Core: AI CEO orchestration agent (full setup)        ($5,000 value)
@@ -107,7 +107,7 @@ Scarcity = number-based limit. Real scarcity, not fake.
 The buyer can SMELL fake scarcity. It destroys trust faster than no
 scarcity at all.
 
-**For Purely Personal AI CEO:**
+**For Studio Style Design AI CEO:**
 - "30 attendees in this workshop · the offer is for these 30 only"
 - "Tier 2 has 5 seats · I can't 1:1 onboard more than 5 in May"
 
@@ -156,7 +156,7 @@ refund."
 "You don't pay until you see [outcome]." OR "Pay 50% upfront, 50% after
 [milestone]."
 
-**For Purely Personal AI CEO:**
+**For Studio Style Design AI CEO:**
 
 Recommend Tier 2:
 > "30-day full money back. No questions. The only condition: do the
@@ -230,7 +230,7 @@ For workshop launches specifically, the engine should generate:
 - The risk reversal language
 - The scarcity + urgency lines
 
-See `purely-personal/workshop-materials/SALES-SEQUENCE.md` for the
+See `studio-style-design/workshop-materials/SALES-SEQUENCE.md` for the
 applied example for the May 2-3 workshop.
 
 ---

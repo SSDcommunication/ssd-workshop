@@ -68,7 +68,7 @@ business dimensions:
 4 · 10X PRICE          ·  what offer earns 10x the current price?
 ```
 
-For Purely Personal:
+For Studio Style Design:
 
 ```
 1 · 10X REVENUE: $1.5M ARR (currently building toward · 1-yr plan)
@@ -128,7 +128,7 @@ Most operators · honestly answered · would delete:
 The delete list is brutal. It's the only way to free capacity for
 the 10X build.
 
-For Purely Personal:
+For Studio Style Design:
 - DELETE: 1:1 coaching at $250/hr (was 60% of revenue)
 - DELETE: Custom course-builds for clients (1-off projects)
 - DELETE: Every meeting that's not the L10

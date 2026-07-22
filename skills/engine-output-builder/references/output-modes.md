@@ -1,7 +1,7 @@
 # Output Modes — Engine Output Builder
 
 Minimal page shells for each dimension. Each shell:
-- Loads the shared Purely Personal design-system CSS (`:root` custom properties)
+- Loads the shared Studio Style Design design-system CSS (`:root` custom properties)
 - Frames a single section from `business-brain-renderer`
 - Adds a brand corner mark + optional footer
 - Sets viewport so the HTML renders at the target dimension

@@ -29,7 +29,7 @@ How much do you spend (in money + time) to get ONE customer?
 CAC = (total marketing $ + sales $) / new customers acquired
 ```
 
-**Worked example for Purely Personal:**
+**Worked example for Studio Style Design:**
 
 ```
 THIS QUARTER:
@@ -128,7 +128,7 @@ LTV/CAC = Lifetime Value / Customer Acquisition Cost
 - LTV/CAC > 5 · either you're under-investing in growth · or you've
   found a goldmine
 
-**Purely Personal AI CEO math:**
+**Studio Style Design AI CEO math:**
 
 ```
 LTV:       $2,998
@@ -175,7 +175,7 @@ Gross margin:                    ($1,999 - $138) / $1,999 = 93%
 - Physical products: 30-60%
 - Marketplaces: 10-30%
 
-For Purely Personal · 90%+ is realistic for AI CEO. The cohort
+For Studio Style Design · 90%+ is realistic for AI CEO. The cohort
 delivery is YOU + AI · low marginal cost.
 
 ---

@@ -63,7 +63,7 @@ WHAT YOU SAW: ___________________________________________
 └─────────────────────────────────────────┘
 ```
 
-Then once Claude Code opens, type `/purely-personal:` and watch autocomplete.
+Then once Claude Code opens, type `/studio-style-design:` and watch autocomplete.
 
 ▸ You should see 9 commands appear: `build-my-brain`, `marketing-engine`, `sales-engine`, `operations-engine`, `cash-engine`, `leadership-engine`, `prep-workshop-slides`, `ship-it-live`, `new-workshop`
 
@@ -86,7 +86,7 @@ HOW MANY COMMANDS APPEARED?  _____ / 9
 ```
 
 ▸ Claude lists empty sections
-▸ If sections 4 (Voice) or 5 (ICP) are empty → STOP · run `/purely-personal:build-my-brain` first
+▸ If sections 4 (Voice) or 5 (ICP) are empty → STOP · run `/studio-style-design:build-my-brain` first
 
 ```
 SECTIONS STILL EMPTY: ___________________________________
@@ -106,7 +106,7 @@ SECTIONS STILL EMPTY: ___________________________________
 ```
 ┌────────────────────────────────────────────────────────────────┐
 │  GOAL    Generate 3 LinkedIn posts in YOUR voice               │
-│  TOOL    /purely-personal:marketing-engine                     │
+│  TOOL    /studio-style-design:marketing-engine                     │
 │  WIN     One post good enough to publish today                 │
 └────────────────────────────────────────────────────────────────┘
 ```
@@ -132,7 +132,7 @@ TOPIC: ________________________________________________________
 ║                                                               ║
 ║   PASTE THIS into Claude Code:                                ║
 ║                                                               ║
-║   /purely-personal:marketing-engine                           ║
+║   /studio-style-design:marketing-engine                           ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 ```
@@ -224,7 +224,7 @@ WHY IT WORKS:  __________________________________________
 ```
 ┌────────────────────────────────────────────────────────────────┐
 │  GOAL    10 prospects researched · BANT-scored · 3 outreached │
-│  TOOL    /purely-personal:sales-engine                         │
+│  TOOL    /studio-style-design:sales-engine                         │
 │  WIN     3 personalized outreach drafts ready to send          │
 └────────────────────────────────────────────────────────────────┘
 ```
@@ -255,7 +255,7 @@ SIGNAL TO SCRAPE:    ______________________________________
 ║                                                               ║
 ║   PASTE THIS into Claude Code:                                ║
 ║                                                               ║
-║   /purely-personal:sales-engine                               ║
+║   /studio-style-design:sales-engine                               ║
 ║                                                               ║
 ║   then when prompted, paste your ICP filter from Step 2.1     ║
 ║                                                               ║
@@ -378,12 +378,12 @@ Each takes 4-7 min · YOU review + approve · Claude writes everything
 ### Step 3.2 · Set the alarms NOW
 
 ```
-☐ MON 7:00am · /purely-personal:marketing-engine          (recurring)
-☐ TUE 8:00am · /purely-personal:sales-engine              (recurring)
-☐ WED 8:00am · /purely-personal:marketing-engine          (recurring)
-☐ THU 7:00am · /purely-personal:sales-engine              (recurring)
-☐ FRI 5:00pm · /purely-personal:operations-engine         (recurring)
-☐ SUN 6:00pm · /purely-personal:sales-engine              (recurring)
+☐ MON 7:00am · /studio-style-design:marketing-engine          (recurring)
+☐ TUE 8:00am · /studio-style-design:sales-engine              (recurring)
+☐ WED 8:00am · /studio-style-design:marketing-engine          (recurring)
+☐ THU 7:00am · /studio-style-design:sales-engine              (recurring)
+☐ FRI 5:00pm · /studio-style-design:operations-engine         (recurring)
+☐ SUN 6:00pm · /studio-style-design:sales-engine              (recurring)
 
 ⚠ THE COMMAND IS THE TITLE · so when the alarm fires you know what to paste
 ```
@@ -420,7 +420,7 @@ DEEP WORK WINDOW 3:    Day _________  Time __________ - __________
 ```
 ┌────────────────────────────────────────────────────────────────┐
 │  GOAL    Run Monday 7am routine RIGHT NOW · prove the loop    │
-│  TOOL    /purely-personal:leadership-engine                    │
+│  TOOL    /studio-style-design:leadership-engine                    │
 │  WIN     You see the morning brief format · know what's next  │
 └────────────────────────────────────────────────────────────────┘
 ```
@@ -432,7 +432,7 @@ DEEP WORK WINDOW 3:    Day _________  Time __________ - __________
 ║                                                               ║
 ║   PASTE THIS into Claude Code:                                ║
 ║                                                               ║
-║   /purely-personal:leadership-engine                          ║
+║   /studio-style-design:leadership-engine                          ║
 ║                                                               ║
 ║   simulate Monday 7am · pull from all 5 engines               ║
 ║                                                               ║

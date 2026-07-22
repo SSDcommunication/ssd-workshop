@@ -24,9 +24,9 @@ Video + checklist emailed 48h before Day 1. Attendees watch + install on their o
 
 ### What they do
 1. Install Claude Code (~5 min)
-2. Clone the `purely-personal` repo (~2 min)
+2. Clone the `studio-style-design` repo (~2 min)
 3. Install the plugin: `claude plugin install .` (~1 min)
-4. Run health-check: `/plugin list` → confirm `purely-personal` shows all skills + commands (~1 min)
+4. Run health-check: `/plugin list` → confirm `studio-style-design` shows all skills + commands (~1 min)
 5. Optional: install Apify MCP for automated scraping (~10 min)
 6. Join the Day 1 Zoom 5 minutes early
 

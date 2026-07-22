@@ -147,7 +147,7 @@ weak, the post will not perform.
 
 ---
 
-## Worked example · Purely Personal post
+## Worked example · Studio Style Design post
 
 ```
 HOOK   · I built a business that runs without me in 4 hours.

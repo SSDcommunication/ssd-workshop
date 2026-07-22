@@ -1,6 +1,6 @@
 # Sample Output · Marketing Engine · After Voice Corpus
 
-> What `/purely-personal:marketing-engine` produces NOW that it reads
+> What `/studio-style-design:marketing-engine` produces NOW that it reads
 > the 5-post voice corpus + VOICE-SIGNATURE.md.
 > Topic: "The Saturday workshop · why install BUSINESS-BRAIN.md before
 > you write another LinkedIn post."
@@ -174,7 +174,7 @@ All 3 pass · zero em-dashes · zero banned phrases · all signature patterns pr
 
 ## WHAT THIS MEANS FOR SATURDAY
 
-When you demo `/purely-personal:marketing-engine` live on Saturday:
+When you demo `/studio-style-design:marketing-engine` live on Saturday:
 
 1. The engine now reads YOUR 5 posts before generating
 2. Output sounds like you · not generic AI

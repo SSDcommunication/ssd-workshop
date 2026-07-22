@@ -59,7 +59,7 @@
 
 | # | Filename | Capture |
 |---|---|---|
-| 10 | `06-slash-commands-menu.png` | Claude Code with `/` dropdown expanded. All 8 purely-personal commands visible. Red-circle the 8 commands as a group. |
+| 10 | `06-slash-commands-menu.png` | Claude Code with `/` dropdown expanded. All 8 studio-style-design commands visible. Red-circle the 8 commands as a group. |
 
 ### Step 7 · Gmail connector (2 screenshots)
 
@@ -123,7 +123,7 @@
 
 | # | Filename | Capture |
 |---|---|---|
-| 24 | `16-claude-plugins-output.png` | Claude Code `/plugins` output with "purely-personal" in the loaded plugins list. |
+| 24 | `16-claude-plugins-output.png` | Claude Code `/plugins` output with "studio-style-design" in the loaded plugins list. |
 
 ### Step 17 · Empty BRAIN.md (1 screenshot)
 

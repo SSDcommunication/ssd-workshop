@@ -136,7 +136,7 @@ On May 2 and 3 I'm running a 2-day intensive where you build these systems live.
 
 Danny
 
-P.S. The last Purely Personal workshop sold out before the registration deadline.
+P.S. The last Studio Style Design workshop sold out before the registration deadline.
 ```
 
 ---
@@ -325,7 +325,7 @@ One of them wrote me this morning:
 
 That feeling doesn't come from another SaaS subscription. It comes from building something that's yours.
 
-The next Purely Personal workshop opens in 3 weeks. Waitlist: [LINK]
+The next Studio Style Design workshop opens in 3 weeks. Waitlist: [LINK]
 
 For those who want to go deeper than a 2-day intensive, the Cohort (June 2026) is now open. 10 seats. Details: [COHORT LINK]
 
@@ -500,7 +500,7 @@ Here's the page: [WORKSHOP LINK]
 
 Danny
 
-P.S. The last Purely Personal workshop sold out before the registration deadline. 11 seats left as of this email.
+P.S. The last Studio Style Design workshop sold out before the registration deadline. 11 seats left as of this email.
 ```
 
 ---

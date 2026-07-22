@@ -202,7 +202,7 @@ See `SALES-SEQUENCE.md` for the full pitch script.
 - [ ] Camera tested. Lighting tested. Audio tested.
 - [ ] Music playlist queued (4 songs minimum: opening, mid-day pump, lunch, close).
 - [ ] BUSINESS-BRAIN.md filled in for YOUR business (you teach from yours).
-- [ ] All 4 install videos verified live at https://purely-personal-workshop.vercel.app/install-guide/
+- [ ] All 4 install videos verified live at https://studio-style-design-workshop.vercel.app/install-guide/
 - [ ] Workshop MCP installed (you ran install.sh).
 - [ ] Stripe payment link for $1,999 tier created · tested in incognito.
 - [ ] Stripe payment link for $2,999 tier created · tested in incognito.

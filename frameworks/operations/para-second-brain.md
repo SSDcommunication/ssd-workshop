@@ -262,7 +262,7 @@ When the engine creates the BUSINESS-BRAIN.md (build-my-brain):
 
 ---
 
-## Tools by PARA folder (Purely Personal stack)
+## Tools by PARA folder (Studio Style Design stack)
 
 ```
 P · PROJECTS:
@@ -274,7 +274,7 @@ A · AREAS:
 
 R · RESOURCES:
    Drive · /resources/ folder (topic-organized)
-   purely-personal/frameworks/ (this directory)
+   studio-style-design/frameworks/ (this directory)
 
 A · ARCHIVE:
    Notion · "Archive" view of Projects + Areas (auto-filtered)
@@ -306,7 +306,7 @@ PARA: 4 folders. 5-second filing. Action-oriented. Compounds.
 Don't try to run PARA across 12 tools. Pick ONE primary tool
 (usually Notion). Run PARA there. Other tools sync into it.
 
-For Purely Personal:
+For Studio Style Design:
 - **Notion** is the PARA hub (Projects + Areas + Archive)
 - **Drive** mirrors Resources
 - **Gmail labels** mirror Areas (5 engines)

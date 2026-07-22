@@ -137,7 +137,7 @@ Once the GIF is rendered, deploy to:
 1. **README.md** — embed as the first image after the hero (replace the placeholder `./examples/screenshot.png` reference)
 2. **LinkedIn post** — announcing the workshop
 3. **Twitter thread** — tweet 1 of the workshop launch thread
-4. **Newsletter** — hero of the "Purely Personal is live" email
+4. **Newsletter** — hero of the "Studio Style Design is live" email
 5. **purelypersonal.ai** homepage — above the fold
 
 ---

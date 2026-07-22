@@ -1,4 +1,4 @@
-# GHL Build Spec — Workshop 01 · Purely Personal
+# GHL Build Spec — Workshop 01 · Studio Style Design
 ### Funnel → Form → Payment → Enrollment Email → Pre-Workshop Drip
 
 **For:** GHL specialist / VA setting up the $49 workshop funnel in GoHighLevel
@@ -12,7 +12,7 @@
 ```
   ┌──────────────────────────────────────────────────────────────────┐
   │                                                                  │
-  │   Visitor lands on purely-personal-workshop.vercel.app           │
+  │   Visitor lands on studio-style-design-workshop.vercel.app           │
   │              ↓                                                   │
   │   Clicks "Reserve my seat" CTA                                   │
   │              ↓                                                   │
@@ -400,7 +400,7 @@ Once the GHL funnel is live, Danny needs **one URL** to paste into the landing p
 GHL Funnel URL: https://_________________________________
 ```
 
-Once pasted, every "Reserve my seat · $49" button on `purely-personal-workshop.vercel.app` will route to GHL, and the rest of this spec runs automatically.
+Once pasted, every "Reserve my seat · $49" button on `studio-style-design-workshop.vercel.app` will route to GHL, and the rest of this spec runs automatically.
 
 ---
 
@@ -455,6 +455,6 @@ Before building, confirm with Danny:
 **Spec owner:** Daniel Paul
 **Last updated:** Apr 21, 2026
 **Related files:**
-- `landing-page/index.html` — live at [purely-personal-workshop.vercel.app](https://purely-personal-workshop.vercel.app)
+- `landing-page/index.html` — live at [studio-style-design-workshop.vercel.app](https://studio-style-design-workshop.vercel.app)
 - `commands/prep-workshop-slides.md` — consumes the webhook CSV
 - `workshop/mind-blown-activities.md` — what the attendees experience after registering

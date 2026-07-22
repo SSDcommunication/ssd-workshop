@@ -37,7 +37,7 @@ ALREADY are.
 Test: "If we hired someone and they violated this value · would we
 fire them?" If yes · it's a real value. If no · it's a poster.
 
-For Purely Personal:
+For Studio Style Design:
 
 ```
 1 · BUILD-FIRST · we build the system before we sell the system
@@ -68,7 +68,7 @@ Core Focus filters every opportunity:
 
 Big hairy audacious goal. Specific enough to be measurable.
 
-For Purely Personal · 10-year target:
+For Studio Style Design · 10-year target:
 
 ```
 "By 2036:
@@ -162,7 +162,7 @@ KEY OBJECTIVES (3-7):
 The next 90 days. The Wildly Important Goals (see
 `leadership/wildly-important-goals.md`).
 
-For Purely Personal Q2 2026:
+For Studio Style Design Q2 2026:
 
 ```
 1 · 30 paying cohort members (May 3 deadline)
@@ -246,10 +246,10 @@ Full vision refresh:
 
 ## Where the V/TO lives
 
-For Purely Personal, the V/TO lives in:
+For Studio Style Design, the V/TO lives in:
 
 ```
-purely-personal/leadership/V-T-O.md
+studio-style-design/leadership/V-T-O.md
                                 ↑
                                 version-controlled · changes tracked
 

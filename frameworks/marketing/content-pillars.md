@@ -37,7 +37,7 @@ search-able authority.
 - Framework explanations
 - Case studies with numbers
 
-**Example titles (for Purely Personal):**
+**Example titles (for Studio Style Design):**
 - "How to set up a Monday Content Drop in 4 minutes"
 - "5 LinkedIn hook patterns that beat my last 50 posts"
 - "The 4-question script I use to qualify any lead"
@@ -145,7 +145,7 @@ PERSONAL STORY  = What's the moment that explains why you do this?
                    What's the failure that earned the right to lead?
 ```
 
-For Purely Personal, the 3 pillars might be:
+For Studio Style Design, the 3 pillars might be:
 
 1. **HARD VALUE** · "Building businesses that run without you using AI"
 2. **SOFT POSITIONING** · "AI is replacing operators, not strategists"

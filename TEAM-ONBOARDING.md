@@ -1,10 +1,10 @@
-# Purely Personal — Team Onboarding
+# Studio Style Design — Team Onboarding
 
 > Read this first. Find your role at the bottom. 10-minute read.
 
 ---
 
-## 1. What Purely Personal Is (in one minute)
+## 1. What Studio Style Design Is (in one minute)
 
 **A 2-day live workshop** where solopreneurs and founders install a working AI Marketing + Sales system inside Claude Code — in their own voice, for $49.
 
@@ -47,7 +47,7 @@ A 90-day immersion for founders who want to run this as their operating system. 
 - **Purpose:** This is where the real revenue comes from. Workshop 01 exists to feed the Cohort.
 
 ### Product C — The Open-Source Plugin
-The `purely-personal` plugin lives on GitHub, free for anyone to clone. It's the workshop deliverable AND a permanent marketing asset.
+The `studio-style-design` plugin lives on GitHub, free for anyone to clone. It's the workshop deliverable AND a permanent marketing asset.
 
 - **Repo:** [github.com/danielpaulai/Purely-Personal-Run-a-business-by-itself](https://github.com/danielpaulai/Purely-Personal-Run-a-business-by-itself)
 - **License:** MIT (free to use and modify)
@@ -64,7 +64,7 @@ The customer journey, end to end:
 │                                                                      │
 │   1. STRANGER sees a LinkedIn post or Claude Design cheatsheet       │
 │                ↓                                                     │
-│   2. Lands on purely-personal-workshop.vercel.app                    │
+│   2. Lands on studio-style-design-workshop.vercel.app                    │
 │                ↓                                                     │
 │   3. Watches the 2-min VSL · reads the page                          │
 │                ↓                                                     │
@@ -107,7 +107,7 @@ All of this is live in the GitHub repo. 5 commits shipped. 56+ files.
 - `1 attendee slideshow system` — personalized opening slides + auto-cycle
 
 ### ✅ The Landing Page
-- Live at [purely-personal-workshop.vercel.app](https://purely-personal-workshop.vercel.app)
+- Live at [studio-style-design-workshop.vercel.app](https://studio-style-design-workshop.vercel.app)
 - V3 visual language (cream + red + dark drumbeats)
 - 15 sections: hero, VSL slot, proof band, problem, promise, value stack ($4,200 → $49), Day 1/Day 2, schedule table, testimonials, trainer bio, pricing, FAQ, final CTA
 - Auto-deploys on push to main
@@ -241,7 +241,7 @@ All of this is live in the GitHub repo. 5 commits shipped. 56+ files.
 2. **Collect 3 real testimonials** from Workshop 00 / past clients — drops into the testimonials section
 3. **Design the launch schedule** — aim for 2 weeks of posting before April 30 (to hit the May 1 registration close)
 4. **Script the VSL** (2-minute video) — Danny records it but you write the script
-5. **Newsletter announcement** — the Purely Personal list gets a dedicated issue for the Workshop
+5. **Newsletter announcement** — the Studio Style Design list gets a dedicated issue for the Workshop
 
 **Voice rules (non-negotiable):**
 - No em-dashes
@@ -287,14 +287,14 @@ Every piece of content should reference Danny's actual wins: `$0 content cost`, 
 ## 9. Where Everything Lives
 
 ```
-purely-personal/                          ← the whole project
+studio-style-design/                          ← the whole project
 │
 ├── README.md                             ← repo hero page
 ├── TEAM-ONBOARDING.md                    ← you are here
 ├── LICENSE
 │
 ├── landing-page/
-│   └── index.html                        ← live at purely-personal-workshop.vercel.app
+│   └── index.html                        ← live at studio-style-design-workshop.vercel.app
 │
 ├── commands/                             ← 8 slash commands
 │   ├── build-my-brain.md                 ← the intake
@@ -383,7 +383,7 @@ If any item slips past its deadline, the Workshop 01 date slips too. This is the
 | Term | What it actually means |
 |------|-----------------------|
 | **Claude Code** | Anthropic's terminal app that runs Claude on your computer (like ChatGPT but locally, with plugins) |
-| **Plugin** | A folder of files that adds new features to Claude Code (our `purely-personal` folder) |
+| **Plugin** | A folder of files that adds new features to Claude Code (our `studio-style-design` folder) |
 | **Skill** | A set of instructions Claude reads before acting (3 of them in our plugin) |
 | **Slash command** | A shortcut that triggers a skill (e.g. `/marketing-engine`) |
 | **MCP / Apify** | Tools that let Claude scrape real data from the web (LinkedIn, websites, Reddit) |

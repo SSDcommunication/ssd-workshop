@@ -65,7 +65,7 @@ you'll run out of cash · or when you'll have surplus to invest.
 Subscriptions, retainers, continuity. Predictable. Low forecasting
 error.
 
-For Purely Personal:
+For Studio Style Design:
 - Slack community at $97/month × X members
 - Annual subscriptions paid quarterly
 
@@ -87,7 +87,7 @@ contacts.
 ### c · One-time projects
 Workshops, launches, consulting projects with set close dates.
 
-For Purely Personal:
+For Studio Style Design:
 - Next workshop: $49 × 30 attendees = $1,470 on Saturday May 2
 
 ### d · Other income
@@ -222,7 +222,7 @@ Every Friday afternoon:
 
 ---
 
-## The Purely Personal forecast (worked example)
+## The Studio Style Design forecast (worked example)
 
 ```
 START BALANCE (Friday May 2):     $25,000

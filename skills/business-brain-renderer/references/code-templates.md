@@ -706,7 +706,7 @@ Use at most 3 per Brain. Default positions: after Section 2, after Section 5, af
 
 ## Footer Snippet
 
-Replaces the `{{FOOTER}}` slot in the base wrapper. One variable (`{{REPO_URL}}`) — defaults to the Purely Personal repo.
+Replaces the `{{FOOTER}}` slot in the base wrapper. One variable (`{{REPO_URL}}`) — defaults to the Studio Style Design repo.
 
 ```html
 <footer style="margin-top:64px;padding-top:32px;border-top:1px solid var(--divider);text-align:center">
@@ -715,7 +715,7 @@ Replaces the `{{FOOTER}}` slot in the base wrapper. One variable (`{{REPO_URL}}`
     <div style="font-family:var(--display);font-weight:700;font-size:16px">{{BRAND_NAME}}</div>
   </div>
   <div style="font-size:12px;color:var(--text-muted);font-family:var(--mono)">BUSINESS BRAIN · {{BRAIN_DATE}} · {{BRAND_TAGLINE}}</div>
-  <div style="margin-top:12px;font-size:12px;color:var(--text-secondary)">Built with <a href="{{REPO_URL}}" style="color:var(--pp-red);text-decoration:none;border-bottom:1px solid currentColor">purely-personal</a></div>
+  <div style="margin-top:12px;font-size:12px;color:var(--text-secondary)">Built with <a href="{{REPO_URL}}" style="color:var(--pp-red);text-decoration:none;border-bottom:1px solid currentColor">studio-style-design</a></div>
 </footer>
 ```
 

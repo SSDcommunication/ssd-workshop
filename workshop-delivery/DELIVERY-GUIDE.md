@@ -46,7 +46,7 @@ value publicly.
 - [ ] **Pre-flight call** with a friend on Friday May 1 · share screen, run 30 min of slides, get feedback
 
 ### Content (one week before)
-- [ ] Re-watch the 4 install videos at https://purely-personal-workshop.vercel.app/install-guide/
+- [ ] Re-watch the 4 install videos at https://studio-style-design-workshop.vercel.app/install-guide/
 - [ ] Run all 8 slash commands yourself, take screenshots of each working
 - [ ] Pick **3 student volunteers** for Day 1 demos (live BUSINESS-BRAIN.md walkthrough, marketing post review, sales prospect research). Email them Tuesday April 28.
 - [ ] Pick **2 case studies** for the AI CEO upsell (Day 2 afternoon). Even if hypothetical for the first cohort, frame as "here's what the next 90 days looks like for someone who keeps going."

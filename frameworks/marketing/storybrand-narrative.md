@@ -84,7 +84,7 @@ Make it:
 - Each step has a clear outcome
 - The whole plan fits on one screen
 
-Example (Purely Personal):
+Example (Studio Style Design):
 1. **Install** the plugin (15 min)
 2. **Build your brain** (20 min)
 3. **Run your first routine** (4 min)

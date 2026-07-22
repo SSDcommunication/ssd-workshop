@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S'inscrire à IKIGAI Business · Studio Style Design</title>
+<script src="https://js.stripe.com/v3/"></script>
+<style>
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: linear-gradient(135deg, #faf8f4 0%, #fbf9f6 100%);
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: #1a1a1a;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-top: 40px;
+}
+.header h1 {
+  font-family: 'Rethink Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 10px;
+}
+.header p {
+  color: #6b6b6b;
+  margin: 0;
+}
+
+.form-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.form-section {
+  background: white;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(233, 13, 65, 0.08);
+}
+
+.form-section h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e8e2d8;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #1a1a1a;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e8e2d8;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #e90d41;
+  box-shadow: 0 0 0 3px rgba(233, 13, 65, 0.1);
+}
+
+.pricing-display {
+  background: #faf8f4;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  border-left: 4px solid #e90d41;
+}
+.pricing-display .plan-name {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.pricing-display .plan-price {
+  font-family: 'Rethink Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #e90d41;
+}
+.pricing-display .plan-price .currency {
+  font-size: 16px;
+}
+.pricing-display .plan-description {
+  font-size: 13px;
+  color: #6b6b6b;
+  margin-top: 8px;
+}
+.pricing-display ul {
+  list-style: none;
+  padding: 12px 0 0;
+  margin: 0;
+  font-size: 12px;
+}
+.pricing-display li {
+  padding: 4px 0;
+  color: #6b6b6b;
+}
+.pricing-display li:before {
+  content: "✓ ";
+  color: #e90d41;
+  font-weight: 800;
+  margin-right: 6px;
+}
+
+#card-element {
+  padding: 10px 12px;
+  border: 1px solid #e8e2d8;
+  border-radius: 4px;
+  background: white;
+  margin-bottom: 16px;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background: #e90d41;
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 200ms;
+}
+.btn-submit:hover {
+  background: #c70a38;
+}
+.btn-submit:disabled {
+  background: #d0cdc8;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #e90d41;
+  font-size: 13px;
+  margin-top: 8px;
+  display: none;
+}
+
+.success-message {
+  background: #e8f5e9;
+  border: 1px solid #4caf50;
+  color: #2e7d32;
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.terms {
+  font-size: 12px;
+  color: #a8a39b;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.summary {
+  background: white;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(233, 13, 65, 0.08);
+  position: sticky;
+  top: 20px;
+}
+
+.summary h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e8e2d8;
+}
+
+.summary-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #e8e2d8;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+.summary-item:last-child {
+  border-bottom: none;
+  padding-top: 16px;
+  padding-bottom: 0;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.what-happens {
+  background: #faf8f4;
+  padding: 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #6b6b6b;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+.timeline {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #e8e2d8;
+}
+.timeline h3 {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #a8a39b;
+}
+.timeline-item {
+  padding: 8px 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.timeline-item strong {
+  color: #e90d41;
+}
+
+@media (max-width: 768px) {
+  .form-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .summary {
+    position: static;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>S'inscrire à IKIGAI Business</h1>
+    <p>Samedi 1er août, 14h-17h (ou 17h) en Zoom · 20 places maximum</p>
+  </div>
+
+  <div class="form-wrapper">
+    <!-- FORMULAIRE -->
+    <form id="registration-form">
+      <div class="form-section">
+        <div class="success-message" id="success-msg">
+          ✓ Paiement confirmé ! Vérifiez votre email pour les détails de connexion à Zoom.
+        </div>
+
+        <h2>Vos Informations</h2>
+
+        <div class="form-group">
+          <label>Prénom *</label>
+          <input type="text" name="firstName" required>
+        </div>
+
+        <div class="form-group">
+          <label>Nom *</label>
+          <input type="text" name="lastName" required>
+        </div>
+
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label>Téléphone</label>
+          <input type="tel" name="phone">
+        </div>
+
+        <div class="form-group">
+          <label>Secteur d'activité *</label>
+          <select name="sector" required>
+            <option value="">-- Sélectionner --</option>
+            <option value="design">Design / Créatif</option>
+            <option value="coaching">Coaching / Conseil</option>
+            <option value="artisanat">Artisanat / Métier d'art</option>
+            <option value="consulting">Consulting / Expertise</option>
+            <option value="digital">Digital / Tech</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
+
+        <h2 style="margin-top: 32px;">Formule *</h2>
+
+        <div class="form-group">
+          <label>
+            <input type="radio" name="plan" value="standard" checked>
+            <strong>Standard</strong> - 49€
+          </label>
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="radio" name="plan" value="premium">
+            <strong>Premium</strong> - 97€
+          </label>
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="radio" name="plan" value="vip">
+            <strong>VIP</strong> - 197€
+          </label>
+        </div>
+
+        <h2 style="margin-top: 32px;">Paiement</h2>
+        <div id="card-element"></div>
+        <div class="error-message" id="card-errors"></div>
+
+        <button type="submit" class="btn-submit" id="submit-btn">Confirmer l'Inscription</button>
+
+        <div class="terms">
+          En confirmant, vous acceptez nos conditions d'utilisation et notre politique de confidentialité.<br>
+          Les places se remplissent vite — inscriptions closes le 31 juillet à 23h59.
+        </div>
+      </div>
+    </form>
+
+    <!-- RÉSUMÉ -->
+    <div>
+      <div class="summary">
+        <h2>Résumé de votre inscription</h2>
+
+        <div class="summary-item">
+          <span>Formule</span>
+          <span id="summary-plan">Standard</span>
+        </div>
+        <div class="summary-item">
+          <span>Prix</span>
+          <span id="summary-price">49€</span>
+        </div>
+        <div class="summary-item">
+          <span>TOTAL</span>
+          <span id="summary-total">49€</span>
+        </div>
+
+        <div class="what-happens">
+          <strong>Après inscription :</strong><br>
+          ✓ Email de confirmation immédiat avec le lien Zoom<br>
+          ✓ Rappels la veille et le jour même<br>
+          ✓ Accès au groupe WhatsApp SSD IKIGAI
+        </div>
+
+        <div class="timeline">
+          <h3>Déroulement de la session</h3>
+          <div class="timeline-item">
+            <strong>14h00-14h15</strong> — Accueil, présentation, règles d'engagement
+          </div>
+          <div class="timeline-item">
+            <strong>14h15-15h30</strong> — Diagnostic en direct de vos 4 cercles IKIGAI
+          </div>
+          <div class="timeline-item">
+            <strong>15h30-15h45</strong> — Pause
+          </div>
+          <div class="timeline-item">
+            <strong>15h45-17h00</strong> — Construction de votre positionnement clair + plan d'action
+          </div>
+          <div class="timeline-item">
+            <strong>17h00+</strong> — Q&A et offre des étapes suivantes
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const stripe = Stripe('pk_test_PLACEHOLDER'); // TODO: Remplacer par clé Stripe réelle
+const elements = stripe.elements();
+const cardElement = elements.create('card');
+cardElement.mount('#card-element');
+
+// Mise à jour du résumé
+document.querySelectorAll('input[name="plan"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    const prices = {
+      standard: { name: 'Standard', price: '49€' },
+      premium: { name: 'Premium', price: '97€' },
+      vip: { name: 'VIP', price: '197€' }
+    };
+    const selected = prices[this.value];
+    document.getElementById('summary-plan').textContent = selected.name;
+    document.getElementById('summary-price').textContent = selected.price;
+    document.getElementById('summary-total').textContent = selected.price;
+  });
+});
+
+// Gestion du formulaire
+document.getElementById('registration-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const submitBtn = document.getElementById('submit-btn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Traitement en cours...';
+
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData);
+
+  try {
+    // TODO: Intégrer Stripe Checkout
+    // const { token } = await stripe.createToken(cardElement);
+    // const response = await fetch('/api/checkout', { method: 'POST', body: JSON.stringify({...data, token}) });
+
+    document.getElementById('success-msg').style.display = 'block';
+    // setTimeout(() => window.location.href = '/confirmation', 2000);
+  } catch (error) {
+    document.getElementById('card-errors').textContent = error.message;
+    document.getElementById('card-errors').style.display = 'block';
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Confirmer l\'Inscription';
+  }
+});
+
+cardElement.addEventListener('change', function(event) {
+  const displayError = document.getElementById('card-errors');
+  if (event.error) {
+    displayError.textContent = event.error.message;
+    displayError.style.display = 'block';
+  } else {
+    displayError.textContent = '';
+    displayError.style.display = 'none';
+  }
+});
+</script>
+
+</body>
+</html>

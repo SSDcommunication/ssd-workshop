@@ -1,5 +1,5 @@
 {
-  "name": "purely-personal-marketplace",
+  "name": "studio-style-design-marketplace",
   "owner": {
     "name": "Daniel Paul",
     "email": "danny@danielpaul.ai",
@@ -7,18 +7,18 @@
   },
   "metadata": {
     "version": "1.0.0",
-    "description": "The Purely Personal AI C-Suite plugin · 5 engines (Marketing, Sales, Operations, Cash, Leadership) + 38 frameworks + BUSINESS-BRAIN.md as the context layer"
+    "description": "The Studio Style Design AI C-Suite plugin · 5 engines (Marketing, Sales, Operations, Cash, Leadership) + 38 frameworks + BUSINESS-BRAIN.md as the context layer"
   },
   "plugins": [
     {
-      "name": "purely-personal",
+      "name": "studio-style-design",
       "description": "An AI C-Suite for solopreneurs. 8 slash commands wired to BUSINESS-BRAIN.md and 38 operator-grade frameworks. Marketing, Sales, Operations, Cash, and Leadership engines that read your business context and ship real work in minutes.",
       "version": "1.0.0",
       "author": {
         "name": "Daniel Paul",
         "url": "https://purelypersonal.ai"
       },
-      "homepage": "https://purely-personal-workshop.vercel.app",
+      "homepage": "https://studio-style-design-workshop.vercel.app",
       "repository": "https://github.com/danielpaulai/Purely-Personal-Run-a-business-by-itself",
       "license": "MIT",
       "category": "productivity",
@@ -32,7 +32,7 @@
         "leadership-engine",
         "solopreneur",
         "frameworks",
-        "purely-personal"
+        "studio-style-design"
       ],
       "source": "./",
       "strict": false

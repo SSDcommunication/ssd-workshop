@@ -277,7 +277,7 @@ Short description for each (used in hover tooltip in interactive mode):
 | Context | String |
 |---------|--------|
 | Doc title | "{Name} — Business Brain" |
-| Footer brand | "Purely Personal" |
+| Footer brand | "Studio Style Design" |
 | Footer URL | "purelypersonal.ai" |
 | Save indicator (interactive) | "Saved" |
 | Saving indicator (interactive) | "Saving..." |

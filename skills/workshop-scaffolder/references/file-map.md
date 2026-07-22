@@ -1,7 +1,7 @@
 # File Map
 
 For each output file in the new workshop, this map says:
-- The source file in `purely-personal/`
+- The source file in `studio-style-design/`
 - Whether it's "hard" (token-replace) or "soft" (Claude rewrites)
 - Notes for any tricky substitutions
 
@@ -13,13 +13,13 @@ These are read from source, tokens replaced, written to output.
 
 | Output | Source | Notes |
 |--------|--------|-------|
-| `landing-page/index.html` | `purely-personal/landing-page/index.html` | Replace `WORKSHOP_NAME`, `DAY_1_DATE_HUMAN`, `DAY_2_DATE_HUMAN`, `WORKSHOP_DATES_RANGE`, `PRICE`, `SEAT_COUNT`, `DAY_1_DELIVERABLE`, `DAY_2_DELIVERABLE`, `CTA_PAYMENT_URL`, `LANDING_PAGE_URL`. The post-card body is workshop-specific · replace with new VSL hook (first 100 words). |
-| `landing-page/install-guide/index.html` | `purely-personal/landing-page/install-guide/index.html` | Replace `WORKSHOP_NAME` in title + intro h1. Replace `WORKSHOP_DATES_RANGE` in footer. Replace `GITHUB_REPO_URL` in clone command. The 8 slash commands list stays the same (engines don't change unless user explicitly says so in a follow-up). |
-| `landing-page/install-guide/CAPTURE-CHECKLIST.md` | `purely-personal/landing-page/install-guide/CAPTURE-CHECKLIST.md` | Copy verbatim. Workshop-agnostic. |
-| `integrations/vercel-to-ghl.md` | `purely-personal/integrations/vercel-to-ghl.md` | Copy verbatim. Workshop-agnostic. |
-| `integrations/ghl-build-spec.md` | `purely-personal/integrations/ghl-build-spec.md` | Replace `WORKSHOP_NUMBER`, `WORKSHOP_NAME`, `DAY_1_DATE_HUMAN`, `DAY_2_DATE_HUMAN`, `PRICE`, `SEAT_COUNT`. The funnel name = `Workshop <NUM> · <DATES>`. |
-| `workshop/worksheets/*` | `purely-personal/workshop/worksheets/*` | Copy verbatim. The 5 fillable HTML worksheets are plugin content, not workshop content. |
-| `.gitignore` | `purely-personal/.gitignore` | Copy verbatim. |
+| `landing-page/index.html` | `studio-style-design/landing-page/index.html` | Replace `WORKSHOP_NAME`, `DAY_1_DATE_HUMAN`, `DAY_2_DATE_HUMAN`, `WORKSHOP_DATES_RANGE`, `PRICE`, `SEAT_COUNT`, `DAY_1_DELIVERABLE`, `DAY_2_DELIVERABLE`, `CTA_PAYMENT_URL`, `LANDING_PAGE_URL`. The post-card body is workshop-specific · replace with new VSL hook (first 100 words). |
+| `landing-page/install-guide/index.html` | `studio-style-design/landing-page/install-guide/index.html` | Replace `WORKSHOP_NAME` in title + intro h1. Replace `WORKSHOP_DATES_RANGE` in footer. Replace `GITHUB_REPO_URL` in clone command. The 8 slash commands list stays the same (engines don't change unless user explicitly says so in a follow-up). |
+| `landing-page/install-guide/CAPTURE-CHECKLIST.md` | `studio-style-design/landing-page/install-guide/CAPTURE-CHECKLIST.md` | Copy verbatim. Workshop-agnostic. |
+| `integrations/vercel-to-ghl.md` | `studio-style-design/integrations/vercel-to-ghl.md` | Copy verbatim. Workshop-agnostic. |
+| `integrations/ghl-build-spec.md` | `studio-style-design/integrations/ghl-build-spec.md` | Replace `WORKSHOP_NUMBER`, `WORKSHOP_NAME`, `DAY_1_DATE_HUMAN`, `DAY_2_DATE_HUMAN`, `PRICE`, `SEAT_COUNT`. The funnel name = `Workshop <NUM> · <DATES>`. |
+| `workshop/worksheets/*` | `studio-style-design/workshop/worksheets/*` | Copy verbatim. The 5 fillable HTML worksheets are plugin content, not workshop content. |
+| `.gitignore` | `studio-style-design/.gitignore` | Copy verbatim. |
 
 ---
 
@@ -29,9 +29,9 @@ These have token-replaceable headers/dates/CTAs PLUS workshop-unique prose that 
 
 | Output | Source | What gets rewritten |
 |--------|--------|---------------------|
-| `campaign/email-campaign.md` | `purely-personal/campaign/email-campaign.md` | Subject lines (all 21). Email A1 body (the 9-Word Email). Email A2 body (Event Promo Response). Email A3 body (Client Win · must reference workshop's domain, not Workshop 01's). Email A4–A14 bodies: token-replace dates/prices, lightly edit hook references. Email B1–B7: token-replace + edit lead-magnet references if they changed. **Skip A12 + A13 if user said "skip cohort" on Q8.** |
-| `campaign/dm-outreach.md` | `purely-personal/campaign/dm-outreach.md` | Each segment's 2 openers (8 total). Reply flow templates token-replaced. |
-| `notion-master-doc.md` | `purely-personal/campaign/notion-master-doc.md` (if it exists; otherwise generate fresh) | Workshop name, dates, price, financial model, refreshed timeline (T-9 to T+6 dates derived from Day 1), team table (same people), folder structure. The "What This Actually Is" section needs a workshop-specific paragraph. |
+| `campaign/email-campaign.md` | `studio-style-design/campaign/email-campaign.md` | Subject lines (all 21). Email A1 body (the 9-Word Email). Email A2 body (Event Promo Response). Email A3 body (Client Win · must reference workshop's domain, not Workshop 01's). Email A4–A14 bodies: token-replace dates/prices, lightly edit hook references. Email B1–B7: token-replace + edit lead-magnet references if they changed. **Skip A12 + A13 if user said "skip cohort" on Q8.** |
+| `campaign/dm-outreach.md` | `studio-style-design/campaign/dm-outreach.md` | Each segment's 2 openers (8 total). Reply flow templates token-replaced. |
+| `notion-master-doc.md` | `studio-style-design/campaign/notion-master-doc.md` (if it exists; otherwise generate fresh) | Workshop name, dates, price, financial model, refreshed timeline (T-9 to T+6 dates derived from Day 1), team table (same people), folder structure. The "What This Actually Is" section needs a workshop-specific paragraph. |
 
 ---
 

@@ -130,7 +130,7 @@ How many clicks/steps from "intend to do it" to "doing it"?
 - 3 clicks: OK
 - 6+ clicks: dead
 
-For each Purely Personal routine, audit:
+For each Studio Style Design routine, audit:
 1. How do I get to Claude Code? (≤ 1 click ideal)
 2. How do I run the engine? (1 paste ideal)
 3. How does the output get saved? (automatic ideal · no manual save)
@@ -149,7 +149,7 @@ satisfaction.
 A streak counter, a checklist, a calendar grid. Crossing off the
 day creates a small dopamine hit.
 
-For Purely Personal:
+For Studio Style Design:
 - A "routines fired" tracker in Notion
 - Weekly Friday-wrap shows: 6/6 routines fired (or 4/6)
 - Monthly review shows: 24/24 weeks of streaks

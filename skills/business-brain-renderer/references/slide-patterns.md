@@ -29,7 +29,7 @@ The signature opener. Defined structurally in [visual-catalog.md] §1 and implem
 │      ●    ●    ●    ●    ●                     │  ← 5 engine badges
 │      M    S    O    C    L                     │
 │                                                │
-│   BUSINESS BRAIN · Apr 2026 · Purely Personal  │  ← 12px meta
+│   BUSINESS BRAIN · Apr 2026 · Studio Style Design  │  ← 12px meta
 │                                                │
 └────────────────────────────────────────────────┘
 ```
@@ -315,7 +315,7 @@ Every rendered Brain ends with this footer block. Provides meta, brand, and a su
   <!-- Brand mark -->
   <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:12px">
     <div style="width:24px;height:24px;background:var(--pp-red);border-radius:4px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--display);font-weight:700;font-size:13px">pp</div>
-    <div style="font-family:var(--display);font-weight:700;font-size:16px">Purely Personal</div>
+    <div style="font-family:var(--display);font-weight:700;font-size:16px">Studio Style Design</div>
   </div>
 
   <!-- Meta line -->
@@ -325,7 +325,7 @@ Every rendered Brain ends with this footer block. Provides meta, brand, and a su
 
   <!-- Subtle CTA -->
   <div style="margin-top:12px;font-size:12px;color:var(--text-secondary)">
-    Built with <a href="https://github.com/danielpaulai/Purely-Personal-Run-a-business-by-itself" style="color:var(--pp-red);text-decoration:none;border-bottom:1px solid currentColor">purely-personal</a>
+    Built with <a href="https://github.com/danielpaulai/Purely-Personal-Run-a-business-by-itself" style="color:var(--pp-red);text-decoration:none;border-bottom:1px solid currentColor">studio-style-design</a>
   </div>
 
 </footer>

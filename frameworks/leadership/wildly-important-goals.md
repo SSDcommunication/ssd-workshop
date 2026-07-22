@@ -51,7 +51,7 @@ From [current state] → To [target state] → By [deadline]
 
 If you can't fit it in this format · it's not WIG-ready.
 
-**Examples for Purely Personal Q2 2026:**
+**Examples for Studio Style Design Q2 2026:**
 
 ```
 WIG 1: From 0 paying cohort members → To 30 paying members → By May 3 13:00
@@ -73,7 +73,7 @@ Each one passes all 3 criteria:
 Everything that's not a WIG is "the whirlwind." Important. Necessary.
 Just not WILDLY important.
 
-For Purely Personal · the whirlwind includes:
+For Studio Style Design · the whirlwind includes:
 - Email triage
 - Support requests
 - Routine content posts

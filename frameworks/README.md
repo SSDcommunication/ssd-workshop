@@ -1,4 +1,4 @@
-# Purely Personal · Frameworks Library
+# Studio Style Design · Frameworks Library
 
 > The intellectual core underneath all 5 engines. 38 framework files
 > across 5 directories · curated from operator canon · structures

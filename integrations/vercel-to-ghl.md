@@ -21,7 +21,7 @@
 
 **What it looks like:**
 
-- Visitor lands on `purely-personal-workshop.vercel.app`
+- Visitor lands on `studio-style-design-workshop.vercel.app`
 - Clicks "Reserve my seat"
 - Gets taken to `purelypersonal.gohighlevel.com/workshop-01-signup` (or custom GHL domain)
 - GHL handles form + payment + automation
@@ -57,7 +57,7 @@ git push
 - If GHL goes down, the landing page still works
 
 **Cons:**
-- Visitor leaves `purely-personal-workshop.vercel.app` to pay
+- Visitor leaves `studio-style-design-workshop.vercel.app` to pay
 - Two different domains (unless you custom-domain them, see Option 2)
 
 ---
@@ -190,4 +190,4 @@ This loses the automated email sequence + webhook integration but keeps registra
 
 - Full GHL build spec: [`integrations/ghl-build-spec.md`](./ghl-build-spec.md)
 - Landing page source: [`landing-page/index.html`](../landing-page/index.html)
-- Live landing page: [purely-personal-workshop.vercel.app](https://purely-personal-workshop.vercel.app)
+- Live landing page: [studio-style-design-workshop.vercel.app](https://studio-style-design-workshop.vercel.app)

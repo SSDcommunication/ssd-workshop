@@ -48,7 +48,7 @@ DAY 2 · TEACH (3 more engines · 25 min total · rapid)
 
 | When | What |
 |---|---|
-| **Mon Apr 27** | Test entire install flow on a clean machine OR verify ~/.claude/plugins shows `purely-personal@purely-personal-marketplace` enabled |
+| **Mon Apr 27** | Test entire install flow on a clean machine OR verify ~/.claude/plugins shows `studio-style-design@studio-style-design-marketplace` enabled |
 | **Mon Apr 27** | Fill out your own BUSINESS-BRAIN.md if not already done · you teach from yours |
 | **Tue Apr 28** | Set up 2 Stripe payment links · $1,997 (Standard one-time) and $2,997 (Diamond one-time) · plus 3-installment versions of each (4 links total) |
 | **Wed Apr 29** | Test Stripe links in incognito browser · confirm they work · write payment confirmation to spreadsheet |
@@ -149,7 +149,7 @@ An all-in-one business platform that replaces 8+ tools.
 ## BLOCK 0 · OPEN + RECOMMIT + AI CEO SEED #1 (0:00-0:10 · 10 min)
 
 ### Slide 1 · BLACK
-*Image:* solid black background · red Purely Personal logo dot in center
+*Image:* solid black background · red Studio Style Design logo dot in center
 **On screen:** (nothing)
 *Say:* (silent · 10 seconds of opener music · then unmute)
 **Do:** opener track up · cameras on
@@ -229,7 +229,7 @@ An all-in-one business platform that replaces 8+ tools.
 
 ### Slide 10 · LIVE DEMO · MY BUSINESS
 *Image:* full-screen terminal mockup
-**On screen:** `/purely-personal:marketing-engine`
+**On screen:** `/studio-style-design:marketing-engine`
 *Say:* "Watch. I'm running this on MY business right now."
 **Do:** SCREEN SHARE · run live · narrate · read the 3 posts aloud · show Notion entry
 **Time:** 8:00
@@ -238,7 +238,7 @@ An all-in-one business platform that replaces 8+ tools.
 *Image:* "GO" red
 **On screen:**
 - Open Claude Code
-- /purely-personal:marketing-engine
+- /studio-style-design:marketing-engine
 - Pick "Monday Content Drop"
 *Say:* "Pause. Open Claude Code. Run it on your business right now. 12 minutes. I want 3 posts in your voice when you come back."
 **Do:** mute · timer visible · YOU walk away from camera
@@ -291,14 +291,14 @@ An all-in-one business platform that replaces 8+ tools.
 
 ### Slide 17 · LIVE DEMO
 *Image:* terminal
-**On screen:** `/purely-personal:sales-engine` → "research a prospect"
+**On screen:** `/studio-style-design:sales-engine` → "research a prospect"
 *Say:* "Watch. I'm scraping a real founder right now."
 **Do:** PASTE a real LinkedIn URL · run live · show scrape, BANT, sequence
 **Time:** 7:00
 
 ### Slide 18 · YOUR TURN · 1 PROSPECT
 *Image:* "GO"
-**On screen:** "Pick 1 LinkedIn URL. Run /purely-personal:sales-engine."
+**On screen:** "Pick 1 LinkedIn URL. Run /studio-style-design:sales-engine."
 *Say:* "Don't pick 10. Pick ONE. Real prospect you actually want as a client. Run it. 10 minutes."
 **Do:** mute · timer
 **Time:** 10:00
@@ -341,7 +341,7 @@ An all-in-one business platform that replaces 8+ tools.
 
 ### Slide 23 · INSTALL THE ANCHOR
 *Image:* phone with calendar alarm "MON 7am"
-**On screen:** "Anchor: Monday · 7am · /purely-personal:marketing-engine"
+**On screen:** "Anchor: Monday · 7am · /studio-style-design:marketing-engine"
 *Say:* "Pick up your phone. Set a recurring alarm. Monday 7am. Label: MARKETING DROP. This is your anchor. The rest of the week builds on this. I'll wait."
 **Do:** WAIT · cameras show phones in hands · don't move on
 **Time:** 4:00
@@ -981,7 +981,7 @@ The pitch happens in main room only. Main reason: breakouts dilute energy. Pitch
 >
 > Super excited you're in for the workshop on Saturday + Sunday.
 >
-> Before Saturday, please complete the install at this link · 30-45 min · runs on Mac or Windows: https://purely-personal-workshop.vercel.app/install-guide/
+> Before Saturday, please complete the install at this link · 30-45 min · runs on Mac or Windows: https://studio-style-design-workshop.vercel.app/install-guide/
 >
 > Reply with your LinkedIn URL when you're done · I use it to build your personalized opening slide.
 >
@@ -1005,7 +1005,7 @@ The pitch happens in main room only. Main reason: breakouts dilute energy. Pitch
 >
 > Heads up · Friday 5pm is the install cutoff. After that, you can still come Saturday · but you'll spend the workshop installing instead of building.
 >
-> Install link: https://purely-personal-workshop.vercel.app/install-guide/
+> Install link: https://studio-style-design-workshop.vercel.app/install-guide/
 >
 > If you're stuck · reply now and we'll fix it. After 5pm tomorrow · we focus on Saturday's content.
 >
@@ -1017,7 +1017,7 @@ The pitch happens in main room only. Main reason: breakouts dilute energy. Pitch
 
 > [name] · we go live tomorrow at 11am Finland time. Zoom link: [link]
 >
-> Final install check: open Claude Code · type `/purely-personal:` · you should see 9 commands. If not · type `/exit` and re-launch claude. If still nothing · reply tonight.
+> Final install check: open Claude Code · type `/studio-style-design:` · you should see 9 commands. If not · type `/exit` and re-launch claude. If still nothing · reply tonight.
 >
 > Camera on. Phone face down. See you tomorrow at 11.
 >
@@ -1244,7 +1244,7 @@ TECH (Danny)
 
 CONTENT (Danny)
 [ ] BUSINESS-BRAIN.md filled in for YOUR business (you teach from yours)
-[ ] All 4 install videos verified live at https://purely-personal-workshop.vercel.app/install-guide/
+[ ] All 4 install videos verified live at https://studio-style-design-workshop.vercel.app/install-guide/
 [ ] 5 demo prompts loaded into a separate doc for easy paste
 [ ] 1 real LinkedIn URL of a prospect (for sales engine demo)
 [ ] Day 1 + Day 2 slides rendered to PDF · backed up to Drive
@@ -1260,7 +1260,7 @@ ATTENDEE PREP (responsibility: Danny + Mary)
 [ ] Each attendee has installed plugin (verify by Friday 5pm)
 [ ] Each attendee has filled brain (at minimum Voice + Offer + ICP sections)
 [ ] Each attendee has submitted LinkedIn URL
-[ ] Personalized opening slide built for each attendee (uses /purely-personal:prep-workshop-slides)
+[ ] Personalized opening slide built for each attendee (uses /studio-style-design:prep-workshop-slides)
 ```
 
 ---

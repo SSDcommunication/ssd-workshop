@@ -98,7 +98,7 @@ Start with HIGH-FREQUENCY tasks. If you do something 50 times a
 week, automation pays back in days. If you do it 5 times a week,
 weeks. If you do it 1 time a week, months.
 
-**For Purely Personal:**
+**For Studio Style Design:**
 - /marketing-engine · automated content drafting (was 4 hrs/week)
 - /sales-engine · automated lead research (was 6 hrs/week)
 - /operations-engine · automated inbox triage (was 7 hrs/week)

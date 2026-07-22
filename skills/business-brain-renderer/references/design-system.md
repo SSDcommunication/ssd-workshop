@@ -1,6 +1,6 @@
 # Design System — Business Brain Renderer
 
-The complete token system for rendering Business Brain one-pagers in the Purely Personal visual language. Use these tokens as CSS custom properties and as literal hex values inside inline-styled templates.
+The complete token system for rendering Business Brain one-pagers in the Studio Style Design visual language. Use these tokens as CSS custom properties and as literal hex values inside inline-styled templates.
 
 ---
 
@@ -30,7 +30,7 @@ The complete token system for rendering Business Brain one-pagers in the Purely 
 | `text-muted` | `#a8a39b` | Footer text, timestamps, hints |
 | `text-inverse` | `#ffffff` | Text on dark/engine-colored surfaces |
 
-### Brand Accents (Purely Personal)
+### Brand Accents (Studio Style Design)
 
 | Token | Hex | Usage |
 |-------|-----|-------|
@@ -300,7 +300,7 @@ If the user invokes a custom brand mode, override only these tokens:
 --body-font       →  client's body font
 ```
 
-All other tokens (engine colors, spacing, typography scale) stay fixed. Engine colors are part of the product identity, not the Purely Personal brand.
+All other tokens (engine colors, spacing, typography scale) stay fixed. Engine colors are part of the product identity, not the Studio Style Design brand.
 
 ---
 

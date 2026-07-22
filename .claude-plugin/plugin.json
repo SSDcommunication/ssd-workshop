@@ -1,5 +1,5 @@
 {
-  "name": "purely-personal",
+  "name": "studio-style-design",
   "version": "1.0.0",
   "description": "An AI C-Suite for your business. One BUSINESS-BRAIN.md, five AI executives (Marketing, Sales, Operations, Cash, Leadership), 38 operator-grade frameworks. Slash commands that read your business context and ship real work in minutes.",
   "author": {
@@ -11,7 +11,7 @@
   "license": "MIT",
   "keywords": [
     "business-brain",
-    "purely-personal",
+    "studio-style-design",
     "ai-c-suite",
     "marketing-engine",
     "sales-engine",

@@ -1,6 +1,6 @@
 ---
 name: workshop-scaffolder
-description: Generate the complete launch package for a brand-new workshop. Triggers on "new workshop", "spin up another workshop", "next workshop launch", "scaffold workshop", "workshop number 2", "second workshop", "duplicate workshop", "another live workshop", or any request to create a fresh workshop project from the existing Purely Personal Workshop 01 as a template. Reads BUSINESS-BRAIN.md for voice + brand. Outputs a self-contained folder with branded landing page, install guide, 21-email campaign, DM outreach, VSL script, agenda xlsx, Notion master doc, and 4 phase-walkthrough video compositions. Used by the `/new-workshop` slash command.
+description: Generate the complete launch package for a brand-new workshop. Triggers on "new workshop", "spin up another workshop", "next workshop launch", "scaffold workshop", "workshop number 2", "second workshop", "duplicate workshop", "another live workshop", or any request to create a fresh workshop project from the existing Studio Style Design Workshop 01 as a template. Reads BUSINESS-BRAIN.md for voice + brand. Outputs a self-contained folder with branded landing page, install guide, 21-email campaign, DM outreach, VSL script, agenda xlsx, Notion master doc, and 4 phase-walkthrough video compositions. Used by the `/new-workshop` slash command.
 ---
 
 # Workshop Scaffolder
@@ -15,7 +15,7 @@ This skill does NOT regenerate everything from scratch. It picks values from a p
 2. Ask the 8 questions in [references/question-flow.md]
 3. Read the parameter map in [references/parameters.md] · knows where every token lives
 4. For each output file:
-   - Read the source from `purely-personal/` (the existing Workshop 01 repo)
+   - Read the source from `studio-style-design/` (the existing Workshop 01 repo)
    - Apply token substitutions
    - For unique copy (VSL hook, DM openers, voiceover scripts), generate in the user's voice using the Brain
 5. Write the new workshop to `<output-dir>/<workshop-slug>/`
@@ -54,15 +54,15 @@ For every new workshop, this skill produces:
 
 | Output | Source it copies from | What changes |
 |--------|----------------------|--------------|
-| `landing-page/index.html` | `purely-personal/landing-page/index.html` | Title, dates, price, hook, post-card content, CTA links |
-| `landing-page/install-guide/index.html` | `purely-personal/landing-page/install-guide/index.html` | Workshop name, slash command list (if engines change), step copy |
+| `landing-page/index.html` | `studio-style-design/landing-page/index.html` | Title, dates, price, hook, post-card content, CTA links |
+| `landing-page/install-guide/index.html` | `studio-style-design/landing-page/install-guide/index.html` | Workshop name, slash command list (if engines change), step copy |
 | `landing-page/install-guide/videos/` | (regenerate via hyperframes) | New voiceover scripts in user's voice |
-| `campaign/email-campaign.md` | `purely-personal/campaign/email-campaign.md` | Subjects, dates, prices, CTAs, hook references |
-| `campaign/vsl-script.md` | `purely-personal/campaign/vsl-script.md` | Full rewrite · VSL is workshop-unique |
-| `campaign/dm-outreach.md` | `purely-personal/campaign/dm-outreach.md` | Segment openers customized to new audience |
-| `campaign/video-scripts.md` | `purely-personal/campaign/video-scripts.md` | 3 short Ava-style scripts for the new workshop |
-| `workshop/Workshop-Agenda.xlsx` | `purely-personal/workshop/Workshop-Agenda.xlsx` | Day 1/Day 2 topic columns + outcomes (regenerate with openpyxl) |
-| `notion-master-doc.md` | `purely-personal/campaign/notion-master-doc.md` (or generate fresh) | All workshop-specific values, ready to paste into Notion |
+| `campaign/email-campaign.md` | `studio-style-design/campaign/email-campaign.md` | Subjects, dates, prices, CTAs, hook references |
+| `campaign/vsl-script.md` | `studio-style-design/campaign/vsl-script.md` | Full rewrite · VSL is workshop-unique |
+| `campaign/dm-outreach.md` | `studio-style-design/campaign/dm-outreach.md` | Segment openers customized to new audience |
+| `campaign/video-scripts.md` | `studio-style-design/campaign/video-scripts.md` | 3 short Ava-style scripts for the new workshop |
+| `workshop/Workshop-Agenda.xlsx` | `studio-style-design/workshop/Workshop-Agenda.xlsx` | Day 1/Day 2 topic columns + outcomes (regenerate with openpyxl) |
+| `notion-master-doc.md` | `studio-style-design/campaign/notion-master-doc.md` (or generate fresh) | All workshop-specific values, ready to paste into Notion |
 | `README.md` | (generate fresh) | The quickstart + 5 things to customize |
 
 ## Workflow
@@ -105,7 +105,7 @@ Run the validation checklist:
 - [ ] Zero em-dashes anywhere in generated output (use periods or middle-dot)
 - [ ] Zero banned phrases from BUSINESS-BRAIN.md voice rules
 - [ ] All 8 inputs appear correctly in landing page H1, dates, price, CTAs
-- [ ] All file paths in landing page are workshop-relative (e.g., `videos/phase-1.mp4`, not `purely-personal/...`)
+- [ ] All file paths in landing page are workshop-relative (e.g., `videos/phase-1.mp4`, not `studio-style-design/...`)
 - [ ] Email campaign dates align with Day 1/Day 2 (Email A1 sent T-9 days, A14 sent T+6, etc.)
 - [ ] VSL runtime estimate: 130–145 seconds at 150 wpm
 - [ ] Install guide references the correct slash commands (if user changed engine list)
@@ -144,7 +144,7 @@ Do NOT:
 - Generate testimonials or numbers the user didn't provide
 - Skip the BUSINESS-BRAIN.md read because "we already know the voice"
 - Output without running the validation checklist
-- Write files to the existing `purely-personal/` repo · always to a new directory
+- Write files to the existing `studio-style-design/` repo · always to a new directory
 
 ## Quick Triggers
 

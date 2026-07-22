@@ -1,6 +1,6 @@
 ---
 name: business-brain-renderer
-description: Render a filled BUSINESS-BRAIN.md into a visually stunning single-page HTML artifact with exportable PDF. Triggers on "render my brain", "business brain artifact", "render business brain", "print my brain", "brain one-pager", "business brain pdf", "business brain card", "visualize my business brain", "brain hero page", "render BUSINESS-BRAIN.md", or any request to turn a Business Brain document into a visual one-pager. Also triggers when someone says "make my brain beautiful", "Purely Personal brain card", or "export my brain". Use for ANY visual rendering of BUSINESS-BRAIN.md content — even casual requests like "show me my brain".
+description: Render a filled BUSINESS-BRAIN.md into a visually stunning single-page HTML artifact with exportable PDF. Triggers on "render my brain", "business brain artifact", "render business brain", "print my brain", "brain one-pager", "business brain pdf", "business brain card", "visualize my business brain", "brain hero page", "render BUSINESS-BRAIN.md", or any request to turn a Business Brain document into a visual one-pager. Also triggers when someone says "make my brain beautiful", "Studio Style Design brain card", or "export my brain". Use for ANY visual rendering of BUSINESS-BRAIN.md content — even casual requests like "show me my brain".
 ---
 
 # Business Brain Renderer
@@ -60,7 +60,7 @@ Every template uses `{{DOUBLE_BRACE}}` variables. Standard variables:
 {{BRAIN_TAGLINE}}       — "AI-powered business systems for solopreneurs"
 {{BRAIN_HEADSHOT}}      — url or base64 image
 {{BRAIN_DATE}}          — "Apr 2026" (auto from render date)
-{{BRAND_NAME}}          — "Purely Personal"
+{{BRAND_NAME}}          — "Studio Style Design"
 {{BRAND_TAGLINE}}       — "purelypersonal.ai"
 {{BRAND_ACCENT}}        — "#e90d41" (default) or brand override
 ```
@@ -161,7 +161,7 @@ Before shipping EVERY render, verify:
 - [ ] Labels are 11–12px uppercase with `letter-spacing: 0.06em`
 
 **Color checks:**
-- [ ] Primary accent is `#e90d41` (Purely Personal red) unless brand override
+- [ ] Primary accent is `#e90d41` (Studio Style Design red) unless brand override
 - [ ] Engine colors used correctly: Marketing `#3B82F6`, Sales `#22C55E`, Operations `#8B5CF6`, Cash `#EAB308`, Leadership `#DC2626`
 - [ ] No gradients except Instagram platform variant
 - [ ] Engine badges are filled circles with white icon

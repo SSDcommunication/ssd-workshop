@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IKIGAI Business · Positionnement Clair + Plan d'Action · Studio Style Design</title>
+<meta name="description" content="Session IKIGAI Business : trouvez votre positionnement en 2-3h. Pour indépendants, artisans, porteurs de projets créatifs. 3 formules : Standard 49€ | Premium 97€ | VIP 197€">
+<meta property="og:title" content="IKIGAI Business · Trouvez votre positionnement">
+<meta property="og:description" content="Une session unique de 2-3h pour passer d'un positionnement flou à une activité alignée avec un plan d'action concret.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Rethink+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #e90d41;
+  --primary-deep: #c70a38;
+  --primary-soft: #fce8ed;
+  --page-bg: #faf8f4;
+  --card-bg: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b6b6b;
+  --text-muted: #a8a39b;
+  --divider: #e8e2d8;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--page-bg);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--primary); text-decoration: none; }
+a:hover { opacity: 0.8; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 248, 244, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--divider);
+  padding: 14px 0;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-family: 'Rethink Sans', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+.nav-brand .dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--primary);
+  border-radius: 999px;
+  margin: 0 8px;
+}
+.nav-cta {
+  padding: 10px 20px;
+  background: var(--primary);
+  color: #fff !important;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* HERO */
+.hero {
+  padding: 60px 0 40px;
+  background: linear-gradient(180deg, #ffffff 0%, var(--page-bg) 100%);
+  text-align: center;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: var(--primary-soft);
+  padding: 6px 12px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: 'Rethink Sans', sans-serif;
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--primary);
+}
+.hero-sub {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+/* DIAGNOSTIC GRATUIT */
+.diagnostic-section {
+  background: var(--card-bg);
+  border: 2px solid var(--divider);
+  border-radius: 8px;
+  padding: 40px;
+  margin: 60px auto;
+  max-width: 600px;
+  text-align: center;
+}
+.diagnostic-section h2 {
+  font-family: 'Rethink Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 16px;
+}
+.diagnostic-section p {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+.btn-primary {
+  display: inline-block;
+  padding: 16px 32px;
+  background: var(--primary);
+  color: #fff !important;
+  border-radius: 6px;
+  font-family: 'Rethink Sans', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(233, 13, 65, 0.25);
+  transition: transform 120ms, box-shadow 120ms;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 13, 65, 0.35);
+}
+
+/* PRICING */
+.pricing-section {
+  padding: 60px 0;
+  text-align: center;
+}
+.pricing-section h2 {
+  font-family: 'Rethink Sans', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.pricing-card {
+  background: var(--card-bg);
+  border: 2px solid var(--divider);
+  border-radius: 8px;
+  padding: 32px 28px;
+  text-align: center;
+  transition: transform 120ms, box-shadow 120ms;
+}
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(233, 13, 65, 0.1);
+}
+.pricing-card.featured {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, #ffffff 0%, var(--primary-soft) 100%);
+  transform: scale(1.05);
+}
+.pricing-card h3 {
+  font-family: 'Rethink Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 12px;
+}
+.pricing-card .price {
+  font-family: 'Rethink Sans', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0;
+}
+.pricing-card .currency {
+  font-size: 18px;
+  font-weight: 400;
+}
+.pricing-card .description {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin: 16px 0 24px;
+  line-height: 1.5;
+}
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  text-align: left;
+}
+.pricing-card li {
+  padding: 8px 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  border-bottom: 1px solid var(--divider);
+}
+.pricing-card li:before {
+  content: "✓ ";
+  color: var(--primary);
+  font-weight: 800;
+  margin-right: 8px;
+}
+.pricing-card .btn-primary {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* 16 RAISONS */
+.reasons-section {
+  padding: 60px 0;
+  background: var(--card-bg);
+  margin-top: 60px;
+}
+.reasons-section h2 {
+  font-family: 'Rethink Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.reason {
+  padding: 20px;
+  background: linear-gradient(135deg, #faf8f4 0%, #fbf9f6 100%);
+  border-radius: 6px;
+  border-left: 4px solid var(--primary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* FAQ */
+.faq-section {
+  padding: 60px 0;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.faq-section h2 {
+  font-family: 'Rethink Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.faq-item {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--divider);
+}
+.faq-item h3 {
+  font-family: 'Rethink Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+.faq-item p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* FOOTER */
+.footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--divider);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 36px; }
+  .pricing-grid { gap: 16px; }
+  .pricing-card.featured { transform: scale(1); }
+  .diagnostic-section { padding: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <div class="nav-brand">Studio Style Design<span class="dot"></span>IKIGAI</div>
+    <a href="#inscription" class="nav-cta">S'inscrire</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">Atelier Collectif · Session Unique 2-3h</div>
+    <h1>Trouvez votre <em>positionnement clair</em>.<br>Construisez l'activité qui va avec.</h1>
+    <p class="hero-sub">Vous avez des talents, de la passion — mais votre positionnement reste flou. Cette session change tout. En une seule après-midi, repartez avec un positionnement assumé, un discours cohérent, et un plan d'action concret pour les 90 jours à venir.</p>
+  </div>
+</section>
+
+<!-- DIAGNOSTIC GRATUIT -->
+<section class="container">
+  <div class="diagnostic-section">
+    <h2>Commencez Gratuitement</h2>
+    <p>Faites le diagnostic IKIGAI en 5 minutes, sans engagement. Découvrez vos 4 cercles et votre zone d'alignement.</p>
+    <button class="btn-primary" onclick="scrollTo('#inscription')">Diagnostic Gratuit</button>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section">
+  <div class="container">
+    <h2>Trois Formules, Un Choix</h2>
+    <div class="pricing-grid">
+      <!-- Standard -->
+      <div class="pricing-card">
+        <h3>Standard</h3>
+        <div class="price"><span class="currency">€</span>49</div>
+        <p class="description">L'atelier complet en visio</p>
+        <ul>
+          <li>Session 2-3h en Zoom collectif (max 20 personnes)</li>
+          <li>Diagnostic en direct de vos 4 cercles IKIGAI</li>
+          <li>PDF de synthèse de votre positionnement</li>
+          <li>Accès au groupe WhatsApp SSD IKIGAI</li>
+        </ul>
+        <button class="btn-primary" onclick="scrollTo('#inscription')">Choisir</button>
+      </div>
+
+      <!-- Premium (featured) -->
+      <div class="pricing-card featured">
+        <h3>Premium</h3>
+        <div class="price"><span class="currency">€</span>97</div>
+        <p class="description">✨ Le plus populaire</p>
+        <ul>
+          <li>Tout du Standard +</li>
+          <li>Workbook complet à remplir pendant la session</li>
+          <li>Plan d'action détaillé sur 30 jours</li>
+          <li>Support email prioritaire 7 jours</li>
+        </ul>
+        <button class="btn-primary" onclick="scrollTo('#inscription')">Choisir</button>
+      </div>
+
+      <!-- VIP -->
+      <div class="pricing-card">
+        <h3>VIP</h3>
+        <div class="price"><span class="currency">€</span>197</div>
+        <p class="description">Accompagnement complet</p>
+        <ul>
+          <li>Tout du Premium +</li>
+          <li>Plan d'action 90 jours (au lieu de 30)</li>
+          <li>3 sessions 1:1 de 60 min avec Sophie</li>
+          <li>Support direct illimité pendant 3 mois</li>
+        </ul>
+        <button class="btn-primary" onclick="scrollTo('#inscription')">Choisir</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 RAISONS -->
+<section class="reasons-section">
+  <div class="container">
+    <h2>Ce Que Vous Repartez Avec</h2>
+    <div class="reasons-grid">
+      <div class="reason">✓ Vos 4 cercles IKIGAI entièrement remplis, pas juste survolés</div>
+      <div class="reason">✓ Une phrase claire pour décrire votre activité sans bafouiller</div>
+      <div class="reason">✓ Le talent que vous minimisez depuis des années — identifié</div>
+      <div class="reason">✓ Le besoin réel auquel vous répondez, formulé noir sur blanc</div>
+      <div class="reason">✓ Ce pour quoi vous méritez d'être payé·e, sans culpabilité</div>
+      <div class="reason">✓ Un plan d'action concret pour les 7 prochains jours</div>
+      <div class="reason">✓ Un discours cohérent que vous ne changerez plus à chaque client</div>
+      <div class="reason">✓ La confiance de dire non aux missions qui ne vous ressemblent pas</div>
+      <div class="reason">✓ Un groupe de 20 indépendants vivant les mêmes doutes</div>
+      <div class="reason">✓ La synthèse de tout le travail en PDF réutilisable</div>
+      <div class="reason">✓ Accès au groupe WhatsApp SSD IKIGAI à vie</div>
+      <div class="reason">✓ Rien à préparer avant — aucune offre à avoir clarifié d'avance</div>
+      <div class="reason">✓ 6 mois d'hésitation condensés en une seule après-midi</div>
+      <div class="reason">✓ Vous économisez le coût réel : 500€+ en heures de réflexion</div>
+      <div class="reason">✓ Les places se remplissent vite — 20 max par session</div>
+      <div class="reason">✓ La prochaine date n'est pas encore fixée</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <h2>Questions Fréquentes</h2>
+
+  <div class="faq-item">
+    <h3>Et si je n'ai pas encore d'offre claire ?</h3>
+    <p>C'est justement pour ça que la session existe. Vous n'avez besoin de rien préparer — on part de zéro ensemble. La clarté se construit en direct pendant les 2-3h.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Ça prend combien de temps concrètement ?</h3>
+    <p>Une seule session de 2 à 3h, un samedi. Pas d'engagement dans la durée derrière — le plan d'action, vous le construisez ensuite à votre rythme. Les formules Premium et VIP incluent du suivi, mais tout est optionnel.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Je ne sais pas si c'est pour moi. Comment suis-je sûr·e ?</h3>
+    <p>Faites le diagnostic gratuit d'abord. En 5 minutes, vous verrez déjà vos 4 cercles et comprendrez si aller plus loin a du sens pour vous.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Pourquoi du collectif et pas du 1:1 ?</h3>
+    <p>Le collectif crée une dynamique — vous vous recognaissez dans les doutes des autres, ça rend le travail moins isolé. Et pour les cas qui justifient du 1:1 après, la formule VIP l'inclut.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Quelle est votre politique de remboursement ?</h3>
+    <p>Vous ne pouvez pas assister à la date choisie ? Nous vous proposons une session alternative ou un report, sans frais. Si à la fin vous estimez ne pas repartir avec plus de clarté, contactez-nous — on revoit votre cas.</p>
+  </div>
+</section>
+
+<!-- INSCRIPTION -->
+<section id="inscription" class="pricing-section" style="background: var(--page-bg); padding: 60px 0; margin-top: 0;">
+  <div class="container">
+    <div style="background: var(--card-bg); padding: 40px; border-radius: 8px; max-width: 600px; margin: 0 auto; text-align: center;">
+      <h2 style="font-family: 'Rethink Sans', sans-serif; font-size: 28px; font-weight: 800; margin-bottom: 20px;">Prêt·e à Commencer ?</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 30px;">Les inscriptions ferment le vendredi 31 juillet à 23h59.<br>La session est samedi 1er août, 14h-17h (ou 17h) en Zoom.</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 30px;">
+        <button class="btn-primary" style="font-size: 14px; padding: 12px; background: var(--primary);" onclick="selectPlan('standard')">Standard 49€</button>
+        <button class="btn-primary" style="font-size: 14px; padding: 12px; background: var(--primary);" onclick="selectPlan('premium')">Premium 97€</button>
+        <button class="btn-primary" style="font-size: 14px; padding: 12px; background: var(--primary);" onclick="selectPlan('vip')">VIP 197€</button>
+      </div>
+
+      <p style="font-size: 12px; color: var(--text-muted);">Paiement sécurisé par Stripe · Confirmation par email immediate</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 Studio Style Design · IKIGAI Business · <a href="mailto:contact.ssdcommunication@gmail.com" style="color: var(--text-muted);">contact@studiostyledesign.com</a></p>
+  </div>
+</footer>
+
+<script>
+function scrollTo(selector) {
+  const el = document.querySelector(selector);
+  el && el.scrollIntoView({ behavior: 'smooth' });
+}
+
+function selectPlan(plan) {
+  const prices = {
+    standard: { name: 'Standard', price: 49 },
+    premium: { name: 'Premium', price: 97 },
+    vip: { name: 'VIP', price: 197 }
+  };
+
+  const selected = prices[plan];
+  console.log('Plan sélectionné:', selected);
+  // TODO: Intégrer Stripe checkout
+  alert(`Plan ${selected.name} sélectionné (${selected.price}€). Redirection vers paiement...`);
+}
+</script>
+
+</body>
+</html>

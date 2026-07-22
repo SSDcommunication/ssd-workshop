@@ -205,7 +205,7 @@ That's ~14 overlay beats across 2:18. Feels editorial + intentional.
 | Wardrobe | Dark solid top. No logos. No busy patterns. |
 | Takes | Minimum 5 full takes |
 | B-roll | None for main VSL. Face-to-camera only. |
-| Lower thirds | "Daniel Paul · Purely Personal" on 0:00–0:10 only |
+| Lower thirds | "Daniel Paul · Studio Style Design" on 0:00–0:10 only |
 | Final | MP4 1080p H.264 → Loom/YouTube unlisted → Karthik swaps into landing page |
 
 ---
@@ -243,7 +243,7 @@ Once Sujal uploads the final MP4:
 - **5 engines spec:** [`commands/marketing-engine.md`](../commands/marketing-engine.md), [`sales-engine.md`](../commands/sales-engine.md), [`operations-engine.md`](../commands/operations-engine.md), [`cash-engine.md`](../commands/cash-engine.md), [`leadership-engine.md`](../commands/leadership-engine.md)
 - **BUSINESS-BRAIN.md template:** [`examples/BUSINESS-BRAIN.sample.md`](../examples/BUSINESS-BRAIN.sample.md)
 - **Rendered example:** [`examples/BUSINESS-BRAIN.rendered.html`](../examples/BUSINESS-BRAIN.rendered.html)
-- **Landing page live:** [purely-personal-workshop.vercel.app](https://purely-personal-workshop.vercel.app)
+- **Landing page live:** [studio-style-design-workshop.vercel.app](https://studio-style-design-workshop.vercel.app)
 
 ---
 

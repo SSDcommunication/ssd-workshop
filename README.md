@@ -2,7 +2,7 @@
 
 <div align="center">
 
-# Purely Personal
+# Studio Style Design
 
 ### A Claude Code plugin that installs an AI C-Suite inside your business.
 
@@ -28,7 +28,7 @@ But you're also closing deals, building product, and trying to sleep.
 
 So the content team, the sales team, the ops team, the CFO — they all live as anxiety in your head instead of actual systems in your business.
 
-**`purely-personal` installs those teams as skills inside Claude Code.** You fill in one document — your Business Brain. Every engine reads from it. And the output sounds like you, not ChatGPT.
+**`studio-style-design` installs those teams as skills inside Claude Code.** You fill in one document — your Business Brain. Every engine reads from it. And the output sounds like you, not ChatGPT.
 
 - Content in your voice, not the voice of the 10,000 posts your model was trained on
 - Outreach based on your actual ICP, not generic B2B playbooks
@@ -101,7 +101,7 @@ cd Purely-Personal-Run-a-business-by-itself
 claude plugin install .
 ```
 
-Or, if you prefer, symlink this directory into `~/.claude/plugins/purely-personal`.
+Or, if you prefer, symlink this directory into `~/.claude/plugins/studio-style-design`.
 
 ### Step 3 — Verify
 
@@ -240,7 +240,7 @@ Next workshop: TBA. [Join the waitlist →](https://purelypersonal.ai)
 ## Repo Structure
 
 ```
-purely-personal/
+studio-style-design/
 ├── .claude-plugin/
 │   └── plugin.json                     # manifest
 ├── commands/                           # slash commands
@@ -369,7 +369,7 @@ MIT. Use it, fork it, ship it. If this helps you build a business that actually 
 ### Ready?
 
 ```bash
-claude plugin install ./purely-personal
+claude plugin install ./studio-style-design
 ```
 
 **Your AI C-Suite is one command away.**

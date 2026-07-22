@@ -228,7 +228,7 @@ can execute it without asking you a question.
 ## SOP storage and discovery
 
 **Where SOPs live:**
-- `purely-personal/sops/` directory (text-based, version-controlled)
+- `studio-style-design/sops/` directory (text-based, version-controlled)
 - Notion · "SOPs" database (linked to Areas)
 - Notion auto-generates from /operations-engine
 
@@ -285,7 +285,7 @@ The generated SOP follows the 5-section template:
 - QC · what makes a good response vs a generic one
 
 The SOP is then:
-- Saved to `purely-personal/sops/`
+- Saved to `studio-style-design/sops/`
 - Linked from BUSINESS-BRAIN.md § Operations area
 - Available to the engine for future auto-responses
 
