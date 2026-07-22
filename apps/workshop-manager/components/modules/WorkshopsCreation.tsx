@@ -5,43 +5,68 @@ import Card from '../ui/Card'
 import Table from '../ui/Table'
 import { useWorkshopTypes } from '@/lib/hooks'
 import { WorkshopType } from '@/types'
+import { validateWorkshopType, hasErrors } from '@/lib/validators'
+import FormError from '../ui/FormError'
+import ConfirmDialog from '../ui/ConfirmDialog'
+import StatusBadge from '../ui/StatusBadge'
+import { useToast } from '../ui/Toast/ToastContext'
+
+const INITIAL_FORM_DATA = {
+  name: '',
+  slug: '',
+  description: '',
+  places_min: 5,
+  places_max: 30,
+  places_ideal: 20,
+  price: 49,
+  documents_by_status: {
+    en_construction: [] as string[],
+    actif: [] as string[],
+    archive: [] as string[],
+  },
+  status: 'active' as 'active' | 'archived',
+}
 
 export default function WorkshopsCreation() {
   const { types, loading, error, addType, updateType, deleteType } = useWorkshopTypes()
+  const { addToast } = useToast()
 
   const [showForm, setShowForm] = useState(false)
   const [editingId, setEditingId] = useState<string | null>(null)
-  const [formData, setFormData] = useState({
-    name: '',
-    slug: '',
-    description: '',
-    places_min: 5,
-    places_max: 30,
-    places_ideal: 20,
-    price: 49,
-    documents_by_status: {
-      en_construction: [] as string[],
-      actif: [] as string[],
-      archive: [] as string[],
-    },
-    status: 'active' as 'active' | 'archived',
-  })
+  const [formData, setFormData] = useState(INITIAL_FORM_DATA)
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null)
+  const [deleteConfirmLoading, setDeleteConfirmLoading] = useState(false)
 
   const [selectedTypeId, setSelectedTypeId] = useState<string | null>(null)
   const selectedType = selectedTypeId ? types.find(t => t.id === selectedTypeId) : null
 
+  const resetForm = () => {
+    setFormData(INITIAL_FORM_DATA)
+    setFormErrors({})
+    setEditingId(null)
+    setShowForm(false)
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (!formData.name || !formData.slug) {
-      alert('Remplissez les champs requis')
+    const errors = validateWorkshopType(formData)
+    if (hasErrors(errors)) {
+      setFormErrors(errors)
       return
     }
 
+    setIsSubmitting(true)
     try {
       if (editingId) {
         await updateType(editingId, formData as Partial<WorkshopType>)
-        setEditingId(null)
+        addToast({
+          type: 'success',
+          message: 'Atelier modifié avec succès',
+          duration: 3000,
+        })
       } else {
         await addType({
           ...formData,
@@ -49,26 +74,21 @@ export default function WorkshopsCreation() {
           created_at: new Date().toISOString(),
           updated_at: new Date().toISOString(),
         } as Omit<WorkshopType, 'id'>)
+        addToast({
+          type: 'success',
+          message: 'Atelier créé avec succès',
+          duration: 3000,
+        })
       }
-
-      setFormData({
-        name: '',
-        slug: '',
-        description: '',
-        places_min: 5,
-        places_max: 30,
-        places_ideal: 20,
-        price: 49,
-        documents_by_status: {
-          en_construction: [],
-          actif: [],
-          archive: [],
-        },
-        status: 'active',
-      })
-      setShowForm(false)
+      resetForm()
     } catch (err) {
-      alert('Erreur lors de la sauvegarde')
+      addToast({
+        type: 'error',
+        message: err instanceof Error ? err.message : 'Erreur lors de la sauvegarde',
+        duration: 5000,
+      })
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -86,6 +106,30 @@ export default function WorkshopsCreation() {
     })
     setEditingId(type.id)
     setShowForm(true)
+    setFormErrors({})
+  }
+
+  const handleDeleteConfirm = async () => {
+    if (!deleteConfirmId) return
+
+    setDeleteConfirmLoading(true)
+    try {
+      await deleteType(deleteConfirmId)
+      addToast({
+        type: 'success',
+        message: 'Atelier supprimé',
+        duration: 3000,
+      })
+      setDeleteConfirmId(null)
+    } catch (err) {
+      addToast({
+        type: 'error',
+        message: err instanceof Error ? err.message : 'Erreur lors de la suppression',
+        duration: 5000,
+      })
+    } finally {
+      setDeleteConfirmLoading(false)
+    }
   }
 
   const columns = [
@@ -104,17 +148,7 @@ export default function WorkshopsCreation() {
     {
       key: 'status',
       label: 'Statut',
-      render: (status: string) => (
-        <span
-          className={`px-2 py-1 rounded text-sm font-medium ${
-            status === 'active'
-              ? 'bg-green-100 text-green-800'
-              : 'bg-gray-100 text-gray-800'
-          }`}
-        >
-          {status === 'active' ? 'Actif' : 'Archivé'}
-        </span>
-      ),
+      render: (status: string) => <StatusBadge status={status} type="workshop_type" />,
     },
     {
       key: 'id',
@@ -129,18 +163,21 @@ export default function WorkshopsCreation() {
                 setShowForm(false)
               }}
               className="text-[#4dd1e3] hover:underline text-sm"
+              aria-label={selectedTypeId === id ? 'Désélectionner' : 'Sélectionner'}
             >
               {selectedTypeId === id ? '✓ Sélectionné' : 'Sélectionner'}
             </button>
             <button
               onClick={() => type && handleEdit(type)}
               className="text-[#4dd1e3] hover:underline text-sm"
+              aria-label={`Modifier ${type?.name}`}
             >
               Modifier
             </button>
             <button
-              onClick={() => deleteType(id).catch(() => alert('Erreur'))}
+              onClick={() => setDeleteConfirmId(id)}
               className="text-red-600 hover:underline text-sm"
+              aria-label={`Supprimer ${type?.name}`}
             >
               Supprimer
             </button>
@@ -152,27 +189,15 @@ export default function WorkshopsCreation() {
 
   return (
     <div className="p-8">
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
         <h1 className="text-4xl font-bold text-gray-900">Configuration des Ateliers</h1>
         <button
           onClick={() => {
-            setShowForm(!showForm)
-            setEditingId(null)
-            setFormData({
-              name: '',
-              slug: '',
-              description: '',
-              places_min: 5,
-              places_max: 30,
-              places_ideal: 20,
-              price: 49,
-              documents_by_status: {
-                en_construction: [],
-                actif: [],
-                archive: [],
-              },
-              status: 'active',
-            })
+            if (showForm) {
+              resetForm()
+            } else {
+              setShowForm(true)
+            }
           }}
           className="btn-primary"
         >
@@ -189,84 +214,116 @@ export default function WorkshopsCreation() {
       {showForm && (
         <Card title={editingId ? 'Modifier l\'atelier' : 'Créer un nouvel atelier'} className="mb-8">
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Nom de l'atelier (ex: IKIGAI)"
-                required
-                className="input-field"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              />
-              <input
-                type="text"
-                placeholder="Slug (ex: ikigai)"
-                required
-                className="input-field"
-                value={formData.slug}
-                onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium mb-2">Nom de l'atelier</label>
+                <input
+                  id="name"
+                  type="text"
+                  placeholder="ex: IKIGAI"
+                  className={`input-field ${formErrors.name ? 'border-red-500' : ''}`}
+                  value={formData.name}
+                  onChange={(e) => {
+                    setFormData({ ...formData, name: e.target.value })
+                    if (formErrors.name) setFormErrors({ ...formErrors, name: '' })
+                  }}
+                />
+                <FormError error={formErrors.name} />
+              </div>
+              <div>
+                <label htmlFor="slug" className="block text-sm font-medium mb-2">Slug</label>
+                <input
+                  id="slug"
+                  type="text"
+                  placeholder="ex: ikigai"
+                  className={`input-field ${formErrors.slug ? 'border-red-500' : ''}`}
+                  value={formData.slug}
+                  onChange={(e) => {
+                    setFormData({ ...formData, slug: e.target.value })
+                    if (formErrors.slug) setFormErrors({ ...formErrors, slug: '' })
+                  }}
+                />
+                <FormError error={formErrors.slug} />
+              </div>
             </div>
 
-            <textarea
-              placeholder="Description complète de l'atelier"
-              className="input-field"
-              rows={3}
-              value={formData.description}
-              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-            />
+            <div>
+              <label htmlFor="description" className="block text-sm font-medium mb-2">Description</label>
+              <textarea
+                id="description"
+                placeholder="Description complète de l'atelier"
+                className={`input-field ${formErrors.description ? 'border-red-500' : ''}`}
+                rows={3}
+                value={formData.description}
+                onChange={(e) => {
+                  setFormData({ ...formData, description: e.target.value })
+                  if (formErrors.description) setFormErrors({ ...formErrors, description: '' })
+                }}
+              />
+              <FormError error={formErrors.description} />
+            </div>
 
-            <div className="bg-gray-50 p-4 rounded border border-gray-200">
-              <h3 className="font-semibold mb-3 text-gray-900">Configuration des Places</h3>
-              <div className="grid grid-cols-3 gap-4">
+            <fieldset className="bg-gray-50 p-4 rounded border border-gray-200">
+              <legend className="font-semibold mb-3 text-gray-900">Configuration des Places</legend>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Minimum</label>
+                  <label htmlFor="places_min" className="block text-sm font-medium mb-2">Minimum</label>
                   <input
+                    id="places_min"
                     type="number"
                     className="input-field"
                     value={formData.places_min}
                     onChange={(e) =>
-                      setFormData({ ...formData, places_min: parseInt(e.target.value) })
+                      setFormData({ ...formData, places_min: parseInt(e.target.value) || 0 })
                     }
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Maximum</label>
+                  <label htmlFor="places_max" className="block text-sm font-medium mb-2">Maximum</label>
                   <input
+                    id="places_max"
                     type="number"
                     className="input-field"
                     value={formData.places_max}
                     onChange={(e) =>
-                      setFormData({ ...formData, places_max: parseInt(e.target.value) })
+                      setFormData({ ...formData, places_max: parseInt(e.target.value) || 0 })
                     }
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Idéal</label>
+                  <label htmlFor="places_ideal" className="block text-sm font-medium mb-2">Idéal</label>
                   <input
+                    id="places_ideal"
                     type="number"
                     className="input-field"
                     value={formData.places_ideal}
                     onChange={(e) =>
-                      setFormData({ ...formData, places_ideal: parseInt(e.target.value) })
+                      setFormData({ ...formData, places_ideal: parseInt(e.target.value) || 0 })
                     }
                   />
                 </div>
               </div>
-            </div>
+              <FormError error={formErrors.places} />
+            </fieldset>
 
-            <div className="bg-gray-50 p-4 rounded border border-gray-200">
-              <h3 className="font-semibold mb-3 text-gray-900">Tarif</h3>
-              <input
-                type="number"
-                placeholder="Prix en €"
-                className="input-field"
-                value={formData.price}
-                onChange={(e) =>
-                  setFormData({ ...formData, price: parseFloat(e.target.value) })
-                }
-              />
-            </div>
+            <fieldset className="bg-gray-50 p-4 rounded border border-gray-200">
+              <legend className="font-semibold mb-3 text-gray-900">Tarif</legend>
+              <div>
+                <label htmlFor="price" className="block text-sm font-medium mb-2">Prix (€)</label>
+                <input
+                  id="price"
+                  type="number"
+                  placeholder="0"
+                  className={`input-field ${formErrors.price ? 'border-red-500' : ''}`}
+                  value={formData.price}
+                  onChange={(e) => {
+                    setFormData({ ...formData, price: parseFloat(e.target.value) || 0 })
+                    if (formErrors.price) setFormErrors({ ...formErrors, price: '' })
+                  }}
+                />
+                <FormError error={formErrors.price} />
+              </div>
+            </fieldset>
 
             <div className="bg-blue-50 p-4 rounded border border-blue-200">
               <h3 className="font-semibold mb-2 text-blue-900">📄 Documents par statut</h3>
@@ -274,8 +331,9 @@ export default function WorkshopsCreation() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Statut</label>
+              <label htmlFor="status" className="block text-sm font-medium mb-2">Statut</label>
               <select
+                id="status"
                 className="input-field"
                 value={formData.status}
                 onChange={(e) =>
@@ -290,9 +348,19 @@ export default function WorkshopsCreation() {
               </select>
             </div>
 
-            <button type="submit" className="btn-primary w-full" disabled={loading}>
-              {loading ? 'Enregistrement...' : editingId ? 'Modifier' : 'Créer'}
-            </button>
+            <div className="flex gap-2">
+              <button type="submit" className="btn-primary flex-1" disabled={isSubmitting || loading}>
+                {isSubmitting ? 'Traitement...' : editingId ? 'Modifier' : 'Créer'}
+              </button>
+              <button
+                type="button"
+                onClick={resetForm}
+                disabled={isSubmitting}
+                className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-50 disabled:opacity-50"
+              >
+                Annuler
+              </button>
+            </div>
           </form>
         </Card>
       )}
@@ -321,6 +389,16 @@ export default function WorkshopsCreation() {
           💡 <strong>Flux de travail:</strong> Créez d'abord votre atelier (type, places, prix), puis allez à l'onglet "Événements" pour créer les dates et gérer l'agenda.
         </p>
       </div>
+
+      <ConfirmDialog
+        open={deleteConfirmId !== null}
+        title="Supprimer cet atelier?"
+        message="Cette action est irréversible. Tous les événements liés seront affectés."
+        isDangerous
+        isLoading={deleteConfirmLoading}
+        onConfirm={handleDeleteConfirm}
+        onCancel={() => setDeleteConfirmId(null)}
+      />
     </div>
   )
 }
