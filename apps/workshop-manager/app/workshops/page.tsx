@@ -1,5 +1,5 @@
 import DashboardLayout from '@/components/ui/DashboardLayout'
-import WorkshopsCreationDemo from '@/components/modules/WorkshopsCreationDemo'
+import WorkshopsCreation from '@/components/modules/WorkshopsCreation'
 
 export const metadata = {
   title: 'Configuration des Ateliers - Workshop Manager',
@@ -8,7 +8,7 @@ export const metadata = {
 export default function WorkshopsPage() {
   return (
     <DashboardLayout>
-      <WorkshopsCreationDemo />
+      <WorkshopsCreation />
     </DashboardLayout>
   )
 }
