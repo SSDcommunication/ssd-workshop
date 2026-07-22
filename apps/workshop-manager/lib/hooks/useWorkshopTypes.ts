@@ -18,15 +18,27 @@ export function useWorkshopTypes() {
       setLoading(true)
       setError(null)
       const response = await fetch('/api/workshop-types?page=1&limit=1000', { method: 'GET' })
-      if (!response.ok) throw new Error('Erreur lors du chargement')
+      if (!response.ok) throw new Error(`HTTP ${response.status}: Erreur lors du chargement`)
       const result = await response.json()
+      console.log('🔵 fetchTypes - Raw API Response:', result)
+
       // Support nouvelle structure avec pagination
       const data = result.items || result
-      console.log('useWorkshopTypes DEBUG:', { result, data, length: data.length })
-      setTypes(Array.isArray(data) ? data : [])
+      console.log('🔵 fetchTypes - Extracted data:', { data, isArray: Array.isArray(data), length: data?.length })
+
+      if (!Array.isArray(data)) {
+        console.error('❌ fetchTypes - Data is not an array:', typeof data, data)
+        setTypes([])
+        setError('Données invalides reçues')
+        return
+      }
+
+      console.log('✅ fetchTypes - Setting types with', data.length, 'items')
+      setTypes(data)
+      console.log('✅ fetchTypes - Types set complete')
     } catch (err) {
-      const message = err instanceof Error ? err.message : 'Erreur'
-      console.error('useWorkshopTypes ERROR:', message)
+      const message = err instanceof Error ? err.message : 'Erreur inconnue'
+      console.error('❌ fetchTypes ERROR:', message, err)
       setError(message)
       throw err
     } finally {

@@ -1,4 +1,7 @@
+'use client'
+
 import Sidebar from './Sidebar'
+import { DebugInfo } from './DebugInfo'
 
 interface DashboardLayoutProps {
   children: React.ReactNode
@@ -9,6 +12,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
       <main className="flex-1 overflow-auto">{children}</main>
+      <DebugInfo />
     </div>
   )
 }
