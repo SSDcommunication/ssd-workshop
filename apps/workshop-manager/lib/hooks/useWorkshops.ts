@@ -15,10 +15,12 @@ export function useWorkshops() {
     try {
       setLoading(true)
       setError(null)
-      const res = await fetch('/api/workshops')
+      const res = await fetch('/api/workshops?page=1&limit=1000')
       if (!res.ok) throw new Error('Erreur lors du chargement')
-      const data = await res.json()
-      setWorkshops(data)
+      const result = await res.json()
+      // Support nouvelle structure avec pagination
+      const data = result.items || result
+      setWorkshops(Array.isArray(data) ? data : [])
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Erreur'
       setError(message)
