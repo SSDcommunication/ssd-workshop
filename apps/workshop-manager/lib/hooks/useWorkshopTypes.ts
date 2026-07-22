@@ -9,20 +9,28 @@ export function useWorkshopTypes() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    (async () => {
-      try {
-        const res = await fetch('/api/workshop-types?page=1&limit=1000')
-        if (!res.ok) throw new Error('API error')
-        const data = await res.json()
-        console.log('[hook] data:', data)
+    console.log('[useWorkshopTypes] useEffect started')
+    setLoading(true)
+    setError(null)
+
+    fetch('/api/workshop-types?page=1&limit=1000')
+      .then(res => {
+        console.log('[useWorkshopTypes] fetch response:', res.status)
+        if (!res.ok) throw new Error(`HTTP ${res.status}`)
+        return res.json()
+      })
+      .then(data => {
+        console.log('[useWorkshopTypes] parsed data, items:', data.items?.length)
         setTypes(data.items || [])
-      } catch (e) {
-        console.error('[hook] error:', e)
-        setError(String(e))
-      } finally {
+      })
+      .catch(err => {
+        console.error('[useWorkshopTypes] error:', err)
+        setError(String(err))
+      })
+      .finally(() => {
+        console.log('[useWorkshopTypes] finally block executed')
         setLoading(false)
-      }
-    })()
+      })
   }, [])
 
   const refetch = async () => {
