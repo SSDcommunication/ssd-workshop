@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { WorkshopType } from '@/types'
 
 export function useWorkshopTypes() {
@@ -23,11 +23,7 @@ export function useWorkshopTypes() {
         const data = await response.json()
 
         if (mounted) {
-          if (data.items && Array.isArray(data.items)) {
-            setTypes(data.items)
-          } else {
-            setTypes([])
-          }
+          setTypes(Array.isArray(data.items) ? data.items : [])
           setError(null)
           setLoading(false)
         }
@@ -45,22 +41,22 @@ export function useWorkshopTypes() {
     }
   }, [])
 
-  const refetch = async () => {
+  const refetch = useCallback(async () => {
     setLoading(true)
     try {
       const res = await fetch('/api/workshop-types?page=1&limit=1000')
       if (!res.ok) throw new Error('API error')
       const data = await res.json()
-      setTypes(data.items || [])
+      setTypes(Array.isArray(data.items) ? data.items : [])
       setError(null)
     } catch (e) {
-      setError(String(e))
+      setError(e instanceof Error ? e.message : String(e))
     } finally {
       setLoading(false)
     }
-  }
+  }, [])
 
-  const addType = async (type: Omit<WorkshopType, 'id'>) => {
+  const addType = useCallback(async (type: Omit<WorkshopType, 'id'>) => {
     try {
       const response = await fetch('/api/workshop-types', {
         method: 'POST',
@@ -69,13 +65,14 @@ export function useWorkshopTypes() {
       })
       if (!response.ok) throw new Error('Erreur lors de l\'ajout')
       const newType = await response.json()
-      setTypes([...types, newType])
+      setTypes((prevTypes) => [...prevTypes, newType])
+      return newType
     } catch (err) {
       throw err
     }
-  }
+  }, [])
 
-  const updateType = async (id: string, updates: Partial<WorkshopType>) => {
+  const updateType = useCallback(async (id: string, updates: Partial<WorkshopType>) => {
     try {
       const response = await fetch(`/api/workshop-types/${id}`, {
         method: 'PATCH',
@@ -84,21 +81,22 @@ export function useWorkshopTypes() {
       })
       if (!response.ok) throw new Error('Erreur lors de la mise à jour')
       const updated = await response.json()
-      setTypes(types.map((t) => (t.id === id ? updated : t)))
+      setTypes((prevTypes) => prevTypes.map((t) => (t.id === id ? updated : t)))
+      return updated
     } catch (err) {
       throw err
     }
-  }
+  }, [])
 
-  const deleteType = async (id: string) => {
+  const deleteType = useCallback(async (id: string) => {
     try {
       const response = await fetch(`/api/workshop-types/${id}`, { method: 'DELETE' })
       if (!response.ok) throw new Error('Erreur lors de la suppression')
-      setTypes(types.filter((t) => t.id !== id))
+      setTypes((prevTypes) => prevTypes.filter((t) => t.id !== id))
     } catch (err) {
       throw err
     }
-  }
+  }, [])
 
   return { types, loading, error, addType, updateType, deleteType, refetch, isInitialized: !loading }
 }
