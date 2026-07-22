@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useLayoutEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { WorkshopType } from '@/types'
 
 export function useWorkshopTypes() {
