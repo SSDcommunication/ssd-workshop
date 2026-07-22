@@ -8,24 +8,41 @@ export function useWorkshopTypes() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useLayoutEffect(() => {
-    const controller = new AbortController()
+  useEffect(() => {
+    let mounted = true
 
-    fetch('/api/workshop-types?page=1&limit=1000', { signal: controller.signal })
-      .then(res => res.json())
-      .then(data => {
-        setTypes(data.items || [])
-        setError(null)
-        setLoading(false)
-      })
-      .catch(err => {
-        if (err.name !== 'AbortError') {
-          setError(String(err))
+    ;(async () => {
+      try {
+        const response = await fetch('/api/workshop-types?page=1&limit=1000', {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        })
+
+        if (!response.ok) throw new Error(`HTTP ${response.status}`)
+
+        const data = await response.json()
+
+        if (mounted) {
+          if (data.items && Array.isArray(data.items)) {
+            setTypes(data.items)
+          } else {
+            setTypes([])
+          }
+          setError(null)
           setLoading(false)
         }
-      })
+      } catch (err) {
+        if (mounted) {
+          console.error('Hook error:', err)
+          setError(err instanceof Error ? err.message : 'Erreur')
+          setLoading(false)
+        }
+      }
+    })()
 
-    return () => controller.abort()
+    return () => {
+      mounted = false
+    }
   }, [])
 
   const refetch = async () => {
