@@ -17,10 +17,12 @@ export function useWorkshopTypes() {
     try {
       setLoading(true)
       setError(null)
-      const response = await fetch('/api/workshop-types', { method: 'GET' })
+      const response = await fetch('/api/workshop-types?page=1&limit=1000', { method: 'GET' })
       if (!response.ok) throw new Error('Erreur lors du chargement')
-      const data = await response.json()
-      setTypes(data)
+      const result = await response.json()
+      // Support nouvelle structure avec pagination
+      const data = result.items || result
+      setTypes(Array.isArray(data) ? data : [])
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Erreur'
       setError(message)
