@@ -30,3 +30,5 @@ export type EmailCampaignStatus = typeof EMAIL_CAMPAIGN_STATUSES[number]
 
 export const OUTREACH_STATUSES = ['new', 'contacted', 'replied', 'closed'] as const
 export type OutreachStatus = typeof OUTREACH_STATUSES[number]
+// Build timestamp: 1784832567
+// Deployment timestamp: Thu Jul 23 18:49:32 UTC 2026
