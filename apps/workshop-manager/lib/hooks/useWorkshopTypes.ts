@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useLayoutEffect } from 'react'
 import { WorkshopType } from '@/types'
 
 export function useWorkshopTypes() {
@@ -8,7 +8,7 @@ export function useWorkshopTypes() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     console.log('[useWorkshopTypes] useEffect started')
     setLoading(true)
     setError(null)
