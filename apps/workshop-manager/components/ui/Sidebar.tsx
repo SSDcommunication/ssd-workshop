@@ -24,6 +24,9 @@ const navItems: NavItem[] = [
   { label: 'Témoignages', href: '/testimonials', icon: '🎤' },
   { label: 'Prospection', href: '/outreach', icon: '🤝' },
   { label: 'Landing page', href: '/landing-page', icon: '🌐' },
+  { label: 'Paramètres', href: '/settings', icon: '⚙️' },
+  { label: 'Debug', href: '/debug', icon: '🐛' },
+  { label: 'Test API', href: '/test-api', icon: '🧪' },
 ]
 
 export default function Sidebar() {
