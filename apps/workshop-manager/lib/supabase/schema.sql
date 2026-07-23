@@ -4,9 +4,26 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 -- Enable PostGIS for location data
 CREATE EXTENSION IF NOT EXISTS postgis;
 
--- Workshops table
+-- Workshop Types table (Configuration maître)
+CREATE TABLE IF NOT EXISTS public.workshop_types (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name VARCHAR(255) NOT NULL,
+  slug VARCHAR(255) UNIQUE NOT NULL,
+  description TEXT,
+  places_min INTEGER DEFAULT 1,
+  places_max INTEGER DEFAULT 50,
+  places_ideal INTEGER DEFAULT 25,
+  price DECIMAL(10, 2) DEFAULT 0,
+  documents_by_status JSONB DEFAULT '{"en_construction": [], "actif": [], "archive": []}',
+  status VARCHAR(50) DEFAULT 'active' CHECK (status IN ('active', 'archived')),
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Workshops table (Instances de types)
 CREATE TABLE IF NOT EXISTS public.workshops (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  workshop_type_id UUID NOT NULL REFERENCES public.workshop_types(id) ON DELETE RESTRICT,
   name VARCHAR(255) NOT NULL,
   slug VARCHAR(255) UNIQUE NOT NULL,
   description TEXT,
