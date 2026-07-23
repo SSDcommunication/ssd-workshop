@@ -162,6 +162,20 @@ export type LandingPage = {
   updated_at: string
 }
 
+export type Document = {
+  id: string
+  workshop_id: string
+  file_name: string
+  file_url: string
+  visibility: 'me' | 'participants'
+  ticket_types?: string[] // pour les participants: ['Standard', 'Premium', 'VIP'] ou vide pour "Pour tous"
+  send_to_all: boolean // true = "Pour tous"
+  uploaded_date: string
+  notes?: string
+  created_at: string
+  updated_at: string
+}
+
 export type DashboardKPI = {
   total_attendees: number
   confirmed_attendees: number

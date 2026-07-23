@@ -179,6 +179,21 @@ CREATE TABLE IF NOT EXISTS public.landing_pages (
   updated_at TIMESTAMP DEFAULT NOW()
 );
 
+-- Documents table
+CREATE TABLE IF NOT EXISTS public.documents (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  workshop_id UUID NOT NULL REFERENCES public.workshops(id) ON DELETE CASCADE,
+  file_name VARCHAR(255) NOT NULL,
+  file_url TEXT NOT NULL,
+  visibility VARCHAR(50) DEFAULT 'me' CHECK (visibility IN ('me', 'participants')),
+  ticket_types TEXT[] DEFAULT '{}',
+  send_to_all BOOLEAN DEFAULT FALSE,
+  uploaded_date DATE,
+  notes TEXT,
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+
 -- Create indexes for better performance
 CREATE INDEX IF NOT EXISTS idx_workshops_date ON public.workshops(date);
 CREATE INDEX IF NOT EXISTS idx_workshops_status ON public.workshops(status);
@@ -189,6 +204,7 @@ CREATE INDEX IF NOT EXISTS idx_tasks_status ON public.tasks(status);
 CREATE INDEX IF NOT EXISTS idx_social_posts_workshop_id ON public.social_media_posts(workshop_id);
 CREATE INDEX IF NOT EXISTS idx_email_campaigns_workshop_id ON public.email_campaigns(workshop_id);
 CREATE INDEX IF NOT EXISTS idx_budget_workshop_id ON public.budget(workshop_id);
+CREATE INDEX IF NOT EXISTS idx_documents_workshop_id ON public.documents(workshop_id);
 
 -- Enable Row Level Security
 ALTER TABLE public.workshops ENABLE ROW LEVEL SECURITY;
@@ -201,3 +217,4 @@ ALTER TABLE public.budget ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.testimonials ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.outreach_contacts ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.landing_pages ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.documents ENABLE ROW LEVEL SECURITY;

@@ -15,6 +15,7 @@ const navItems: NavItem[] = [
   { label: 'Inscrits', href: '/attendees', icon: '👥' },
   { label: 'Tâches', href: '/tasks', icon: '✅' },
   { label: 'Programme', href: '/workshop-program', icon: '🕐' },
+  { label: 'Documents', href: '/documents', icon: '📄' },
   { label: 'Réseaux sociaux', href: '/social-media', icon: '📱' },
   { label: 'Emails', href: '/email-campaigns', icon: '✉️' },
   { label: 'Budget', href: '/budget', icon: '💰' },
