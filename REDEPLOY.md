@@ -16,9 +16,10 @@ Workshop Manager code is pushed to GitHub but Vercel shows old Webinar Manager.
    - ✅ Build Command = `npm run build`
 
 ## Current Status
-- Latest commit: 53e376b (Force Vercel rebuild)
+- Latest commit: b6991be (Add Vercel redeploy instructions)
 - Branch: main
 - All changes: Workshop Manager with Sidebar (14 menu items)
+- Force redeploy attempt: 2026-07-23T20:21:45Z
 
 ## Files Changed
 - apps/workshop-manager/components/ui/Sidebar.tsx (updated)
