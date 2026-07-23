@@ -11,7 +11,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: 'Vue d\'ensemble', href: '/dashboard', icon: '🏠' },
-  { label: 'Types d\'ateliers', href: '/workshop-types', icon: '📚' },
+  { label: 'Types d\'ateliers', href: '/types', icon: '📚' },
   { label: 'Ateliers', href: '/workshops', icon: '📅' },
   { label: 'Événements', href: '/workshops/events', icon: '📅' },
   { label: 'Participants', href: '/attendees', icon: '👥' },
