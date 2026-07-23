@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import '../styles/globals.css'
+import LayoutClient from './layout-client'
 
 export const metadata: Metadata = {
   title: 'Workshop Manager - SSD',
@@ -16,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body>{children}</body>
+      <body>
+        <LayoutClient>{children}</LayoutClient>
+      </body>
     </html>
   )
 }

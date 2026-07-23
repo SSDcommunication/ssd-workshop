@@ -7,18 +7,36 @@ import { useWorkshops, useWorkshopTypes } from '@/lib/hooks'
 import { Workshop } from '@/types'
 import { format } from 'date-fns'
 import { fr } from 'date-fns/locale'
+import { validateWorkshopEvent, hasErrors } from '@/lib/validators'
+import FormError from '../ui/FormError'
+import ConfirmDialog from '../ui/ConfirmDialog'
+import StatusBadge from '../ui/StatusBadge'
+import { useToast } from '../ui/Toast/ToastContext'
+
+const INITIAL_FORM_DATA = {
+  name: '',
+  date: '',
+  status: 'planning' as 'planning' | 'active' | 'completed' | 'archived',
+}
 
 export default function WorkshopsEvents() {
   const { types } = useWorkshopTypes()
   const { workshops, loading, error, addWorkshop, deleteWorkshop } = useWorkshops()
+  const { addToast } = useToast()
 
   const [selectedTypeId, setSelectedTypeId] = useState<string>('')
   const [showForm, setShowForm] = useState(false)
-  const [formData, setFormData] = useState({
-    name: '',
-    date: '',
-    status: 'planning' as 'planning' | 'active' | 'completed' | 'archived',
-  })
+  const [formData, setFormData] = useState(INITIAL_FORM_DATA)
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null)
+  const [deleteConfirmLoading, setDeleteConfirmLoading] = useState(false)
+
+  const resetForm = () => {
+    setFormData(INITIAL_FORM_DATA)
+    setFormErrors({})
+    setShowForm(false)
+  }
 
   const selectedType = types.find((t) => t.id === selectedTypeId)
   const workshopsForType = selectedTypeId
@@ -28,11 +46,22 @@ export default function WorkshopsEvents() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (!selectedTypeId || !formData.name || !formData.date) {
-      alert('Sélectionnez un atelier et remplissez tous les champs')
+    if (!selectedTypeId) {
+      addToast({
+        type: 'info',
+        message: 'Veuillez sélectionner un atelier',
+        duration: 3000,
+      })
       return
     }
 
+    const errors = validateWorkshopEvent(formData)
+    if (hasErrors(errors)) {
+      setFormErrors(errors)
+      return
+    }
+
+    setIsSubmitting(true)
     try {
       const slug = formData.name
         .toLowerCase()
@@ -52,14 +81,43 @@ export default function WorkshopsEvents() {
         updated_at: new Date().toISOString(),
       })
 
-      setFormData({
-        name: '',
-        date: '',
-        status: 'planning',
+      addToast({
+        type: 'success',
+        message: 'Événement créé avec succès',
+        duration: 3000,
       })
-      setShowForm(false)
+      resetForm()
     } catch (err) {
-      alert('Erreur lors de la création')
+      addToast({
+        type: 'error',
+        message: err instanceof Error ? err.message : 'Erreur lors de la création',
+        duration: 5000,
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  const handleDeleteConfirm = async () => {
+    if (!deleteConfirmId) return
+
+    setDeleteConfirmLoading(true)
+    try {
+      await deleteWorkshop(deleteConfirmId)
+      addToast({
+        type: 'success',
+        message: 'Événement supprimé',
+        duration: 3000,
+      })
+      setDeleteConfirmId(null)
+    } catch (err) {
+      addToast({
+        type: 'error',
+        message: err instanceof Error ? err.message : 'Erreur lors de la suppression',
+        duration: 5000,
+      })
+    } finally {
+      setDeleteConfirmLoading(false)
     }
   }
 
@@ -74,27 +132,7 @@ export default function WorkshopsEvents() {
     {
       key: 'status',
       label: 'Statut',
-      render: (status: string) => (
-        <span
-          className={`px-2 py-1 rounded text-sm font-medium ${
-            status === 'planning'
-              ? 'bg-yellow-100 text-yellow-800'
-              : status === 'active'
-              ? 'bg-green-100 text-green-800'
-              : status === 'completed'
-              ? 'bg-blue-100 text-blue-800'
-              : 'bg-gray-100 text-gray-800'
-          }`}
-        >
-          {status === 'planning'
-            ? 'En construction'
-            : status === 'active'
-            ? 'Actif'
-            : status === 'completed'
-            ? 'Terminé'
-            : 'Archivé'}
-        </span>
-      ),
+      render: (status: string) => <StatusBadge status={status} type="workshop" />,
     },
     { key: 'max_attendees', label: 'Places' },
     { key: 'price', label: 'Prix (€)' },
@@ -103,15 +141,16 @@ export default function WorkshopsEvents() {
       label: 'Actions',
       render: (id: string) => (
         <div className="flex gap-2">
-          <a href={`/workshops/${id}`} className="text-[#4dd1e3] hover:underline text-sm">
+          <a href={`/workshops/${id}`} className="text-[#4dd1e3] hover:underline text-sm" aria-label="Voir les détails">
             Détails
           </a>
-          <a href={`/workshops/${id}/program`} className="text-[#4dd1e3] hover:underline text-sm">
+          <a href={`/workshops/${id}/program`} className="text-[#4dd1e3] hover:underline text-sm" aria-label="Voir l'agenda">
             Agenda
           </a>
           <button
-            onClick={() => deleteWorkshop(id).catch(() => alert('Erreur'))}
+            onClick={() => setDeleteConfirmId(id)}
             className="text-red-600 hover:underline text-sm"
+            aria-label="Supprimer cet événement"
           >
             Supprimer
           </button>
@@ -147,7 +186,7 @@ export default function WorkshopsEvents() {
 
       {/* Sélection de l'atelier */}
       <Card title="1️⃣ Sélectionnez un atelier" className="mb-8">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {types.map((type) => (
             <button
               key={type.id}
@@ -178,37 +217,42 @@ export default function WorkshopsEvents() {
             {showForm ? (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Nom de l'événement</label>
+                  <label htmlFor="event-name" className="block text-sm font-medium mb-2">Nom de l'événement</label>
                   <input
+                    id="event-name"
                     type="text"
                     placeholder={`Ex: ${selectedType.name} - Juillet 2026 - Paris`}
-                    required
-                    className="input-field"
+                    className={`input-field ${formErrors.name ? 'border-red-500' : ''}`}
                     value={formData.name}
-                    onChange={(e) =>
+                    onChange={(e) => {
                       setFormData({ ...formData, name: e.target.value })
-                    }
+                      if (formErrors.name) setFormErrors({ ...formErrors, name: '' })
+                    }}
                   />
                   <p className="text-xs text-gray-500 mt-1">Incluez le lieu si plusieurs événements</p>
+                  <FormError error={formErrors.name} />
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Date et Heure</label>
+                    <label htmlFor="event-date" className="block text-sm font-medium mb-2">Date et Heure</label>
                     <input
+                      id="event-date"
                       type="datetime-local"
-                      required
-                      className="input-field"
+                      className={`input-field ${formErrors.date ? 'border-red-500' : ''}`}
                       value={formData.date}
-                      onChange={(e) =>
+                      onChange={(e) => {
                         setFormData({ ...formData, date: e.target.value })
-                      }
+                        if (formErrors.date) setFormErrors({ ...formErrors, date: '' })
+                      }}
                     />
+                    <FormError error={formErrors.date} />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">Statut initial</label>
+                    <label htmlFor="event-status" className="block text-sm font-medium mb-2">Statut initial</label>
                     <select
+                      id="event-status"
                       className="input-field"
                       value={formData.status}
                       onChange={(e) =>
@@ -230,14 +274,15 @@ export default function WorkshopsEvents() {
                   ℹ️ Cet événement hérite de: <strong>{selectedType.places_ideal} places</strong> et <strong>{selectedType.price}€</strong>
                 </div>
 
-                <div className="flex gap-2">
-                  <button type="submit" className="btn-primary flex-1" disabled={loading}>
-                    {loading ? 'Création...' : '+ Créer l\'événement'}
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <button type="submit" className="btn-primary flex-1" disabled={isSubmitting || loading}>
+                    {isSubmitting ? 'Création...' : '+ Créer l\'événement'}
                   </button>
                   <button
                     type="button"
-                    onClick={() => setShowForm(false)}
-                    className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-50"
+                    onClick={resetForm}
+                    disabled={isSubmitting}
+                    className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-50 disabled:opacity-50"
                   >
                     Annuler
                   </button>
@@ -280,7 +325,7 @@ export default function WorkshopsEvents() {
           </Card>
 
           {/* Info pour la gestion */}
-          <div className="mt-8 grid grid-cols-2 gap-4">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
             <Card title="📅 Agenda">
               <p className="text-sm text-gray-600">
                 Cliquez sur le bouton "Agenda" pour gérer les horaires, sessions et speakers.
@@ -300,6 +345,16 @@ export default function WorkshopsEvents() {
           </div>
         </>
       )}
+
+      <ConfirmDialog
+        open={deleteConfirmId !== null}
+        title="Supprimer cet événement?"
+        message="Cette action est irréversible. L'événement sera supprimé avec tous ses détails."
+        isDangerous
+        isLoading={deleteConfirmLoading}
+        onConfirm={handleDeleteConfirm}
+        onCancel={() => setDeleteConfirmId(null)}
+      />
     </div>
   )
 }
