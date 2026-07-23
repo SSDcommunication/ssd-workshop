@@ -4,11 +4,11 @@ import { useState } from 'react'
 import Card from '../ui/Card'
 import Table from '../ui/Table'
 import { useWorkshops, useWorkshopTypes } from '@/lib/hooks'
-import { Workshop, WorkshopType } from '@/types'
+import { Workshop } from '@/types'
 import { format } from 'date-fns'
 import { fr } from 'date-fns/locale'
 
-export default function WorkshopsManager() {
+export default function WorkshopsEvents() {
   const { types } = useWorkshopTypes()
   const { workshops, loading, error, addWorkshop, deleteWorkshop } = useWorkshops()
 
@@ -21,12 +21,15 @@ export default function WorkshopsManager() {
   })
 
   const selectedType = types.find((t) => t.id === selectedTypeId)
+  const workshopsForType = selectedTypeId
+    ? workshops.filter((w) => w.workshop_type_id === selectedTypeId)
+    : []
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     if (!selectedTypeId || !formData.name || !formData.date) {
-      alert('Sélectionnez un type et remplissez tous les champs')
+      alert('Sélectionnez un atelier et remplissez tous les champs')
       return
     }
 
@@ -47,7 +50,7 @@ export default function WorkshopsManager() {
         price: selectedType?.price || 0,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
-      } as Omit<Workshop, 'id'>)
+      })
 
       setFormData({
         name: '',
@@ -60,17 +63,13 @@ export default function WorkshopsManager() {
     }
   }
 
-  const workshopsForType = selectedTypeId
-    ? workshops.filter((w) => w.workshop_type_id === selectedTypeId)
-    : []
-
   const columns = [
-    { key: 'name', label: 'Nom' },
+    { key: 'name', label: 'Événement' },
     {
       key: 'date',
-      label: 'Date',
+      label: 'Date & Heure',
       render: (value: string) =>
-        format(new Date(value), 'dd MMMM yyyy', { locale: fr }),
+        format(new Date(value), 'EEEE dd MMMM yyyy - HH:mm', { locale: fr }),
     },
     {
       key: 'status',
@@ -105,7 +104,10 @@ export default function WorkshopsManager() {
       render: (id: string) => (
         <div className="flex gap-2">
           <a href={`/workshops/${id}`} className="text-[#4dd1e3] hover:underline text-sm">
-            Voir
+            Détails
+          </a>
+          <a href={`/workshops/${id}/program`} className="text-[#4dd1e3] hover:underline text-sm">
+            Agenda
           </a>
           <button
             onClick={() => deleteWorkshop(id).catch(() => alert('Erreur'))}
@@ -123,10 +125,10 @@ export default function WorkshopsManager() {
       <div className="p-8">
         <div className="bg-blue-50 border border-blue-200 rounded p-6 text-center">
           <p className="text-blue-900">
-            👉 <strong>Commencez par créer un type d'atelier</strong>
+            👉 <strong>Aucun atelier configuré</strong>
           </p>
           <p className="text-sm text-blue-700 mt-2">
-            Allez à "Types d'ateliers" pour créer IKIGAI, puis vous pourrez créer des dates ici
+            Allez d'abord à l'onglet "Ateliers" pour créer un atelier, puis revenez ici.
           </p>
         </div>
       </div>
@@ -135,7 +137,7 @@ export default function WorkshopsManager() {
 
   return (
     <div className="p-8">
-      <h1 className="text-4xl font-bold text-gray-900 mb-8">Créer/Modifier des ateliers</h1>
+      <h1 className="text-4xl font-bold text-gray-900 mb-8">Gestion des Événements</h1>
 
       {error && (
         <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
@@ -143,8 +145,8 @@ export default function WorkshopsManager() {
         </div>
       )}
 
-      {/* Sélection du type */}
-      <Card title="1. Sélectionnez un type d'atelier" className="mb-8">
+      {/* Sélection de l'atelier */}
+      <Card title="1️⃣ Sélectionnez un atelier" className="mb-8">
         <div className="grid grid-cols-2 gap-4">
           {types.map((type) => (
             <button
@@ -161,11 +163,8 @@ export default function WorkshopsManager() {
             >
               <h3 className="font-bold text-lg">{type.name}</h3>
               <p className="text-sm text-gray-600">{type.description}</p>
-              <div className="mt-2 text-sm">
-                <span className="text-gray-700">
-                  Places: {type.places_min}-{type.places_max} (idéal: {type.places_ideal})
-                </span>
-                <span className="ml-4 font-semibold">{type.price}€</span>
+              <div className="mt-2 text-sm text-gray-700">
+                🎯 {type.places_ideal} places · 💰 {type.price}€
               </div>
             </button>
           ))}
@@ -174,15 +173,15 @@ export default function WorkshopsManager() {
 
       {selectedType && (
         <>
-          {/* Création de dates */}
-          <Card title={`2. Créer une date pour ${selectedType.name}`} className="mb-8">
+          {/* Création d'événement */}
+          <Card title={`2️⃣ Créer un événement pour "${selectedType.name}"`} className="mb-8">
             {showForm ? (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Nom de l'atelier</label>
+                  <label className="block text-sm font-medium mb-2">Nom de l'événement</label>
                   <input
                     type="text"
-                    placeholder={`Ex: ${selectedType.name} - Juillet 2026`}
+                    placeholder={`Ex: ${selectedType.name} - Juillet 2026 - Paris`}
                     required
                     className="input-field"
                     value={formData.name}
@@ -190,11 +189,12 @@ export default function WorkshopsManager() {
                       setFormData({ ...formData, name: e.target.value })
                     }
                   />
+                  <p className="text-xs text-gray-500 mt-1">Incluez le lieu si plusieurs événements</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Date</label>
+                    <label className="block text-sm font-medium mb-2">Date et Heure</label>
                     <input
                       type="datetime-local"
                       required
@@ -227,12 +227,12 @@ export default function WorkshopsManager() {
                 </div>
 
                 <div className="p-3 bg-blue-50 rounded text-sm text-blue-900">
-                  ℹ️ Cette atelier hérite de : <strong>{selectedType.places_ideal} places</strong> (min: {selectedType.places_min}, max: {selectedType.places_max}) et <strong>{selectedType.price}€</strong>
+                  ℹ️ Cet événement hérite de: <strong>{selectedType.places_ideal} places</strong> et <strong>{selectedType.price}€</strong>
                 </div>
 
                 <div className="flex gap-2">
                   <button type="submit" className="btn-primary flex-1" disabled={loading}>
-                    {loading ? 'Création...' : 'Créer l\'atelier'}
+                    {loading ? 'Création...' : '+ Créer l\'événement'}
                   </button>
                   <button
                     type="button"
@@ -248,23 +248,56 @@ export default function WorkshopsManager() {
                 onClick={() => setShowForm(true)}
                 className="btn-primary w-full"
               >
-                + Créer une date pour {selectedType.name}
+                + Créer un événement
               </button>
             )}
           </Card>
 
-          {/* Liste des ateliers */}
-          <Card title={`Ateliers de type "${selectedType.name}"`}>
+          {/* Liste des événements */}
+          <Card title={`3️⃣ Événements de "${selectedType.name}"`}>
             {loading ? (
               <p className="text-center text-gray-500 py-8">Chargement...</p>
             ) : workshopsForType.length > 0 ? (
-              <Table columns={columns} data={workshopsForType} />
+              <>
+                <Table columns={columns} data={workshopsForType} />
+                <div className="mt-4 p-3 bg-green-50 rounded text-sm text-green-800 border border-green-200">
+                  ✓ {workshopsForType.length} événement{workshopsForType.length > 1 ? 's' : ''} configuré{workshopsForType.length > 1 ? 's' : ''}
+                </div>
+              </>
             ) : (
-              <p className="text-gray-600 text-center py-8">
-                Aucun atelier créé pour ce type. Créez-en un ci-dessus !
-              </p>
+              <div className="text-center py-8">
+                <p className="text-gray-600 mb-4">
+                  Aucun événement créé pour cet atelier
+                </p>
+                <button
+                  onClick={() => setShowForm(true)}
+                  className="bg-[#4dd1e3] text-white px-4 py-2 rounded hover:opacity-90 transition-opacity"
+                >
+                  Créer le premier événement
+                </button>
+              </div>
             )}
           </Card>
+
+          {/* Info pour la gestion */}
+          <div className="mt-8 grid grid-cols-2 gap-4">
+            <Card title="📅 Agenda">
+              <p className="text-sm text-gray-600">
+                Cliquez sur le bouton "Agenda" pour gérer les horaires, sessions et speakers.
+              </p>
+              <button className="mt-2 text-[#4dd1e3] text-sm hover:underline">
+                Voir guide agenda →
+              </button>
+            </Card>
+            <Card title="📋 Suivi">
+              <p className="text-sm text-gray-600">
+                Consultez le statut, les inscriptions, et les tâches associées dans "Détails".
+              </p>
+              <button className="mt-2 text-[#4dd1e3] text-sm hover:underline">
+                Voir guide suivi →
+              </button>
+            </Card>
+          </div>
         </>
       )}
     </div>
