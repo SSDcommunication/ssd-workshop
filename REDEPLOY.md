@@ -1,35 +1,41 @@
-# 🚀 REDEPLOY INSTRUCTIONS
+# 🚀 MIGRATION COMPLETE: Workshop Manager moved to manager-workshop
 
-## Problem
-Workshop Manager code is pushed to GitHub but Vercel shows old Webinar Manager.
+## Migration Status
+✅ All Workshop Manager tools have been migrated from `ssd-workshop` to `manager-workshop`
 
-## Solution - Manual Vercel Redeploy
+## Next Step - Update Vercel Configuration
 
 1. Go to https://vercel.com/dashboard
 2. Select project "workshop-manager-six"
-3. Go to "Deployments" tab
-4. Click "Redeploy" on the latest commit
-5. OR go to "Settings" → "Git" and verify:
+3. Go to "Settings" → "Git"
+4. **Change Git Repository**:
+   - Remove: `ssdcommunication/ssd-workshop`
+   - Add: `ssdcommunication/manager-workshop`
+5. **Update Settings**:
    - ✅ Production Branch = `main`
    - ✅ Framework = Next.js
-   - ✅ Root Directory = `apps/workshop-manager`
+   - ✅ Root Directory = `.` (root, NOT apps/workshop-manager)
    - ✅ Build Command = `npm run build`
+6. Click "Deploy" to trigger rebuild
 
-## Current Status
-- Latest commit: b6991be (Add Vercel redeploy instructions)
-- Branch: main
-- All changes: Workshop Manager with Sidebar (14 menu items)
-- Force redeploy attempt: 2026-07-23T20:21:45Z
+## Repository Migration
+- **Old Location**: ssdcommunication/ssd-workshop (apps/workshop-manager)
+- **New Location**: ssdcommunication/manager-workshop ✅
+- **Latest Commit**: ac26377
+- **All 14 Navigation Items**: ✅ Migrated
+- **Stale Closure Bug Fix**: ✅ Fixed
+- **Configuration Files**: ✅ Added (.vercelignore, vercel.json)
 
-## Files Changed
-- apps/workshop-manager/components/ui/Sidebar.tsx (updated)
-- apps/workshop-manager/app/workshops/page.tsx (added 'use client')
-- apps/workshop-manager/app/types/page.tsx (new redirect route)
-- apps/workshop-manager/app/workshop-types/page.tsx (already exists)
-- + 12 new page files for all navigation items
-- + Components: WorkshopsCreation, WorkshopsEvents, WorkshopTypesManager
-- + API: /api/workshop-types with mock 9 ateliers
+## What's Included
+- Complete Next.js app with 14-item sidebar
+- Workshop types manager (9 ateliers)
+- Workshop events management
+- Attendees, Documents, Tasks, Budget managers
+- Social media, Email, Testimonials, Outreach, Landing page
+- Dashboard with KPI cards
+- All API routes
 
-## Expected Result After Deploy
-Website shows: "SSD - WORKSHOP MANAGER"
-With Sidebar menu: 14 items including Types d'ateliers, Ateliers, Événements, etc.
+## After Vercel Update
+Website will show: "SSD - WORKSHOP MANAGER"
+Deployed from: ssdcommunication/manager-workshop
+URL: https://workshop-manager-six.vercel.app
