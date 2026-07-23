@@ -1,14 +1,14 @@
+'use client'
 import DashboardLayout from '@/components/ui/DashboardLayout'
-import DocumentsManager from '@/components/modules/DocumentsManager'
-
-export const metadata = {
-  title: 'Documents - Workshop Manager',
-}
-
 export default function DocumentsPage() {
   return (
     <DashboardLayout>
-      <DocumentsManager />
+      <div className="p-8">
+        <h1 className="text-4xl font-bold text-gray-900 mb-8">Documents</h1>
+        <div className="bg-white rounded-lg shadow p-6">
+          <p className="text-gray-600">Section Documents en construction...</p>
+        </div>
+      </div>
     </DashboardLayout>
   )
 }

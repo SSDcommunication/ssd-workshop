@@ -1,14 +1,14 @@
+'use client'
 import DashboardLayout from '@/components/ui/DashboardLayout'
-import AttendeeManager from '@/components/modules/AttendeeManager'
-
-export const metadata = {
-  title: 'Inscrits - Workshop Manager',
-}
-
 export default function AttendeesPage() {
   return (
     <DashboardLayout>
-      <AttendeeManager />
+      <div className="p-8">
+        <h1 className="text-4xl font-bold text-gray-900 mb-8">Participants</h1>
+        <div className="bg-white rounded-lg shadow p-6">
+          <p className="text-gray-600">Section Participants en construction...</p>
+        </div>
+      </div>
     </DashboardLayout>
   )
 }
