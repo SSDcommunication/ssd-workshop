@@ -21,6 +21,7 @@ export function useWorkshopTypes() {
         if (!response.ok) throw new Error(`HTTP ${response.status}`)
 
         const data = await response.json()
+        console.log('Workshop types loaded:', data)
 
         if (mounted) {
           setTypes(Array.isArray(data.items) ? data.items : [])
@@ -29,8 +30,9 @@ export function useWorkshopTypes() {
         }
       } catch (err) {
         if (mounted) {
-          console.error('Hook error:', err)
-          setError(err instanceof Error ? err.message : 'Erreur')
+          const errorMsg = err instanceof Error ? err.message : 'Erreur'
+          console.error('Workshop types hook error:', errorMsg, err)
+          setError(errorMsg)
           setLoading(false)
         }
       }
