@@ -9,6 +9,7 @@
 # next.js
 /.next
 /out
+next-env.d.ts
 
 # production
 /build
@@ -28,6 +29,10 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+
+# dependencies lock files
+package-lock.json
+yarn.lock
 
 # IDE
 .vscode
