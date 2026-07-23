@@ -9,34 +9,62 @@ export function useWorkshopTypes() {
   const [error, setError] = useState<string | null>(null)
   const [isInitialized, setIsInitialized] = useState(false)
 
-  const fetchTypes = async (): Promise<void> => {
+  useEffect(() => {
+    let isMounted = true
+
+    const fetchTypes = async () => {
+      try {
+        console.log('[useWorkshopTypes] Starting fetch...')
+        const response = await fetch('/api/workshop-types?page=1&limit=1000')
+        console.log('[useWorkshopTypes] Response status:', response.status)
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`)
+        }
+        const result = await response.json()
+        console.log('[useWorkshopTypes] Got data:', result.items?.length || 0, 'items')
+
+        if (!isMounted) return
+
+        if (result.items && Array.isArray(result.items)) {
+          setTypes(result.items)
+        }
+        setError(null)
+      } catch (err) {
+        console.error('[useWorkshopTypes] Fetch error:', err)
+        if (isMounted) {
+          setError(err instanceof Error ? err.message : 'Erreur lors du chargement')
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false)
+          setIsInitialized(true)
+        }
+      }
+    }
+
+    fetchTypes()
+
+    return () => {
+      isMounted = false
+    }
+  }, [])
+
+  const refetch = async () => {
+    setLoading(true)
     try {
-      console.log('[useWorkshopTypes] Starting fetch...')
-      setLoading(true)
-      setError(null)
-      const response = await fetch('/api/workshop-types?page=1&limit=1000', { method: 'GET' })
-      console.log('[useWorkshopTypes] Response status:', response.status, response.ok)
-      if (!response.ok) throw new Error(`HTTP ${response.status}: Erreur lors du chargement`)
+      const response = await fetch('/api/workshop-types?page=1&limit=1000')
+      if (!response.ok) throw new Error(`HTTP ${response.status}`)
       const result = await response.json()
-      console.log('[useWorkshopTypes] Raw API response:', result)
-      const data = result.items || result
-      console.log('[useWorkshopTypes] Extracted data:', data)
-      console.log('[useWorkshopTypes] Is array?', Array.isArray(data), 'Length:', Array.isArray(data) ? data.length : 'N/A')
-      setTypes(Array.isArray(data) ? data : [])
-      console.log('[useWorkshopTypes] State updated')
+      if (result.items && Array.isArray(result.items)) {
+        setTypes(result.items)
+      }
+      setError(null)
     } catch (err) {
-      const message = err instanceof Error ? err.message : 'Erreur'
-      console.error('[useWorkshopTypes] Error:', message, err)
-      setError(message)
+      setError(err instanceof Error ? err.message : 'Erreur lors du chargement')
     } finally {
-      console.log('[useWorkshopTypes] Finally block - setting loading to false')
       setLoading(false)
     }
   }
-
-  useEffect(() => {
-    fetchTypes().finally(() => setIsInitialized(true))
-  }, [])
 
   const addType = async (type: Omit<WorkshopType, 'id'>) => {
     try {
@@ -78,5 +106,5 @@ export function useWorkshopTypes() {
     }
   }
 
-  return { types, loading, error, addType, updateType, deleteType, refetch: fetchTypes }
+  return { types, loading, error, addType, updateType, deleteType, refetch }
 }
