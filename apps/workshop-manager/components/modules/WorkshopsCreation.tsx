@@ -191,7 +191,12 @@ export default function WorkshopsCreation() {
   return (
     <div className="p-8">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
-        <h1 className="text-4xl font-bold text-gray-900">Configuration des Ateliers</h1>
+        <div>
+          <h1 className="text-4xl font-bold text-gray-900">Configuration des Ateliers</h1>
+          <p className="text-gray-600 mt-2">
+            📊 Vous avez <span className="font-semibold text-[#4dd1e3]">{types.length}</span> atelier{types.length !== 1 ? 's' : ''} configuré{types.length !== 1 ? 's' : ''}
+          </p>
+        </div>
         <button
           onClick={() => {
             if (showForm) {
