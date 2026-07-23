@@ -1,0 +1,11 @@
+{
+  "projects": [
+    {
+      "name": "workshop-manager-six",
+      "path": "apps/workshop-manager",
+      "alias": "workshop-manager-six"
+    }
+  ],
+  "buildCommand": "cd apps/workshop-manager && npm run build",
+  "devCommand": "cd apps/workshop-manager && npm run dev"
+}
