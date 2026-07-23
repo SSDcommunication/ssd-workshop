@@ -9,10 +9,6 @@ export function useWorkshopTypes() {
   const [error, setError] = useState<string | null>(null)
   const [isInitialized, setIsInitialized] = useState(false)
 
-  useEffect(() => {
-    fetchTypes().finally(() => setIsInitialized(true))
-  }, [])
-
   const fetchTypes = async (): Promise<void> => {
     try {
       console.log('[useWorkshopTypes] Starting fetch...')
@@ -37,6 +33,10 @@ export function useWorkshopTypes() {
       setLoading(false)
     }
   }
+
+  useEffect(() => {
+    fetchTypes().finally(() => setIsInitialized(true))
+  }, [])
 
   const addType = async (type: Omit<WorkshopType, 'id'>) => {
     try {
