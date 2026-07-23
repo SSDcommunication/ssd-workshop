@@ -12,11 +12,12 @@ import FormError from '../ui/FormError'
 import ConfirmDialog from '../ui/ConfirmDialog'
 import StatusBadge from '../ui/StatusBadge'
 import { useToast } from '../ui/Toast/ToastContext'
+import { WORKSHOP_STATUSES, type WorkshopStatus } from '@/lib/constants'
 
 const INITIAL_FORM_DATA = {
   name: '',
   date: '',
-  status: 'planning' as 'planning' | 'active' | 'completed' | 'archived',
+  status: 'planning' as WorkshopStatus,
 }
 
 export default function WorkshopsEvents() {
@@ -255,12 +256,15 @@ export default function WorkshopsEvents() {
                       id="event-status"
                       className="input-field"
                       value={formData.status}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          status: e.target.value as 'planning' | 'active' | 'completed' | 'archived',
-                        })
-                      }
+                      onChange={(e) => {
+                        const value = e.target.value
+                        if (WORKSHOP_STATUSES.includes(value as WorkshopStatus)) {
+                          setFormData({
+                            ...formData,
+                            status: value as WorkshopStatus,
+                          })
+                        }
+                      }}
                     >
                       <option value="planning">En construction</option>
                       <option value="active">Actif</option>

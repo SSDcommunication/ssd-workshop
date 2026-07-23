@@ -5,24 +5,28 @@ export function useWorkshops() {
   const [workshops, setWorkshops] = useState<Workshop[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [isInitialized, setIsInitialized] = useState(false)
 
   useEffect(() => {
-    const fetchWorkshops = async () => {
-      try {
-        setLoading(true)
-        const res = await fetch('/api/workshops')
-        if (!res.ok) throw new Error('Failed to fetch workshops')
-        const data = await res.json()
-        setWorkshops(data)
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Unknown error')
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchWorkshops()
+    fetchWorkshops().finally(() => setIsInitialized(true))
   }, [])
+
+  const fetchWorkshops = async (): Promise<void> => {
+    try {
+      setLoading(true)
+      setError(null)
+      const res = await fetch('/api/workshops')
+      if (!res.ok) throw new Error('Erreur lors du chargement')
+      const data = await res.json()
+      setWorkshops(data)
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Erreur'
+      setError(message)
+      throw err
+    } finally {
+      setLoading(false)
+    }
+  }
 
   const addWorkshop = async (workshop: Omit<Workshop, 'id' | 'created_at' | 'updated_at'>) => {
     try {

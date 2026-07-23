@@ -10,6 +10,7 @@ import FormError from '../ui/FormError'
 import ConfirmDialog from '../ui/ConfirmDialog'
 import StatusBadge from '../ui/StatusBadge'
 import { useToast } from '../ui/Toast/ToastContext'
+import { WORKSHOP_TYPE_STATUSES, type WorkshopTypeStatus } from '@/lib/constants'
 
 const INITIAL_FORM_DATA = {
   name: '',
@@ -24,7 +25,7 @@ const INITIAL_FORM_DATA = {
     actif: [] as string[],
     archive: [] as string[],
   },
-  status: 'active' as 'active' | 'archived',
+  status: 'active' as WorkshopTypeStatus,
 }
 
 export default function WorkshopsCreation() {
@@ -336,12 +337,15 @@ export default function WorkshopsCreation() {
                 id="status"
                 className="input-field"
                 value={formData.status}
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    status: e.target.value as 'active' | 'archived',
-                  })
-                }
+                onChange={(e) => {
+                  const value = e.target.value
+                  if (WORKSHOP_TYPE_STATUSES.includes(value as WorkshopTypeStatus)) {
+                    setFormData({
+                      ...formData,
+                      status: value as WorkshopTypeStatus,
+                    })
+                  }
+                }}
               >
                 <option value="active">Actif</option>
                 <option value="archived">Archivé</option>
