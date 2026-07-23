@@ -1,6 +1,7 @@
 'use client'
 
 import { useWorkshopTypes } from '@/lib/hooks'
+import DashboardLayout from '@/components/ui/DashboardLayout'
 import { useEffect, useState } from 'react'
 
 export default function DebugPage() {
@@ -14,6 +15,7 @@ export default function DebugPage() {
   }, [])
 
   return (
+    <DashboardLayout>
     <div className="p-8 max-w-4xl">
       <h1 className="text-3xl font-bold mb-6">🐛 Debug Workshop Types</h1>
 
@@ -64,5 +66,6 @@ export default function DebugPage() {
         )}
       </div>
     </div>
+    </DashboardLayout>
   )
 }
