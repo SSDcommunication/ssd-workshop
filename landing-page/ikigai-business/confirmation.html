@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inscription Confirmée · IKIGAI Business · Studio Style Design</title>
+<style>
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: linear-gradient(135deg, #faf8f4 0%, #f5f1eb 100%);
+  color: #1a1a1a;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  background: white;
+  padding: 60px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.success-icon {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 60px;
+  animation: scale-in 0.6s ease-out;
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 12px;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+}
+
+.header p {
+  font-size: 16px;
+  color: #6b6b6b;
+  margin: 0;
+}
+
+.confirmation-box {
+  background: linear-gradient(135deg, #fce8ed 0%, #fbf9f6 100%);
+  padding: 24px;
+  border-radius: 8px;
+  border-left: 4px solid #e90d41;
+  margin-bottom: 32px;
+}
+
+.confirmation-box h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #e90d41;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.order-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(233, 13, 65, 0.1);
+}
+
+.order-detail:last-child {
+  border-bottom: none;
+}
+
+.order-label {
+  font-weight: 600;
+  color: #6b6b6b;
+  font-size: 14px;
+}
+
+.order-value {
+  font-weight: 700;
+  color: #1a1a1a;
+  font-size: 15px;
+}
+
+.pricing-summary {
+  background: #fef9f3;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 32px;
+  border: 1px solid #e8e2d8;
+}
+
+.pricing-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.pricing-row strong {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.pricing-total {
+  border-top: 2px solid #e8e2d8;
+  padding-top: 12px;
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.section h3 {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0 0 16px;
+  color: #1a1a1a;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e8e2d8;
+}
+
+.timeline {
+  background: #fbf9f6;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e8e2d8;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.timeline-date {
+  font-weight: 700;
+  color: #e90d41;
+  min-width: 50px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.timeline-content {
+  flex: 1;
+}
+
+.timeline-content p {
+  margin: 0;
+  font-size: 14px;
+  color: #6b6b6b;
+}
+
+.session-details {
+  background: linear-gradient(135deg, #ffffff 0%, #fce8ed 100%);
+  padding: 24px;
+  border-radius: 8px;
+  border: 2px solid #e90d41;
+  margin-bottom: 32px;
+}
+
+.session-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.session-detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.session-detail-row strong {
+  font-weight: 700;
+  color: #1a1a1a;
+  min-width: 100px;
+}
+
+.session-detail-row span {
+  color: #6b6b6b;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.btn {
+  display: block;
+  padding: 14px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #e90d41;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #c70a38;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(233, 13, 65, 0.3);
+}
+
+.btn-secondary {
+  background: #f0f0f0;
+  color: #1a1a1a;
+  border: 1px solid #e8e2d8;
+}
+
+.btn-secondary:hover {
+  background: #e8e8e8;
+}
+
+.checklist {
+  background: #fef9f3;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #e90d41;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.checklist-item:last-child {
+  margin-bottom: 0;
+}
+
+.checklist-check {
+  font-weight: 700;
+  color: #e90d41;
+  min-width: 20px;
+}
+
+.checklist-text {
+  color: #6b6b6b;
+}
+
+.faq-section {
+  background: #fbf9f6;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.faq-item {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e8e2d8;
+}
+
+.faq-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.faq-question {
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+}
+
+.faq-answer {
+  color: #6b6b6b;
+  margin: 0;
+}
+
+.footer-note {
+  background: #faf8f4;
+  padding: 16px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 13px;
+  color: #6b6b6b;
+  border: 1px solid #e8e2d8;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 24px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .session-detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .session-detail-row strong {
+    min-width: auto;
+  }
+
+  .order-detail {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-value {
+    margin-top: 4px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #242220 100%);
+  }
+
+  .container {
+    background: #2a2a2a;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .header h1,
+  .order-value,
+  .faq-question {
+    color: #ffffff;
+  }
+
+  .header p,
+  .order-label,
+  .checklist-text,
+  .faq-answer,
+  .footer-note,
+  .session-detail-row span {
+    color: #b0a8a0;
+  }
+
+  .confirmation-box {
+    background: linear-gradient(135deg, #3a2a2f 0%, #322a28 100%);
+    border-left-color: #e90d41;
+  }
+
+  .order-detail {
+    border-bottom-color: rgba(233, 13, 65, 0.2);
+  }
+
+  .timeline,
+  .checklist,
+  .faq-section {
+    background: #322a28;
+  }
+
+  .timeline-item,
+  .faq-item {
+    border-bottom-color: rgba(233, 13, 65, 0.2);
+  }
+
+  .pricing-summary,
+  .session-details {
+    background: linear-gradient(135deg, #3a322f 0%, #322a28 100%);
+    border-color: #e90d41;
+  }
+
+  .pricing-summary {
+    border-color: #4a4240;
+  }
+
+  .btn-secondary {
+    background: #3a3230;
+    color: #ffffff;
+    border-color: #4a4240;
+  }
+
+  .btn-secondary:hover {
+    background: #4a4240;
+  }
+
+  .footer-note {
+    background: #322a28;
+    border-color: #4a4240;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Success Icon & Header -->
+  <div class="success-icon">✓</div>
+
+  <div class="header">
+    <h1>Inscription Confirmée !</h1>
+    <p>Bienvenue dans le programme IKIGAI Business</p>
+  </div>
+
+  <!-- Order Confirmation -->
+  <div class="confirmation-box">
+    <h2>Récapitulatif de votre commande</h2>
+    <div class="order-detail">
+      <span class="order-label">Email</span>
+      <span class="order-value" id="email-display">—</span>
+    </div>
+    <div class="order-detail">
+      <span class="order-label">Formule choisie</span>
+      <span class="order-value" id="plan-display">—</span>
+    </div>
+    <div class="order-detail">
+      <span class="order-label">Numéro de transaction</span>
+      <span class="order-value" id="transaction-display">Session ID</span>
+    </div>
+  </div>
+
+  <!-- Pricing Summary -->
+  <div class="pricing-summary">
+    <div class="pricing-row">
+      <span id="plan-name">Formule</span>
+      <strong id="plan-price">—</strong>
+    </div>
+    <div class="pricing-total">
+      <span>Total payé</span>
+      <span id="total-price">—</span>
+    </div>
+  </div>
+
+  <!-- Session Details -->
+  <div class="section">
+    <h3>📅 Détails de votre session</h3>
+    <div class="session-details">
+      <div class="session-detail-row">
+        <strong>📅 Date :</strong>
+        <span>Samedi 1er août 2026</span>
+      </div>
+      <div class="session-detail-row">
+        <strong>🕒 Heure :</strong>
+        <span>14h-17h (3h) en Zoom</span>
+      </div>
+      <div class="session-detail-row">
+        <strong>👥 Participants :</strong>
+        <span>Maximum 20 personnes</span>
+      </div>
+      <div class="session-detail-row">
+        <strong>🔗 Lien Zoom :</strong>
+        <span>À recevoir par email</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- What's Included -->
+  <div class="section">
+    <h3>📦 Ce qui vous attend</h3>
+    <div class="checklist">
+      <div class="checklist-item">
+        <span class="checklist-check">✓</span>
+        <span class="checklist-text"><strong>Session complète en direct</strong> avec tous les exercices IKIGAI</span>
+      </div>
+      <div class="checklist-item">
+        <span class="checklist-check">✓</span>
+        <span class="checklist-text"><strong>Worksheet interactif</strong> à remplir pendant la session</span>
+      </div>
+      <div class="checklist-item">
+        <span class="checklist-check">✓</span>
+        <span class="checklist-text"><strong>PDF de synthèse</strong> de votre positionnement</span>
+      </div>
+      <div id="premium-benefits" style="display: none;">
+        <div class="checklist-item">
+          <span class="checklist-check">✓</span>
+          <span class="checklist-text"><strong>Workbook complet</strong> pour approfondir après la session</span>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-check">✓</span>
+          <span class="checklist-text"><strong>Plan d'action 30 jours</strong> détaillé et personnalisé</span>
+        </div>
+      </div>
+      <div id="vip-benefits" style="display: none;">
+        <div class="checklist-item">
+          <span class="checklist-check">✓</span>
+          <span class="checklist-text"><strong>Plan d'action 90 jours</strong> complet</span>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-check">✓</span>
+          <span class="checklist-text"><strong>3 sessions 1:1 avec moi</strong> (30 ou 60 min chacune)</span>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-check">✓</span>
+          <span class="checklist-text"><strong>Groupe WhatsApp privé</strong> à vie avec les autres participants</span>
+        </div>
+        <div class="checklist-item">
+          <span class="checklist-check">✓</span>
+          <span class="checklist-text"><strong>Support email prioritaire</strong> pendant 30 jours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email Timeline -->
+  <div class="section">
+    <h3>📧 Voici ce que vous allez recevoir</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Immédiat</div>
+        <div class="timeline-content">
+          <p><strong>Email de confirmation</strong> avec le lien Zoom et les détails de la session</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">J-3</div>
+        <div class="timeline-content">
+          <p><strong>Reminder</strong> avec le lien Zoom + checklist de préparation</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">J-1</div>
+        <div class="timeline-content">
+          <p><strong>Dernier rappel</strong> avant la session</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">J 13h</div>
+        <div class="timeline-content">
+          <p><strong>Email direct du lien Zoom</strong> 1h avant la session</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">J+1</div>
+        <div class="timeline-content">
+          <p><strong>Email merci</strong> avec tous les matériaux, accès au groupe WhatsApp (Premium+), calendrier des 1:1 (VIP)</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">J+7</div>
+        <div class="timeline-content">
+          <p><strong>Relance suivi</strong> : comment avancent vos 3 actions ?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preparation Checklist -->
+  <div class="section">
+    <h3>✅ Comment vous préparer</h3>
+    <div class="checklist">
+      <div class="checklist-item">
+        <span class="checklist-check">□</span>
+        <span class="checklist-text">Vérifiez votre email (cherchez mon email de confirmation)</span>
+      </div>
+      <div class="checklist-item">
+        <span class="checklist-check">□</span>
+        <span class="checklist-text">Notez le lien Zoom dans votre calendrier</span>
+      </div>
+      <div class="checklist-item">
+        <span class="checklist-check">□</span>
+        <span class="checklist-text">Préparez un carnet + stylo pour prendre des notes</span>
+      </div>
+      <div class="checklist-item">
+        <span class="checklist-check">□</span>
+        <span class="checklist-text">Trouvez un endroit calme pour 3h sans interruption</span>
+      </div>
+      <div class="checklist-item">
+        <span class="checklist-check">□</span>
+        <span class="checklist-text">Testez votre connexion internet et votre micro/caméra</span>
+      </div>
+      <div class="checklist-item">
+        <span class="checklist-check">□</span>
+        <span class="checklist-text">Ayez une tasse de café ☕ ou d'eau 💧 à proximité</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section">
+    <h3>❓ Questions fréquentes</h3>
+    <div class="faq-section">
+      <div class="faq-item">
+        <div class="faq-question">Et si j'ai un problème technique pendant la session ?</div>
+        <p class="faq-answer">Pas de souci : vous recevrez mon numéro Zoom. Si vous avez du mal à vous connecter, envoyez-moi un message WhatsApp et je vous aide immédiatement.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Combien de temps avant de voir des résultats ?</div>
+        <p class="faq-answer">La clarté vient pendant la session (vous verrez tout en direct). Les premiers résultats apparaissent dans la première semaine d'implémentation du plan d'action. Les vrais changements : 30 jours.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Je peux inviter quelqu'un d'autre ?</div>
+        <p class="faq-answer">La session est limitée à 20 personnes. Si vous connaissez quelqu'un qui serait intéressé, dites-lui de faire le diagnostic gratuit en attendant la prochaine date.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Et si je ne peux pas participer ?</div>
+        <p class="faq-answer">Aucun souci, contactez-moi avant la session. On verra ce qu'on peut faire.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <button class="btn btn-primary" onclick="checkEmail()">📧 Vérifier mon email</button>
+    <button class="btn btn-secondary" onclick="joinWhatsapp()">💬 Rejoindre le groupe WhatsApp</button>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-note">
+    <p>Si vous n'avez rien reçu dans votre inbox, vérifiez votre dossier <strong>Spam</strong>. Des questions ? Répondez simplement à l'email de confirmation — je suis là.</p>
+    <p style="margin-top: 12px; font-weight: 600;">À samedi ! 🚀</p>
+  </div>
+
+</div>
+
+<script>
+// Parse URL parameters for order data
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param) || '—';
+}
+
+// Display order data if available
+function displayOrderData() {
+  const email = getQueryParam('email');
+  const plan = getQueryParam('plan');
+  const sessionId = getQueryParam('session_id');
+
+  if (email !== '—') document.getElementById('email-display').textContent = email;
+  if (plan !== '—') {
+    document.getElementById('plan-display').textContent = getPlanName(plan);
+    displayPlanBenefits(plan);
+    updatePricing(plan);
+  }
+  if (sessionId !== '—') document.getElementById('transaction-display').textContent = sessionId.slice(0, 12) + '...';
+}
+
+function getPlanName(plan) {
+  const plans = {
+    standard: 'Standard (49€)',
+    premium: 'Premium (97€)',
+    vip: 'VIP (197€)'
+  };
+  return plans[plan] || plan;
+}
+
+function displayPlanBenefits(plan) {
+  if (plan === 'premium' || plan === 'vip') {
+    document.getElementById('premium-benefits').style.display = 'block';
+  }
+  if (plan === 'vip') {
+    document.getElementById('vip-benefits').style.display = 'block';
+  }
+}
+
+function updatePricing(plan) {
+  const pricing = {
+    standard: { name: 'Formule Standard', price: '49€' },
+    premium: { name: 'Formule Premium', price: '97€' },
+    vip: { name: 'Formule VIP', price: '197€' }
+  };
+  if (pricing[plan]) {
+    document.getElementById('plan-name').textContent = pricing[plan].name;
+    document.getElementById('plan-price').textContent = pricing[plan].price;
+    document.getElementById('total-price').textContent = pricing[plan].price;
+  }
+}
+
+function checkEmail() {
+  alert('Vérifiez votre boîte email (et dossier Spam si nécessaire). Vous devriez voir l\'email de confirmation avec le lien Zoom. 📧');
+}
+
+function joinWhatsapp() {
+  // Replace with actual WhatsApp group link
+  window.location.href = 'https://chat.whatsapp.com/your-group-link';
+}
+
+// Initialize on page load
+window.addEventListener('load', displayOrderData);
+</script>
+
+</body>
+</html>
