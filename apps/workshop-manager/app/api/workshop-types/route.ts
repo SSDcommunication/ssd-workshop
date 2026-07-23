@@ -1,10 +1,9 @@
-import { createAdminClient } from '@/lib/supabase/admin'
+import { createServerSupabaseClient } from '@/lib/supabase/server'
 import { NextRequest, NextResponse } from 'next/server'
-
-const supabase = createAdminClient()
 
 export async function GET(request: NextRequest) {
   try {
+    const supabase = createServerSupabaseClient()
     const searchParams = request.nextUrl.searchParams
     const page = Math.max(1, parseInt(searchParams.get('page') || '1'))
     const limit = Math.min(100, parseInt(searchParams.get('limit') || '20'))
@@ -49,6 +48,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    const supabase = createServerSupabaseClient()
     const body = await request.json()
 
     const { data, error } = await supabase
