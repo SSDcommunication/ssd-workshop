@@ -9,28 +9,38 @@ export function useWorkshopTypes() {
   const [error, setError] = useState<string | null>(null)
 
   useLayoutEffect(() => {
-    console.log('[useWorkshopTypes] useEffect started')
+    const abortCtrl = new AbortController()
+
+    console.log('[useWorkshopTypes] loading started')
     setLoading(true)
     setError(null)
 
-    fetch('/api/workshop-types?page=1&limit=1000')
+    fetch('/api/workshop-types?page=1&limit=1000', { signal: abortCtrl.signal })
       .then(res => {
-        console.log('[useWorkshopTypes] fetch response:', res.status)
+        console.log('[useWorkshopTypes] response:', res.status)
         if (!res.ok) throw new Error(`HTTP ${res.status}`)
         return res.json()
       })
       .then(data => {
-        console.log('[useWorkshopTypes] parsed data, items:', data.items?.length)
+        console.log('[useWorkshopTypes] data received:', data.items?.length, 'items')
         setTypes(data.items || [])
+        setError(null)
       })
       .catch(err => {
-        console.error('[useWorkshopTypes] error:', err)
-        setError(String(err))
+        if (err.name !== 'AbortError') {
+          console.error('[useWorkshopTypes] fetch error:', err)
+          setError(String(err))
+        }
       })
       .finally(() => {
-        console.log('[useWorkshopTypes] finally block executed')
+        console.log('[useWorkshopTypes] loading finished')
         setLoading(false)
       })
+
+    return () => {
+      console.log('[useWorkshopTypes] cleanup: aborting fetch')
+      abortCtrl.abort()
+    }
   }, [])
 
   const refetch = async () => {
