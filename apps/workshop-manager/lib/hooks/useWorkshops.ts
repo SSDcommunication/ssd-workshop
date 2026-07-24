@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Workshop } from '@/types'
 
 export function useWorkshops() {
@@ -7,47 +7,49 @@ export function useWorkshops() {
   const [error, setError] = useState<string | null>(null)
   const [isInitialized, setIsInitialized] = useState(false)
 
-  useEffect(() => {
-    fetchWorkshops().finally(() => setIsInitialized(true))
-  }, [])
-
-  const fetchWorkshops = async (): Promise<void> => {
+  const fetchWorkshops = useCallback(async (): Promise<void> => {
     try {
       setLoading(true)
       setError(null)
       const res = await fetch('/api/workshops?page=1&limit=1000')
       if (!res.ok) throw new Error('Erreur lors du chargement')
       const result = await res.json()
-      // Support nouvelle structure avec pagination
       const data = result.items || result
       setWorkshops(Array.isArray(data) ? data : [])
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Erreur'
       setError(message)
-      throw err
     } finally {
       setLoading(false)
     }
-  }
+  }, [])
 
-  const addWorkshop = async (workshop: Omit<Workshop, 'id' | 'created_at' | 'updated_at'>) => {
+  useEffect(() => {
+    fetchWorkshops().finally(() => setIsInitialized(true))
+  }, [fetchWorkshops])
+
+  const addWorkshop = useCallback(async (workshop: Omit<Workshop, 'id' | 'created_at' | 'updated_at'>) => {
     try {
       const res = await fetch('/api/workshops', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(workshop),
       })
-      if (!res.ok) throw new Error('Failed to add workshop')
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}))
+        throw new Error(errorData.error || `Failed to add workshop (HTTP ${res.status})`)
+      }
       const newWorkshop = await res.json()
-      setWorkshops([...workshops, newWorkshop])
+      setWorkshops((prev) => [...prev, newWorkshop])
       return newWorkshop
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unknown error')
+      const message = err instanceof Error ? err.message : 'Unknown error'
+      setError(message)
       throw err
     }
-  }
+  }, [])
 
-  const updateWorkshop = async (id: string, updates: Partial<Workshop>) => {
+  const updateWorkshop = useCallback(async (id: string, updates: Partial<Workshop>) => {
     try {
       const res = await fetch(`/api/workshops/${id}`, {
         method: 'PATCH',
@@ -56,31 +58,33 @@ export function useWorkshops() {
       })
       if (!res.ok) throw new Error('Failed to update workshop')
       const updated = await res.json()
-      setWorkshops(workshops.map((w) => (w.id === id ? updated : w)))
+      setWorkshops((prev) => prev.map((w) => (w.id === id ? updated : w)))
       return updated
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unknown error')
       throw err
     }
-  }
+  }, [])
 
-  const deleteWorkshop = async (id: string) => {
+  const deleteWorkshop = useCallback(async (id: string) => {
     try {
       const res = await fetch(`/api/workshops/${id}`, { method: 'DELETE' })
       if (!res.ok) throw new Error('Failed to delete workshop')
-      setWorkshops(workshops.filter((w) => w.id !== id))
+      setWorkshops((prev) => prev.filter((w) => w.id !== id))
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unknown error')
       throw err
     }
-  }
+  }, [])
 
   return {
     workshops,
     loading,
     error,
+    isInitialized,
     addWorkshop,
     updateWorkshop,
     deleteWorkshop,
+    refetch: fetchWorkshops,
   }
 }
