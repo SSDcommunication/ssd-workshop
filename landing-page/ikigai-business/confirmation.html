@@ -359,72 +359,97 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background: linear-gradient(135deg, #1a1a1a 0%, #242220 100%);
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1816 100%);
   }
 
   .container {
-    background: #2a2a2a;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    background: #1a1a1a;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
   }
 
   .header h1,
   .order-value,
-  .faq-question {
+  .faq-question,
+  .section h3,
+  .pricing-row strong {
     color: #ffffff;
   }
 
   .header p,
   .order-label,
-  .checklist-text,
   .faq-answer,
-  .footer-note,
-  .session-detail-row span {
-    color: #b0a8a0;
+  .session-detail-row span,
+  .checklist-text {
+    color: #d0d0d0;
+  }
+
+  .footer-note {
+    color: #d0d0d0;
   }
 
   .confirmation-box {
-    background: linear-gradient(135deg, #3a2a2f 0%, #322a28 100%);
+    background: linear-gradient(135deg, #2a2420 0%, #252220 100%);
     border-left-color: #e90d41;
   }
 
+  .confirmation-box h2 {
+    color: #ff4d68;
+  }
+
   .order-detail {
-    border-bottom-color: rgba(233, 13, 65, 0.2);
+    border-bottom-color: rgba(255, 77, 104, 0.2);
+  }
+
+  .pricing-summary {
+    background: #1f1f1f;
+    border-color: #3a3a3a;
+  }
+
+  .pricing-summary .pricing-row {
+    color: #d0d0d0;
   }
 
   .timeline,
   .checklist,
   .faq-section {
-    background: #322a28;
+    background: #1f1f1f;
+  }
+
+  .timeline-date {
+    color: #ff4d68;
   }
 
   .timeline-item,
   .faq-item {
-    border-bottom-color: rgba(233, 13, 65, 0.2);
+    border-bottom-color: rgba(255, 77, 104, 0.15);
   }
 
-  .pricing-summary,
   .session-details {
-    background: linear-gradient(135deg, #3a322f 0%, #322a28 100%);
+    background: linear-gradient(135deg, #2a2420 0%, #252220 100%);
     border-color: #e90d41;
   }
 
-  .pricing-summary {
-    border-color: #4a4240;
+  .session-detail-row strong {
+    color: #ffffff;
+  }
+
+  .checklist-check {
+    color: #ff4d68;
   }
 
   .btn-secondary {
-    background: #3a3230;
+    background: #2a2a2a;
     color: #ffffff;
-    border-color: #4a4240;
+    border-color: #3a3a3a;
   }
 
   .btn-secondary:hover {
-    background: #4a4240;
+    background: #3a3a3a;
   }
 
   .footer-note {
-    background: #322a28;
-    border-color: #4a4240;
+    background: #1f1f1f;
+    border-color: #3a3a3a;
   }
 }
 </style>

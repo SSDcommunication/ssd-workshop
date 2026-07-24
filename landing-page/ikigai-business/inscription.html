@@ -61,6 +61,13 @@ body {
   font-weight: 600;
   margin-bottom: 6px;
   color: #1a1a1a;
+  cursor: pointer;
+}
+
+.form-group input[type="radio"] {
+  cursor: pointer;
+  width: auto;
+  margin-right: 8px;
 }
 .form-group input,
 .form-group select {
@@ -237,6 +244,110 @@ body {
   color: #e90d41;
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #1a1816 0%, #1f1a18 100%);
+  }
+
+  .form-section,
+  .summary {
+    background: #1a1a1a;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+  }
+
+  .form-section h2 {
+    border-bottom-color: #3a3a3a;
+    color: #ffffff;
+  }
+
+  .form-group label {
+    color: #ffffff;
+  }
+
+  .form-group input,
+  .form-group select {
+    background: #2a2a2a;
+    border-color: #3a3a3a;
+    color: #ffffff;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: #e90d41;
+  }
+
+  .pricing-display {
+    background: #2a2a2a;
+    border-left-color: #e90d41;
+  }
+
+  .pricing-display .plan-name,
+  .pricing-display .plan-description,
+  .pricing-display li {
+    color: #d0d0d0;
+  }
+
+  #card-element {
+    border-color: #3a3a3a;
+    background: #2a2a2a;
+    color: #ffffff;
+  }
+
+  .btn-submit {
+    background: #e90d41;
+  }
+
+  .btn-submit:hover {
+    background: #ff4d68;
+  }
+
+  .error-message {
+    color: #ff4d68;
+  }
+
+  .terms {
+    color: #a0a0a0;
+  }
+
+  .summary h2 {
+    border-bottom-color: #3a3a3a;
+    color: #ffffff;
+  }
+
+  .summary-item {
+    border-bottom-color: #3a3a3a;
+    color: #d0d0d0;
+  }
+
+  .summary-item:last-child {
+    color: #ffffff;
+  }
+
+  .what-happens {
+    background: #2a2a2a;
+    border-left-color: #e90d41;
+    color: #d0d0d0;
+  }
+
+  .timeline {
+    border-top-color: #3a3a3a;
+  }
+
+  .timeline h3 {
+    color: #a0a0a0;
+  }
+
+  .timeline-item {
+    border-bottom-color: #3a3a3a;
+    color: #d0d0d0;
+  }
+
+  .timeline-item strong {
+    color: #ff4d68;
+  }
+}
+
 @media (max-width: 768px) {
   .form-wrapper {
     grid-template-columns: 1fr;
@@ -387,18 +498,26 @@ const cardElement = elements.create('card');
 cardElement.mount('#card-element');
 
 // Mise à jour du résumé
+const prices = {
+  standard: { name: 'Standard', price: '49€' },
+  premium: { name: 'Premium', price: '97€' },
+  vip: { name: 'VIP', price: '197€' }
+};
+
+function updateSummary() {
+  const selectedPlan = document.querySelector('input[name="plan"]:checked').value;
+  const selected = prices[selectedPlan];
+  document.getElementById('summary-plan').textContent = selected.name;
+  document.getElementById('summary-price').textContent = selected.price;
+  document.getElementById('summary-total').textContent = selected.price;
+}
+
+// Initialiser au démarrage
+updateSummary();
+
+// Mettre à jour quand on change de formule
 document.querySelectorAll('input[name="plan"]').forEach(radio => {
-  radio.addEventListener('change', function() {
-    const prices = {
-      standard: { name: 'Standard', price: '49€' },
-      premium: { name: 'Premium', price: '97€' },
-      vip: { name: 'VIP', price: '197€' }
-    };
-    const selected = prices[this.value];
-    document.getElementById('summary-plan').textContent = selected.name;
-    document.getElementById('summary-price').textContent = selected.price;
-    document.getElementById('summary-total').textContent = selected.price;
-  });
+  radio.addEventListener('change', updateSummary);
 });
 
 // Gestion du formulaire
