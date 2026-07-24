@@ -156,31 +156,36 @@ export default function WorkshopsCreation() {
       label: 'Actions',
       render: (id: string) => {
         const type = types.find((t) => t.id === id)
+        const isSelected = selectedTypeId === id
         return (
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
             <button
               onClick={() => {
                 setSelectedTypeId(id)
                 setShowForm(false)
               }}
-              className="text-[#4dd1e3] hover:underline text-sm"
-              aria-label={selectedTypeId === id ? 'Désélectionner' : 'Sélectionner'}
+              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors shadow-sm ${
+                isSelected
+                  ? 'bg-green-600 text-white hover:bg-green-700'
+                  : 'bg-blue-500 text-white hover:bg-blue-600'
+              }`}
+              aria-label={isSelected ? 'Désélectionner' : 'Sélectionner'}
             >
-              {selectedTypeId === id ? '✓ Sélectionné' : 'Sélectionner'}
+              {isSelected ? '✓ Sélectionné' : 'Sélectionner'}
             </button>
             <button
               onClick={() => type && handleEdit(type)}
-              className="text-[#4dd1e3] hover:underline text-sm"
+              className="px-3 py-1.5 text-xs font-medium rounded-md bg-amber-500 text-white hover:bg-amber-600 transition-colors shadow-sm"
               aria-label={`Modifier ${type?.name}`}
             >
-              Modifier
+              ✎ Modifier
             </button>
             <button
               onClick={() => setDeleteConfirmId(id)}
-              className="text-red-600 hover:underline text-sm"
+              className="px-3 py-1.5 text-xs font-medium rounded-md bg-red-600 text-white hover:bg-red-700 transition-colors shadow-sm"
               aria-label={`Supprimer ${type?.name}`}
             >
-              Supprimer
+              🗑 Supprimer
             </button>
           </div>
         )

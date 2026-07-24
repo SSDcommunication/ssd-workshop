@@ -103,15 +103,18 @@ export default function WorkshopManager() {
       key: 'id',
       label: 'Actions',
       render: (id: string) => (
-        <div className="flex gap-2">
-          <a href={`/workshops/${id}?type=${selectedTypeId}`} className="text-[#4dd1e3] hover:underline text-sm">
-            Voir
+        <div className="flex gap-2 flex-wrap">
+          <a
+            href={`/workshops/${id}?type=${selectedTypeId}`}
+            className="px-3 py-1.5 text-xs font-medium rounded-md bg-blue-500 text-white hover:bg-blue-600 transition-colors shadow-sm inline-block"
+          >
+            👁 Voir
           </a>
           <button
             onClick={() => deleteWorkshop(id).catch(() => alert('Erreur'))}
-            className="text-red-600 hover:underline text-sm"
+            className="px-3 py-1.5 text-xs font-medium rounded-md bg-red-600 text-white hover:bg-red-700 transition-colors shadow-sm"
           >
-            Supprimer
+            🗑 Supprimer
           </button>
         </div>
       ),

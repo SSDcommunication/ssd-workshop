@@ -25,12 +25,12 @@ export default function EmailCampaignManager() {
       key: 'id',
       label: 'Actions',
       render: (id: string) => (
-        <div className="flex gap-2">
-          <button className="text-[#4dd1e3] hover:underline text-sm">
-            Modifier
+        <div className="flex gap-2 flex-wrap">
+          <button className="px-3 py-1.5 text-xs font-medium rounded-md bg-amber-500 text-white hover:bg-amber-600 transition-colors shadow-sm">
+            ✎ Modifier
           </button>
-          <button className="text-orange-600 hover:underline text-sm">
-            Envoyer
+          <button className="px-3 py-1.5 text-xs font-medium rounded-md bg-orange-500 text-white hover:bg-orange-600 transition-colors shadow-sm">
+            ✉ Envoyer
           </button>
         </div>
       ),
@@ -129,9 +129,9 @@ export default function EmailCampaignManager() {
                       e.stopPropagation()
                       deleteCampaign(c.id).catch(() => alert('Erreur'))
                     }}
-                    className="text-red-600 hover:underline text-sm"
+                    className="px-3 py-1.5 text-xs font-medium rounded-md bg-red-600 text-white hover:bg-red-700 transition-colors shadow-sm"
                   >
-                    ✕
+                    🗑
                   </button>
                 </div>
               </div>

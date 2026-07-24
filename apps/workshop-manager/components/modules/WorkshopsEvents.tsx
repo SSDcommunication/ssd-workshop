@@ -141,19 +141,27 @@ export default function WorkshopsEvents() {
       key: 'id',
       label: 'Actions',
       render: (id: string) => (
-        <div className="flex gap-2">
-          <a href={`/workshops/${id}`} className="text-[#4dd1e3] hover:underline text-sm" aria-label="Voir les détails">
-            Détails
+        <div className="flex gap-2 flex-wrap">
+          <a
+            href={`/workshops/${id}`}
+            className="px-3 py-1.5 text-xs font-medium rounded-md bg-blue-500 text-white hover:bg-blue-600 transition-colors shadow-sm inline-block"
+            aria-label="Voir les détails"
+          >
+            👁 Détails
           </a>
-          <a href={`/workshops/${id}/program`} className="text-[#4dd1e3] hover:underline text-sm" aria-label="Voir l'agenda">
-            Agenda
+          <a
+            href={`/workshops/${id}/program`}
+            className="px-3 py-1.5 text-xs font-medium rounded-md bg-purple-500 text-white hover:bg-purple-600 transition-colors shadow-sm inline-block"
+            aria-label="Voir l'agenda"
+          >
+            📅 Agenda
           </a>
           <button
             onClick={() => setDeleteConfirmId(id)}
-            className="text-red-600 hover:underline text-sm"
+            className="px-3 py-1.5 text-xs font-medium rounded-md bg-red-600 text-white hover:bg-red-700 transition-colors shadow-sm"
             aria-label="Supprimer cet événement"
           >
-            Supprimer
+            🗑 Supprimer
           </button>
         </div>
       ),

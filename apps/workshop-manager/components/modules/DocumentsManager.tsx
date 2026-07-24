@@ -102,9 +102,9 @@ export default function DocumentsManager() {
       render: (id: string) => (
         <button
           onClick={() => deleteDocument(id).catch(() => alert('Erreur'))}
-          className="text-red-600 hover:underline text-sm"
+          className="px-3 py-1.5 text-xs font-medium rounded-md bg-red-600 text-white hover:bg-red-700 transition-colors shadow-sm"
         >
-          Supprimer
+          🗑 Supprimer
         </button>
       ),
     },

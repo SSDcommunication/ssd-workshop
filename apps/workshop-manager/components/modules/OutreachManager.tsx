@@ -122,18 +122,18 @@ export default function OutreachManager() {
       render: (id: string) => {
         const contact = contacts.find((c) => c.id === id)
         return (
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
             <button
               onClick={() => contact && handleEdit(contact)}
-              className="text-[#4dd1e3] hover:underline text-sm"
+              className="px-3 py-1.5 text-xs font-medium rounded-md bg-amber-500 text-white hover:bg-amber-600 transition-colors shadow-sm"
             >
-              Modifier
+              ✎ Modifier
             </button>
             <button
               onClick={() => deleteContact(id).catch(() => alert('Erreur'))}
-              className="text-red-600 hover:underline text-sm"
+              className="px-3 py-1.5 text-xs font-medium rounded-md bg-red-600 text-white hover:bg-red-700 transition-colors shadow-sm"
             >
-              Supprimer
+              🗑 Supprimer
             </button>
           </div>
         )
