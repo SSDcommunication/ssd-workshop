@@ -10,31 +10,39 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Rethink+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Rethink+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --primary: #e90d41;
-  --primary-deep: #c70a38;
-  --primary-soft: #fce8ed;
+  --pp-red: #e90d41;
+  --pp-red-deep: #c70a38;
+  --pp-red-soft: #fce8ed;
+  --pp-red-whisper: #fdf2f5;
   --page-bg: #faf8f4;
   --card-bg: #ffffff;
+  --sub-card-bg: #fbf9f6;
   --text-primary: #1a1a1a;
   --text-secondary: #6b6b6b;
   --text-muted: #a8a39b;
   --divider: #e8e2d8;
+  --divider-strong: #d0cdc8;
+  --dark: #0f0f10;
+  --dark-card: #1a1a1d;
+  --display: 'Rethink Sans', -apple-system, sans-serif;
+  --body: 'Inter', -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body {
   background: var(--page-bg);
   color: var(--text-primary);
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: var(--body);
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-a { color: var(--primary); text-decoration: none; }
-a:hover { opacity: 0.8; }
+a { color: var(--pp-red); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 120ms; }
+a:hover { border-color: var(--pp-red); }
 
 .container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
 
@@ -63,13 +71,13 @@ a:hover { opacity: 0.8; }
   display: inline-block;
   width: 6px;
   height: 6px;
-  background: var(--primary);
+  background: var(--pp-red);
   border-radius: 999px;
   margin: 0 8px;
 }
 .nav-cta {
   padding: 10px 20px;
-  background: var(--primary);
+  background: var(--pp-red);
   color: #fff !important;
   border-radius: 4px;
   font-weight: 700;
@@ -90,8 +98,8 @@ a:hover { opacity: 0.8; }
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--primary);
-  background: var(--primary-soft);
+  color: var(--pp-red);
+  background: var(--pp-red-soft);
   padding: 6px 12px;
   border-radius: 3px;
   margin-bottom: 20px;
@@ -109,7 +117,7 @@ a:hover { opacity: 0.8; }
 }
 .hero h1 em {
   font-style: normal;
-  color: var(--primary);
+  color: var(--pp-red);
 }
 .hero-sub {
   font-size: 18px;
@@ -142,7 +150,7 @@ a:hover { opacity: 0.8; }
 .btn-primary {
   display: inline-block;
   padding: 16px 32px;
-  background: var(--primary);
+  background: var(--pp-red);
   color: #fff !important;
   border-radius: 6px;
   font-family: 'Rethink Sans', sans-serif;
@@ -189,8 +197,8 @@ a:hover { opacity: 0.8; }
   box-shadow: 0 8px 32px rgba(233, 13, 65, 0.1);
 }
 .pricing-card.featured {
-  border-color: var(--primary);
-  background: linear-gradient(135deg, #ffffff 0%, var(--primary-soft) 100%);
+  border-color: var(--pp-red);
+  background: linear-gradient(135deg, #ffffff 0%, var(--pp-red-soft) 100%);
   transform: scale(1.05);
 }
 .pricing-card h3 {
@@ -203,7 +211,7 @@ a:hover { opacity: 0.8; }
   font-family: 'Rethink Sans', sans-serif;
   font-size: 42px;
   font-weight: 800;
-  color: var(--primary);
+  color: var(--pp-red);
   margin: 0;
 }
 .pricing-card .currency {
@@ -230,7 +238,7 @@ a:hover { opacity: 0.8; }
 }
 .pricing-card li:before {
   content: "✓ ";
-  color: var(--primary);
+  color: var(--pp-red);
   font-weight: 800;
   margin-right: 8px;
 }
@@ -263,7 +271,7 @@ a:hover { opacity: 0.8; }
   padding: 20px;
   background: linear-gradient(135deg, #faf8f4 0%, #fbf9f6 100%);
   border-radius: 6px;
-  border-left: 4px solid var(--primary);
+  border-left: 4px solid var(--pp-red);
   font-size: 14px;
   line-height: 1.5;
 }
@@ -457,9 +465,9 @@ a:hover { opacity: 0.8; }
       <p style="color: var(--text-secondary); margin-bottom: 30px;">Les inscriptions ferment le vendredi 31 juillet à 23h59.<br>La session est samedi 1er août, 14h-17h (ou 17h) en Zoom.</p>
 
       <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 30px;">
-        <button class="btn-primary" style="font-size: 14px; padding: 12px; background: var(--primary);" onclick="selectPlan('standard')">Standard 49€</button>
-        <button class="btn-primary" style="font-size: 14px; padding: 12px; background: var(--primary);" onclick="selectPlan('premium')">Premium 97€</button>
-        <button class="btn-primary" style="font-size: 14px; padding: 12px; background: var(--primary);" onclick="selectPlan('vip')">VIP 197€</button>
+        <button class="btn-primary" style="font-size: 14px; padding: 12px; background: var(--pp-red);" onclick="selectPlan('standard')">Standard 49€</button>
+        <button class="btn-primary" style="font-size: 14px; padding: 12px; background: var(--pp-red);" onclick="selectPlan('premium')">Premium 97€</button>
+        <button class="btn-primary" style="font-size: 14px; padding: 12px; background: var(--pp-red);" onclick="selectPlan('vip')">VIP 197€</button>
       </div>
 
       <p style="font-size: 12px; color: var(--text-muted);">Paiement sécurisé par Stripe · Confirmation par email immediate</p>
